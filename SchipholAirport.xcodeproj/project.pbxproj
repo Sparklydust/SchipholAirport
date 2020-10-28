@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9235FD2549A20E0058B96C /* AppDelegate.swift */; };
+		2A9236022549A20E0058B96C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9236012549A20E0058B96C /* MainViewController.swift */; };
+		2A9236072549A20F0058B96C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9236062549A20F0058B96C /* Assets.xcassets */; };
+		2A92360A2549A20F0058B96C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9236082549A20F0058B96C /* LaunchScreen.storyboard */; };
+		2A9236152549A2100058B96C /* SchipholAirportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9236142549A2100058B96C /* SchipholAirportTests.swift */; };
+		2A9236202549A2100058B96C /* SchipholAirportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A92361F2549A2100058B96C /* SchipholAirportUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2A9236112549A2100058B96C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A9235F22549A20E0058B96C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A9235F92549A20E0058B96C;
+			remoteInfo = SchipholAirport;
+		};
+		2A92361C2549A2100058B96C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A9235F22549A20E0058B96C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A9235F92549A20E0058B96C;
+			remoteInfo = SchipholAirport;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2A9235FA2549A20E0058B96C /* SchipholAirport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchipholAirport.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A9235FD2549A20E0058B96C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2A9236012549A20E0058B96C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2A9236062549A20F0058B96C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2A9236092549A20F0058B96C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2A92360B2549A20F0058B96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A9236102549A2100058B96C /* SchipholAirportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchipholAirportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A9236142549A2100058B96C /* SchipholAirportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchipholAirportTests.swift; sourceTree = "<group>"; };
+		2A9236162549A2100058B96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A92361B2549A2100058B96C /* SchipholAirportUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchipholAirportUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A92361F2549A2100058B96C /* SchipholAirportUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchipholAirportUITests.swift; sourceTree = "<group>"; };
+		2A9236212549A2100058B96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2A9235F72549A20E0058B96C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A92360D2549A2100058B96C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A9236182549A2100058B96C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A9235F12549A20E0058B96C = {
+			isa = PBXGroup;
+			children = (
+				2A9235FC2549A20E0058B96C /* SchipholAirport */,
+				2A9236132549A2100058B96C /* SchipholAirportTests */,
+				2A92361E2549A2100058B96C /* SchipholAirportUITests */,
+				2A9235FB2549A20E0058B96C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2A9235FB2549A20E0058B96C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A9235FA2549A20E0058B96C /* SchipholAirport.app */,
+				2A9236102549A2100058B96C /* SchipholAirportTests.xctest */,
+				2A92361B2549A2100058B96C /* SchipholAirportUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A9235FC2549A20E0058B96C /* SchipholAirport */ = {
+			isa = PBXGroup;
+			children = (
+				2A9236512549ABD60058B96C /* SupportingFiles */,
+				2A9236542549AD320058B96C /* Main */,
+				2A9236552549AD500058B96C /* ViewControllers */,
+			);
+			path = SchipholAirport;
+			sourceTree = "<group>";
+		};
+		2A9236132549A2100058B96C /* SchipholAirportTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A9236522549AC680058B96C /* SupportingFiles */,
+				2A9236142549A2100058B96C /* SchipholAirportTests.swift */,
+			);
+			path = SchipholAirportTests;
+			sourceTree = "<group>";
+		};
+		2A92361E2549A2100058B96C /* SchipholAirportUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2A9236532549AC7A0058B96C /* SupportingFiles */,
+				2A92361F2549A2100058B96C /* SchipholAirportUITests.swift */,
+			);
+			path = SchipholAirportUITests;
+			sourceTree = "<group>";
+		};
+		2A9236512549ABD60058B96C /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2A9236062549A20F0058B96C /* Assets.xcassets */,
+				2A92360B2549A20F0058B96C /* Info.plist */,
+				2A9236082549A20F0058B96C /* LaunchScreen.storyboard */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		2A9236522549AC680058B96C /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2A9236162549A2100058B96C /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		2A9236532549AC7A0058B96C /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2A9236212549A2100058B96C /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		2A9236542549AD320058B96C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2A9235FD2549A20E0058B96C /* AppDelegate.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		2A9236552549AD500058B96C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A9236012549A20E0058B96C /* MainViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2A9235F92549A20E0058B96C /* SchipholAirport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A9236242549A2100058B96C /* Build configuration list for PBXNativeTarget "SchipholAirport" */;
+			buildPhases = (
+				2A9235F62549A20E0058B96C /* Sources */,
+				2A9235F72549A20E0058B96C /* Frameworks */,
+				2A9235F82549A20E0058B96C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SchipholAirport;
+			productName = SchipholAirport;
+			productReference = 2A9235FA2549A20E0058B96C /* SchipholAirport.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2A92360F2549A2100058B96C /* SchipholAirportTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A9236272549A2100058B96C /* Build configuration list for PBXNativeTarget "SchipholAirportTests" */;
+			buildPhases = (
+				2A92360C2549A2100058B96C /* Sources */,
+				2A92360D2549A2100058B96C /* Frameworks */,
+				2A92360E2549A2100058B96C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A9236122549A2100058B96C /* PBXTargetDependency */,
+			);
+			name = SchipholAirportTests;
+			productName = SchipholAirportTests;
+			productReference = 2A9236102549A2100058B96C /* SchipholAirportTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2A92361A2549A2100058B96C /* SchipholAirportUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A92362A2549A2100058B96C /* Build configuration list for PBXNativeTarget "SchipholAirportUITests" */;
+			buildPhases = (
+				2A9236172549A2100058B96C /* Sources */,
+				2A9236182549A2100058B96C /* Frameworks */,
+				2A9236192549A2100058B96C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A92361D2549A2100058B96C /* PBXTargetDependency */,
+			);
+			name = SchipholAirportUITests;
+			productName = SchipholAirportUITests;
+			productReference = 2A92361B2549A2100058B96C /* SchipholAirportUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A9235F22549A20E0058B96C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					2A9235F92549A20E0058B96C = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					2A92360F2549A2100058B96C = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 2A9235F92549A20E0058B96C;
+					};
+					2A92361A2549A2100058B96C = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 2A9235F92549A20E0058B96C;
+					};
+				};
+			};
+			buildConfigurationList = 2A9235F52549A20E0058B96C /* Build configuration list for PBXProject "SchipholAirport" */;
+			compatibilityVersion = "Xcode 11.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2A9235F12549A20E0058B96C;
+			productRefGroup = 2A9235FB2549A20E0058B96C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2A9235F92549A20E0058B96C /* SchipholAirport */,
+				2A92360F2549A2100058B96C /* SchipholAirportTests */,
+				2A92361A2549A2100058B96C /* SchipholAirportUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2A9235F82549A20E0058B96C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A92360A2549A20F0058B96C /* LaunchScreen.storyboard in Resources */,
+				2A9236072549A20F0058B96C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A92360E2549A2100058B96C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A9236192549A2100058B96C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2A9235F62549A20E0058B96C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A9236022549A20E0058B96C /* MainViewController.swift in Sources */,
+				2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A92360C2549A2100058B96C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A9236152549A2100058B96C /* SchipholAirportTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A9236172549A2100058B96C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A9236202549A2100058B96C /* SchipholAirportUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2A9236122549A2100058B96C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A9235F92549A20E0058B96C /* SchipholAirport */;
+			targetProxy = 2A9236112549A2100058B96C /* PBXContainerItemProxy */;
+		};
+		2A92361D2549A2100058B96C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A9235F92549A20E0058B96C /* SchipholAirport */;
+			targetProxy = 2A92361C2549A2100058B96C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2A9236082549A20F0058B96C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A9236092549A20F0058B96C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2A9236222549A2100058B96C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2A9236232549A2100058B96C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2A9236252549A2100058B96C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8UNJX8SHV;
+				INFOPLIST_FILE = SchipholAirport/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RolandLariotte.SchipholAirport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2A9236262549A2100058B96C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8UNJX8SHV;
+				INFOPLIST_FILE = SchipholAirport/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RolandLariotte.SchipholAirport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		2A9236282549A2100058B96C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8UNJX8SHV;
+				INFOPLIST_FILE = SchipholAirportTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RolandLariotte.SchipholAirportTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SchipholAirport.app/SchipholAirport";
+			};
+			name = Debug;
+		};
+		2A9236292549A2100058B96C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8UNJX8SHV;
+				INFOPLIST_FILE = SchipholAirportTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RolandLariotte.SchipholAirportTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SchipholAirport.app/SchipholAirport";
+			};
+			name = Release;
+		};
+		2A92362B2549A2100058B96C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8UNJX8SHV;
+				INFOPLIST_FILE = SchipholAirportUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RolandLariotte.SchipholAirportUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = SchipholAirport;
+			};
+			name = Debug;
+		};
+		2A92362C2549A2100058B96C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8UNJX8SHV;
+				INFOPLIST_FILE = SchipholAirportUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RolandLariotte.SchipholAirportUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = SchipholAirport;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2A9235F52549A20E0058B96C /* Build configuration list for PBXProject "SchipholAirport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A9236222549A2100058B96C /* Debug */,
+				2A9236232549A2100058B96C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A9236242549A2100058B96C /* Build configuration list for PBXNativeTarget "SchipholAirport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A9236252549A2100058B96C /* Debug */,
+				2A9236262549A2100058B96C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A9236272549A2100058B96C /* Build configuration list for PBXNativeTarget "SchipholAirportTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A9236282549A2100058B96C /* Debug */,
+				2A9236292549A2100058B96C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A92362A2549A2100058B96C /* Build configuration list for PBXNativeTarget "SchipholAirportUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A92362B2549A2100058B96C /* Debug */,
+				2A92362C2549A2100058B96C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A9235F22549A20E0058B96C /* Project object */;
+}
