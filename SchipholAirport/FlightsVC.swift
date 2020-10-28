@@ -1,5 +1,5 @@
 //
-//  AirportsVC.swift
+//  FlightsVC.swift
 //  SchipholAirport
 //
 //  Created by Roland Lariotte on 28/10/2020.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-//  MARK: AirportsVC
-class AirportsVC: UIViewController {
+//  MARK: FlightsVC
+class FlightsVC: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.backgroundColor = .red
-    title = "Airports"
+    view.backgroundColor = .blue
+    title = "Flights"
   }
 }
