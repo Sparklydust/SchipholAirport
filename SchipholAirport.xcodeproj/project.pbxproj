@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A6642E1254A0D4100A0490E /* AirlinesVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6642E0254A0D4100A0490E /* AirlinesVCTests.swift */; };
+		2A6642E6254A0FBF00A0490E /* MainVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6642E5254A0FBF00A0490E /* MainVCTests.swift */; };
 		2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9235FD2549A20E0058B96C /* AppDelegate.swift */; };
-		2A9236022549A20E0058B96C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9236012549A20E0058B96C /* MainViewController.swift */; };
+		2A9236022549A20E0058B96C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9236012549A20E0058B96C /* MainVC.swift */; };
 		2A9236072549A20F0058B96C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9236062549A20F0058B96C /* Assets.xcassets */; };
 		2A92360A2549A20F0058B96C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9236082549A20F0058B96C /* LaunchScreen.storyboard */; };
-		2A9236152549A2100058B96C /* SchipholAirportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9236142549A2100058B96C /* SchipholAirportTests.swift */; };
 		2A9236202549A2100058B96C /* SchipholAirportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A92361F2549A2100058B96C /* SchipholAirportUITests.swift */; };
+		2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9236662549CAF40058B96C /* AirlinesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,18 +35,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A6642E0254A0D4100A0490E /* AirlinesVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlinesVCTests.swift; sourceTree = "<group>"; };
+		2A6642E5254A0FBF00A0490E /* MainVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCTests.swift; sourceTree = "<group>"; };
 		2A9235FA2549A20E0058B96C /* SchipholAirport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchipholAirport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9235FD2549A20E0058B96C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2A9236012549A20E0058B96C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2A9236012549A20E0058B96C /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		2A9236062549A20F0058B96C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A9236092549A20F0058B96C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A92360B2549A20F0058B96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A9236102549A2100058B96C /* SchipholAirportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchipholAirportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A9236142549A2100058B96C /* SchipholAirportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchipholAirportTests.swift; sourceTree = "<group>"; };
 		2A9236162549A2100058B96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A92361B2549A2100058B96C /* SchipholAirportUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchipholAirportUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A92361F2549A2100058B96C /* SchipholAirportUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchipholAirportUITests.swift; sourceTree = "<group>"; };
 		2A9236212549A2100058B96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A9236612549C8CF0058B96C /* Development.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Development.xctestplan; sourceTree = "<group>"; };
+		2A9236662549CAF40058B96C /* AirlinesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlinesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +77,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A6642D1254A0A5600A0490E /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				2A6642D2254A0A6D00A0490E /* ViewControllers */,
+			);
+			name = Cases;
+			sourceTree = "<group>";
+		};
+		2A6642D2254A0A6D00A0490E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A6642E5254A0FBF00A0490E /* MainVCTests.swift */,
+				2A6642D9254A0B2E00A0490E /* Mains */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2A6642D9254A0B2E00A0490E /* Mains */ = {
+			isa = PBXGroup;
+			children = (
+				2A6642E0254A0D4100A0490E /* AirlinesVCTests.swift */,
+			);
+			name = Mains;
+			sourceTree = "<group>";
+		};
 		2A9235F12549A20E0058B96C = {
 			isa = PBXGroup;
 			children = (
 				2A9235FC2549A20E0058B96C /* SchipholAirport */,
+				2A92365D2549C83A0058B96C /* SchipholAirportTestPlans */,
 				2A9236132549A2100058B96C /* SchipholAirportTests */,
 				2A92361E2549A2100058B96C /* SchipholAirportUITests */,
 				2A9235FB2549A20E0058B96C /* Products */,
@@ -106,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				2A9236522549AC680058B96C /* SupportingFiles */,
-				2A9236142549A2100058B96C /* SchipholAirportTests.swift */,
+				2A6642D1254A0A5600A0490E /* Cases */,
 			);
 			path = SchipholAirportTests;
 			sourceTree = "<group>";
@@ -115,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				2A9236532549AC7A0058B96C /* SupportingFiles */,
-				2A92361F2549A2100058B96C /* SchipholAirportUITests.swift */,
+				2A9236592549C7BF0058B96C /* Cases */,
 			);
 			path = SchipholAirportUITests;
 			sourceTree = "<group>";
@@ -157,9 +188,34 @@
 		2A9236552549AD500058B96C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2A9236012549A20E0058B96C /* MainViewController.swift */,
+				2A9236012549A20E0058B96C /* MainVC.swift */,
+				2A9236652549CA3C0058B96C /* Mains */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2A9236592549C7BF0058B96C /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				2A92361F2549A2100058B96C /* SchipholAirportUITests.swift */,
+			);
+			name = Cases;
+			sourceTree = "<group>";
+		};
+		2A92365D2549C83A0058B96C /* SchipholAirportTestPlans */ = {
+			isa = PBXGroup;
+			children = (
+				2A9236612549C8CF0058B96C /* Development.xctestplan */,
+			);
+			path = SchipholAirportTestPlans;
+			sourceTree = "<group>";
+		};
+		2A9236652549CA3C0058B96C /* Mains */ = {
+			isa = PBXGroup;
+			children = (
+				2A9236662549CAF40058B96C /* AirlinesVC.swift */,
+			);
+			name = Mains;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,13 +281,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					2A9235F92549A20E0058B96C = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
 					2A92360F2549A2100058B96C = {
 						CreatedOnToolsVersion = 12.0.1;
+						LastSwiftMigration = 1210;
 						TestTargetID = 2A9235F92549A20E0058B96C;
 					};
 					2A92361A2549A2100058B96C = {
@@ -291,7 +348,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A9236022549A20E0058B96C /* MainViewController.swift in Sources */,
+				2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */,
+				2A9236022549A20E0058B96C /* MainVC.swift in Sources */,
 				2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,7 +358,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A9236152549A2100058B96C /* SchipholAirportTests.swift in Sources */,
+				2A6642E1254A0D4100A0490E /* AirlinesVCTests.swift in Sources */,
+				2A6642E6254A0FBF00A0490E /* MainVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +559,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8UNJX8SHV;
 				INFOPLIST_FILE = SchipholAirportTests/Info.plist;
@@ -511,6 +571,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.RolandLariotte.SchipholAirportTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SchipholAirport.app/SchipholAirport";
@@ -522,6 +583,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8UNJX8SHV;
 				INFOPLIST_FILE = SchipholAirportTests/Info.plist;

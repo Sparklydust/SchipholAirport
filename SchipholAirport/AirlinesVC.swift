@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  AirlinesVC.swift
 //  SchipholAirport
 //
 //  Created by Roland Lariotte on 28/10/2020.
@@ -7,10 +7,12 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class AirlinesVC: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .red
+
+    view.backgroundColor = .green
+    title = "Airlines"
   }
 }

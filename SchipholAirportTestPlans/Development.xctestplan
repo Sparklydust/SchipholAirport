@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "A7C8D431-F0A3-4F45-8CCA-C004C0B24D2A",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SchipholAirport.xcodeproj",
+      "identifier" : "2A9235F92549A20E0058B96C",
+      "name" : "SchipholAirport"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:SchipholAirport.xcodeproj",
+        "identifier" : "2A92360F2549A2100058B96C",
+        "name" : "SchipholAirportTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:SchipholAirport.xcodeproj",
+        "identifier" : "2A92361A2549A2100058B96C",
+        "name" : "SchipholAirportUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

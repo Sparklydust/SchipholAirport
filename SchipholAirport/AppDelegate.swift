@@ -15,10 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-    let mainViewController = MainViewController()
+    let mainVC = MainVC()
 
     window = UIWindow(frame: UIScreen.main.bounds)
-    window?.rootViewController = mainViewController
+    window?.rootViewController = mainVC
     window?.makeKeyAndVisible()
 
     return true
