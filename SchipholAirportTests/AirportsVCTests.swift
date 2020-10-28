@@ -1,5 +1,5 @@
 //
-//  AirlinesVCTests.swift
+//  AirportsVCTests.swift
 //  SchipholAirportTests
 //
 //  Created by Roland Lariotte on 28/10/2020.
@@ -8,13 +8,13 @@
 import XCTest
 @testable import SchipholAirport
 
-class AirlinesVCTests: XCTestCase {
+class AirportsVCTests: XCTestCase {
 
-  var sut: AirlinesVC!
+  var sut: AirportsVC!
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    sut = AirlinesVC()
+    sut = AirportsVC()
   }
 
   override func tearDownWithError() throws {
@@ -22,16 +22,16 @@ class AirlinesVCTests: XCTestCase {
     try super.tearDownWithError()
   }
 
-  func testAirlinesVC_setupBackgroundColor_colorEqualToGreen() throws {
-    let expected = UIColor.green
+  func testAirportsVC_setupBackgroundColor_colorEqualToRed() throws {
+    let expected = UIColor.red
 
     sut.loadViewIfNeeded()
 
     XCTAssertEqual(expected, sut.view.backgroundColor)
   }
 
-  func testAirlinesVC_setupViewControllerTitle_titleEqualAirlines() throws {
-    let expected = "Airlines"
+  func testAirportsVC_setupViewControllerTitle_titleEqualToAirports() throws {
+    let expected = "Airports"
 
     sut.loadViewIfNeeded()
 

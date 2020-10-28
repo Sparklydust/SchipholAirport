@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2A6642E1254A0D4100A0490E /* AirlinesVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6642E0254A0D4100A0490E /* AirlinesVCTests.swift */; };
 		2A6642E6254A0FBF00A0490E /* MainVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6642E5254A0FBF00A0490E /* MainVCTests.swift */; };
+		2A6642EB254A10BE00A0490E /* AirportsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6642EA254A10BE00A0490E /* AirportsVC.swift */; };
+		2A6642F6254A10F200A0490E /* AirportsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6642F5254A10F200A0490E /* AirportsVCTests.swift */; };
 		2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9235FD2549A20E0058B96C /* AppDelegate.swift */; };
 		2A9236022549A20E0058B96C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9236012549A20E0058B96C /* MainVC.swift */; };
 		2A9236072549A20F0058B96C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9236062549A20F0058B96C /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 /* Begin PBXFileReference section */
 		2A6642E0254A0D4100A0490E /* AirlinesVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlinesVCTests.swift; sourceTree = "<group>"; };
 		2A6642E5254A0FBF00A0490E /* MainVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCTests.swift; sourceTree = "<group>"; };
+		2A6642EA254A10BE00A0490E /* AirportsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsVC.swift; sourceTree = "<group>"; };
+		2A6642F5254A10F200A0490E /* AirportsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsVCTests.swift; sourceTree = "<group>"; };
 		2A9235FA2549A20E0058B96C /* SchipholAirport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchipholAirport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9235FD2549A20E0058B96C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A9236012549A20E0058B96C /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				2A6642E0254A0D4100A0490E /* AirlinesVCTests.swift */,
+				2A6642F5254A10F200A0490E /* AirportsVCTests.swift */,
 			);
 			name = Mains;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 		2A9236652549CA3C0058B96C /* Mains */ = {
 			isa = PBXGroup;
 			children = (
+				2A6642EA254A10BE00A0490E /* AirportsVC.swift */,
 				2A9236662549CAF40058B96C /* AirlinesVC.swift */,
 			);
 			name = Mains;
@@ -348,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A6642EB254A10BE00A0490E /* AirportsVC.swift in Sources */,
 				2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */,
 				2A9236022549A20E0058B96C /* MainVC.swift in Sources */,
 				2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */,
@@ -360,6 +367,7 @@
 			files = (
 				2A6642E1254A0D4100A0490E /* AirlinesVCTests.swift in Sources */,
 				2A6642E6254A0FBF00A0490E /* MainVCTests.swift in Sources */,
+				2A6642F6254A10F200A0490E /* AirportsVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
