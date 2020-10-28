@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  SchipholAirport
+
+  Created by Roland Lariotte on 28/10/2020.
+  
+*/
+
+// MARK: - English translation
+
+"airports" = "Airports";
+"flights" = "Flights";
+"airlines" = "Airlines";

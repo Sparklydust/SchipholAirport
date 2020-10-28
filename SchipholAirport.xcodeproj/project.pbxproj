@@ -13,6 +13,9 @@
 		2A6642F6254A10F200A0490E /* AirportsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6642F5254A10F200A0490E /* AirportsVCTests.swift */; };
 		2A6642FB254A145F00A0490E /* FlightsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6642FA254A145F00A0490E /* FlightsVCTests.swift */; };
 		2A664300254A14E000A0490E /* FlightsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6642FF254A14E000A0490E /* FlightsVC.swift */; };
+		2A664313254A1F6400A0490E /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A664312254A1F6400A0490E /* Localized.swift */; };
+		2A664319254A229B00A0490E /* LocalizablesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A664318254A229B00A0490E /* LocalizablesTests.swift */; };
+		2A664328254A25CA00A0490E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A66432A254A25CA00A0490E /* Localizable.strings */; };
 		2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9235FD2549A20E0058B96C /* AppDelegate.swift */; };
 		2A9236022549A20E0058B96C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9236012549A20E0058B96C /* MainVC.swift */; };
 		2A9236072549A20F0058B96C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9236062549A20F0058B96C /* Assets.xcassets */; };
@@ -45,6 +48,12 @@
 		2A6642F5254A10F200A0490E /* AirportsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsVCTests.swift; sourceTree = "<group>"; };
 		2A6642FA254A145F00A0490E /* FlightsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsVCTests.swift; sourceTree = "<group>"; };
 		2A6642FF254A14E000A0490E /* FlightsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsVC.swift; sourceTree = "<group>"; };
+		2A664312254A1F6400A0490E /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		2A664318254A229B00A0490E /* LocalizablesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizablesTests.swift; sourceTree = "<group>"; };
+		2A664325254A258000A0490E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2A664327254A25A600A0490E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2A664329254A25CA00A0490E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2A66432E254A25CF00A0490E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A9235FA2549A20E0058B96C /* SchipholAirport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchipholAirport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9235FD2549A20E0058B96C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A9236012549A20E0058B96C /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -88,6 +97,7 @@
 		2A6642D1254A0A5600A0490E /* Cases */ = {
 			isa = PBXGroup;
 			children = (
+				2A664317254A225000A0490E /* Localizables */,
 				2A6642D2254A0A6D00A0490E /* ViewControllers */,
 			);
 			name = Cases;
@@ -96,20 +106,54 @@
 		2A6642D2254A0A6D00A0490E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2A6642E5254A0FBF00A0490E /* MainVCTests.swift */,
-				2A6642D9254A0B2E00A0490E /* Mains */,
+				2A664308254A1E7A00A0490E /* MainViews */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		2A6642D9254A0B2E00A0490E /* Mains */ = {
+		2A6642D9254A0B2E00A0490E /* TabBars */ = {
 			isa = PBXGroup;
 			children = (
 				2A6642F5254A10F200A0490E /* AirportsVCTests.swift */,
 				2A6642FA254A145F00A0490E /* FlightsVCTests.swift */,
 				2A6642E0254A0D4100A0490E /* AirlinesVCTests.swift */,
 			);
-			name = Mains;
+			name = TabBars;
+			sourceTree = "<group>";
+		};
+		2A664307254A1E6100A0490E /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				2A9236012549A20E0058B96C /* MainVC.swift */,
+				2A9236652549CA3C0058B96C /* TabBars */,
+			);
+			name = MainViews;
+			sourceTree = "<group>";
+		};
+		2A664308254A1E7A00A0490E /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				2A6642E5254A0FBF00A0490E /* MainVCTests.swift */,
+				2A6642D9254A0B2E00A0490E /* TabBars */,
+			);
+			name = MainViews;
+			sourceTree = "<group>";
+		};
+		2A66430C254A1EE500A0490E /* Localizables */ = {
+			isa = PBXGroup;
+			children = (
+				2A664312254A1F6400A0490E /* Localized.swift */,
+				2A66432A254A25CA00A0490E /* Localizable.strings */,
+			);
+			name = Localizables;
+			sourceTree = "<group>";
+		};
+		2A664317254A225000A0490E /* Localizables */ = {
+			isa = PBXGroup;
+			children = (
+				2A664318254A229B00A0490E /* LocalizablesTests.swift */,
+			);
+			name = Localizables;
 			sourceTree = "<group>";
 		};
 		2A9235F12549A20E0058B96C = {
@@ -137,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				2A9236512549ABD60058B96C /* SupportingFiles */,
+				2A66430C254A1EE500A0490E /* Localizables */,
 				2A9236542549AD320058B96C /* Main */,
 				2A9236552549AD500058B96C /* ViewControllers */,
 			);
@@ -198,8 +243,7 @@
 		2A9236552549AD500058B96C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2A9236012549A20E0058B96C /* MainVC.swift */,
-				2A9236652549CA3C0058B96C /* Mains */,
+				2A664307254A1E6100A0490E /* MainViews */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -220,14 +264,14 @@
 			path = SchipholAirportTestPlans;
 			sourceTree = "<group>";
 		};
-		2A9236652549CA3C0058B96C /* Mains */ = {
+		2A9236652549CA3C0058B96C /* TabBars */ = {
 			isa = PBXGroup;
 			children = (
 				2A6642EA254A10BE00A0490E /* AirportsVC.swift */,
 				2A6642FF254A14E000A0490E /* FlightsVC.swift */,
 				2A9236662549CAF40058B96C /* AirlinesVC.swift */,
 			);
-			name = Mains;
+			name = TabBars;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +360,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 2A9235F12549A20E0058B96C;
 			productRefGroup = 2A9235FB2549A20E0058B96C /* Products */;
@@ -334,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A664328254A25CA00A0490E /* Localizable.strings in Resources */,
 				2A92360A2549A20F0058B96C /* LaunchScreen.storyboard in Resources */,
 				2A9236072549A20F0058B96C /* Assets.xcassets in Resources */,
 			);
@@ -361,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A6642EB254A10BE00A0490E /* AirportsVC.swift in Sources */,
+				2A664313254A1F6400A0490E /* Localized.swift in Sources */,
 				2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */,
 				2A9236022549A20E0058B96C /* MainVC.swift in Sources */,
 				2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */,
@@ -373,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A6642FB254A145F00A0490E /* FlightsVCTests.swift in Sources */,
+				2A664319254A229B00A0490E /* LocalizablesTests.swift in Sources */,
 				2A6642E1254A0D4100A0490E /* AirlinesVCTests.swift in Sources */,
 				2A6642E6254A0FBF00A0490E /* MainVCTests.swift in Sources */,
 				2A6642F6254A10F200A0490E /* AirportsVCTests.swift in Sources */,
@@ -403,10 +451,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2A66432A254A25CA00A0490E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A664329254A25CA00A0490E /* en */,
+				2A66432E254A25CF00A0490E /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		2A9236082549A20F0058B96C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2A9236092549A20F0058B96C /* Base */,
+				2A664325254A258000A0490E /* en */,
+				2A664327254A25A600A0490E /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -418,6 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -479,6 +539,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

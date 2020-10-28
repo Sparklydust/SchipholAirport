@@ -14,6 +14,6 @@ class AirportsVC: UIViewController {
     super.viewDidLoad()
 
     view.backgroundColor = .red
-    title = "Airports"
+    title = Localized.airports
   }
 }

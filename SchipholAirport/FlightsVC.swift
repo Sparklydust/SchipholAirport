@@ -14,6 +14,6 @@ class FlightsVC: UIViewController {
     super.viewDidLoad()
 
     view.backgroundColor = .blue
-    title = "Flights"
+    title = Localized.flights
   }
 }
