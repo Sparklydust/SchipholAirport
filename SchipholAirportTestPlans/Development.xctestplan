@@ -9,12 +9,13 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : false,
     "targetForVariableExpansion" : {
       "containerPath" : "container:SchipholAirport.xcodeproj",
       "identifier" : "2A9235F92549A20E0058B96C",
       "name" : "SchipholAirport"
-    }
+    },
+    "uiTestingScreenshotsLifetime" : "keepNever",
+    "userAttachmentLifetime" : "keepNever"
   },
   "testTargets" : [
     {

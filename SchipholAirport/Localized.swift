@@ -21,7 +21,7 @@ enum Localized {}
 
 extension Localized {
 
-  static let airports = NSLocalizedString("airports", comment: "")
-  static let flights = NSLocalizedString("flights", comment: "")
-  static let airlines = NSLocalizedString("airlines", comment: "")
+  static let airports = NSLocalizedString("airports", comment: "airport tab bar name")
+  static let flights = NSLocalizedString("flights", comment: "flights tab bar name")
+  static let airlines = NSLocalizedString("airlines", comment: "airlines tab bar name")
 }

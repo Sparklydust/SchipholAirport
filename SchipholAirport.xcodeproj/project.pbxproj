@@ -16,6 +16,10 @@
 		2A664313254A1F6400A0490E /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A664312254A1F6400A0490E /* Localized.swift */; };
 		2A664319254A229B00A0490E /* LocalizablesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A664318254A229B00A0490E /* LocalizablesTests.swift */; };
 		2A664328254A25CA00A0490E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A66432A254A25CA00A0490E /* Localizable.strings */; };
+		2A664337254ABC9900A0490E /* UIImage+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A664336254ABC9900A0490E /* UIImage+Name.swift */; };
+		2A66434B254ABDD900A0490E /* UIImage+NameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66434A254ABDD900A0490E /* UIImage+NameTests.swift */; };
+		2A664350254AC63C00A0490E /* UIColor+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66434F254AC63C00A0490E /* UIColor+Name.swift */; };
+		2A664355254AC6D300A0490E /* UIColor+NameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A664354254AC6D300A0490E /* UIColor+NameTests.swift */; };
 		2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9235FD2549A20E0058B96C /* AppDelegate.swift */; };
 		2A9236022549A20E0058B96C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9236012549A20E0058B96C /* MainVC.swift */; };
 		2A9236072549A20F0058B96C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9236062549A20F0058B96C /* Assets.xcassets */; };
@@ -54,6 +58,10 @@
 		2A664327254A25A600A0490E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2A664329254A25CA00A0490E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A66432E254A25CF00A0490E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2A664336254ABC9900A0490E /* UIImage+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Name.swift"; sourceTree = "<group>"; };
+		2A66434A254ABDD900A0490E /* UIImage+NameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+NameTests.swift"; sourceTree = "<group>"; };
+		2A66434F254AC63C00A0490E /* UIColor+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Name.swift"; sourceTree = "<group>"; };
+		2A664354254AC6D300A0490E /* UIColor+NameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+NameTests.swift"; sourceTree = "<group>"; };
 		2A9235FA2549A20E0058B96C /* SchipholAirport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchipholAirport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9235FD2549A20E0058B96C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A9236012549A20E0058B96C /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -97,6 +105,7 @@
 		2A6642D1254A0A5600A0490E /* Cases */ = {
 			isa = PBXGroup;
 			children = (
+				2A66433E254ABD3700A0490E /* Extensions */,
 				2A664317254A225000A0490E /* Localizables */,
 				2A6642D2254A0A6D00A0490E /* ViewControllers */,
 			);
@@ -156,6 +165,24 @@
 			name = Localizables;
 			sourceTree = "<group>";
 		};
+		2A664335254ABC7900A0490E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2A664336254ABC9900A0490E /* UIImage+Name.swift */,
+				2A66434F254AC63C00A0490E /* UIColor+Name.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		2A66433E254ABD3700A0490E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2A66434A254ABDD900A0490E /* UIImage+NameTests.swift */,
+				2A664354254AC6D300A0490E /* UIColor+NameTests.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		2A9235F12549A20E0058B96C = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +209,7 @@
 			children = (
 				2A9236512549ABD60058B96C /* SupportingFiles */,
 				2A66430C254A1EE500A0490E /* Localizables */,
+				2A664335254ABC7900A0490E /* Extensions */,
 				2A9236542549AD320058B96C /* Main */,
 				2A9236552549AD500058B96C /* ViewControllers */,
 			);
@@ -411,6 +439,8 @@
 				2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */,
 				2A9236022549A20E0058B96C /* MainVC.swift in Sources */,
 				2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */,
+				2A664337254ABC9900A0490E /* UIImage+Name.swift in Sources */,
+				2A664350254AC63C00A0490E /* UIColor+Name.swift in Sources */,
 				2A664300254A14E000A0490E /* FlightsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,10 +449,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A664355254AC6D300A0490E /* UIColor+NameTests.swift in Sources */,
 				2A6642FB254A145F00A0490E /* FlightsVCTests.swift in Sources */,
 				2A664319254A229B00A0490E /* LocalizablesTests.swift in Sources */,
 				2A6642E1254A0D4100A0490E /* AirlinesVCTests.swift in Sources */,
 				2A6642E6254A0FBF00A0490E /* MainVCTests.swift in Sources */,
+				2A66434B254ABDD900A0490E /* UIImage+NameTests.swift in Sources */,
 				2A6642F6254A10F200A0490E /* AirportsVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
