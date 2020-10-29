@@ -54,8 +54,6 @@
 		2A6642FF254A14E000A0490E /* FlightsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsVC.swift; sourceTree = "<group>"; };
 		2A664312254A1F6400A0490E /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		2A664318254A229B00A0490E /* LocalizablesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizablesTests.swift; sourceTree = "<group>"; };
-		2A664325254A258000A0490E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		2A664327254A25A600A0490E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2A664329254A25CA00A0490E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A66432E254A25CF00A0490E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A664336254ABC9900A0490E /* UIImage+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Name.swift"; sourceTree = "<group>"; };
@@ -496,8 +494,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				2A9236092549A20F0058B96C /* Base */,
-				2A664325254A258000A0490E /* en */,
-				2A664327254A25A600A0490E /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
