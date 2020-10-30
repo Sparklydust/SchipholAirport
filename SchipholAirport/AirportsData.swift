@@ -13,8 +13,8 @@ import Foundation
 struct AirportsData: AirportsProtocol, Codable {
 
   var id: String
-  var latitude: Int
-  var longitude: Int
+  var latitude: Double
+  var longitude: Double
   var name: String
   var city: String
   var countryId: String

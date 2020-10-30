@@ -13,8 +13,8 @@ import Foundation
 protocol AirportsProtocol {
   
   var id: String { get set }
-  var latitude: Int { get set }
-  var longitude: Int { get set }
+  var latitude: Double { get set }
+  var longitude: Double { get set }
   var name: String { get set }
   var city: String { get set }
   var countryId: String { get set }

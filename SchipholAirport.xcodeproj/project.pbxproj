@@ -33,6 +33,17 @@
 		2AD3677C254C001A00677F7E /* AirlinesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3677B254C001A00677F7E /* AirlinesProtocol.swift */; };
 		2AD36781254C003200677F7E /* AirlinesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36780254C003200677F7E /* AirlinesData.swift */; };
 		2AD3679D254C077500677F7E /* NetworkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3679C254C077500677F7E /* NetworkEndpoint.swift */; };
+		2AD367A4254C0A4F00677F7E /* Airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 2AD367A3254C0A4F00677F7E /* Airports.json */; };
+		2AD367AC254C0A6300677F7E /* Flights.json in Resources */ = {isa = PBXBuildFile; fileRef = 2AD367AB254C0A6300677F7E /* Flights.json */; };
+		2AD367B1254C0A7800677F7E /* Airlines.json in Resources */ = {isa = PBXBuildFile; fileRef = 2AD367B0254C0A7800677F7E /* Airlines.json */; };
+		2AD367B9254C0BE700677F7E /* FakeDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD367B8254C0BE700677F7E /* FakeDataResponse.swift */; };
+		2AD367C1254C105E00677F7E /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD367C0254C105E00677F7E /* MockURLSession.swift */; };
+		2AD367C6254C111400677F7E /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD367C5254C111400677F7E /* MockURLSessionDataTask.swift */; };
+		2AD367CB254C127700677F7E /* NetworkRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD367CA254C127700677F7E /* NetworkRequestTests.swift */; };
+		2AD367D0254C12CC00677F7E /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD367CF254C12CC00677F7E /* NetworkRequest.swift */; };
+		2AD367D8254C170B00677F7E /* RequestArrayResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD367D7254C170B00677F7E /* RequestArrayResult.swift */; };
+		2AD367E7254C208B00677F7E /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD367E6254C208B00677F7E /* URLSessionProtocol.swift */; };
+		2AD367FE254C5C3B00677F7E /* URLSession+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD367FD254C5C3B00677F7E /* URLSession+Protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +98,17 @@
 		2AD3677B254C001A00677F7E /* AirlinesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlinesProtocol.swift; sourceTree = "<group>"; };
 		2AD36780254C003200677F7E /* AirlinesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlinesData.swift; sourceTree = "<group>"; };
 		2AD3679C254C077500677F7E /* NetworkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoint.swift; sourceTree = "<group>"; };
+		2AD367A3254C0A4F00677F7E /* Airports.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Airports.json; sourceTree = "<group>"; };
+		2AD367AB254C0A6300677F7E /* Flights.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Flights.json; sourceTree = "<group>"; };
+		2AD367B0254C0A7800677F7E /* Airlines.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Airlines.json; sourceTree = "<group>"; };
+		2AD367B8254C0BE700677F7E /* FakeDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataResponse.swift; sourceTree = "<group>"; };
+		2AD367C0254C105E00677F7E /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		2AD367C5254C111400677F7E /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		2AD367CA254C127700677F7E /* NetworkRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestTests.swift; sourceTree = "<group>"; };
+		2AD367CF254C12CC00677F7E /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		2AD367D7254C170B00677F7E /* RequestArrayResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestArrayResult.swift; sourceTree = "<group>"; };
+		2AD367E6254C208B00677F7E /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		2AD367FD254C5C3B00677F7E /* URLSession+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Protocol.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +205,7 @@
 			children = (
 				2A664336254ABC9900A0490E /* UIImage+Name.swift */,
 				2A66434F254AC63C00A0490E /* UIColor+Name.swift */,
+				2AD367FD254C5C3B00677F7E /* URLSession+Protocol.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -238,6 +261,8 @@
 			children = (
 				2A9236522549AC680058B96C /* SupportingFiles */,
 				2A6642D1254A0A5600A0490E /* Cases */,
+				2AD367A1254C0A1200677F7E /* Mocks */,
+				2AD367A2254C0A2A00677F7E /* Fakes */,
 			);
 			path = SchipholAirportTests;
 			sourceTree = "<group>";
@@ -332,6 +357,7 @@
 		2AD3675B254BF5F100677F7E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				2AD367E5254C207700677F7E /* Networking */,
 				2AD3675C254BF60100677F7E /* Models */,
 			);
 			name = Protocols;
@@ -366,6 +392,7 @@
 		2AD36789254C023900677F7E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				2AD367CA254C127700677F7E /* NetworkRequestTests.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -373,6 +400,7 @@
 		2AD3678A254C024800677F7E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				2AD367CF254C12CC00677F7E /* NetworkRequest.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -381,8 +409,61 @@
 			isa = PBXGroup;
 			children = (
 				2AD3679C254C077500677F7E /* NetworkEndpoint.swift */,
+				2AD367D7254C170B00677F7E /* RequestArrayResult.swift */,
 			);
 			name = Enums;
+			sourceTree = "<group>";
+		};
+		2AD367A1254C0A1200677F7E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2AD367B5254C0B6D00677F7E /* Networking */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
+		2AD367A2254C0A2A00677F7E /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				2AD367B7254C0BCB00677F7E /* Networking */,
+				2AD367B6254C0B7700677F7E /* Json */,
+			);
+			name = Fakes;
+			sourceTree = "<group>";
+		};
+		2AD367B5254C0B6D00677F7E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2AD367C0254C105E00677F7E /* MockURLSession.swift */,
+				2AD367C5254C111400677F7E /* MockURLSessionDataTask.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		2AD367B6254C0B7700677F7E /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				2AD367A3254C0A4F00677F7E /* Airports.json */,
+				2AD367AB254C0A6300677F7E /* Flights.json */,
+				2AD367B0254C0A7800677F7E /* Airlines.json */,
+			);
+			name = Json;
+			sourceTree = "<group>";
+		};
+		2AD367B7254C0BCB00677F7E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2AD367B8254C0BE700677F7E /* FakeDataResponse.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		2AD367E5254C207700677F7E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2AD367E6254C208B00677F7E /* URLSessionProtocol.swift */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,6 +581,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD367B1254C0A7800677F7E /* Airlines.json in Resources */,
+				2AD367A4254C0A4F00677F7E /* Airports.json in Resources */,
+				2AD367AC254C0A6300677F7E /* Flights.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +601,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD367E7254C208B00677F7E /* URLSessionProtocol.swift in Sources */,
 				2AD36754254BF5DD00677F7E /* AirportsData.swift in Sources */,
+				2AD367D0254C12CC00677F7E /* NetworkRequest.swift in Sources */,
 				2A6642EB254A10BE00A0490E /* AirportsVC.swift in Sources */,
 				2A664313254A1F6400A0490E /* Localized.swift in Sources */,
 				2AD3675E254BF61000677F7E /* AirportsProtocol.swift in Sources */,
@@ -527,10 +613,12 @@
 				2A9236022549A20E0058B96C /* MainVC.swift in Sources */,
 				2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */,
 				2A664337254ABC9900A0490E /* UIImage+Name.swift in Sources */,
+				2AD367FE254C5C3B00677F7E /* URLSession+Protocol.swift in Sources */,
 				2AD36781254C003200677F7E /* AirlinesData.swift in Sources */,
 				2A664350254AC63C00A0490E /* UIColor+Name.swift in Sources */,
 				2A664300254A14E000A0490E /* FlightsVC.swift in Sources */,
 				2AD36777254BFE6400677F7E /* FlightsData.swift in Sources */,
+				2AD367D8254C170B00677F7E /* RequestArrayResult.swift in Sources */,
 				2AD3679D254C077500677F7E /* NetworkEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,10 +628,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A664355254AC6D300A0490E /* UIColor+NameTests.swift in Sources */,
+				2AD367C6254C111400677F7E /* MockURLSessionDataTask.swift in Sources */,
+				2AD367B9254C0BE700677F7E /* FakeDataResponse.swift in Sources */,
 				2A6642FB254A145F00A0490E /* FlightsVCTests.swift in Sources */,
 				2A664319254A229B00A0490E /* LocalizablesTests.swift in Sources */,
+				2AD367CB254C127700677F7E /* NetworkRequestTests.swift in Sources */,
 				2A6642E1254A0D4100A0490E /* AirlinesVCTests.swift in Sources */,
 				2A6642E6254A0FBF00A0490E /* MainVCTests.swift in Sources */,
+				2AD367C1254C105E00677F7E /* MockURLSession.swift in Sources */,
 				2A66434B254ABDD900A0490E /* UIImage+NameTests.swift in Sources */,
 				2A6642F6254A10F200A0490E /* AirportsVCTests.swift in Sources */,
 			);
