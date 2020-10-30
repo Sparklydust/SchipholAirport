@@ -32,6 +32,7 @@
 		2AD36777254BFE6400677F7E /* FlightsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36776254BFE6400677F7E /* FlightsData.swift */; };
 		2AD3677C254C001A00677F7E /* AirlinesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3677B254C001A00677F7E /* AirlinesProtocol.swift */; };
 		2AD36781254C003200677F7E /* AirlinesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36780254C003200677F7E /* AirlinesData.swift */; };
+		2AD3679D254C077500677F7E /* NetworkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3679C254C077500677F7E /* NetworkEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		2AD36776254BFE6400677F7E /* FlightsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsData.swift; sourceTree = "<group>"; };
 		2AD3677B254C001A00677F7E /* AirlinesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlinesProtocol.swift; sourceTree = "<group>"; };
 		2AD36780254C003200677F7E /* AirlinesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlinesData.swift; sourceTree = "<group>"; };
+		2AD3679C254C077500677F7E /* NetworkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		2A6642D1254A0A5600A0490E /* Cases */ = {
 			isa = PBXGroup;
 			children = (
+				2AD36786254C01F100677F7E /* Services */,
 				2A66433E254ABD3700A0490E /* Extensions */,
 				2A664317254A225000A0490E /* Localizables */,
 				2A6642D2254A0A6D00A0490E /* ViewControllers */,
@@ -221,7 +224,9 @@
 				2A9236512549ABD60058B96C /* SupportingFiles */,
 				2A66430C254A1EE500A0490E /* Localizables */,
 				2A664335254ABC7900A0490E /* Extensions */,
+				2AD3679B254C075F00677F7E /* Enums */,
 				2AD3675B254BF5F100677F7E /* Protocols */,
+				2AD36785254C01D900677F7E /* Services */,
 				2AD36752254BF58100677F7E /* Models */,
 				2A9236552549AD500058B96C /* ViewControllers */,
 			);
@@ -340,6 +345,44 @@
 				2AD3677B254C001A00677F7E /* AirlinesProtocol.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		2AD36785254C01D900677F7E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2AD3678A254C024800677F7E /* Networking */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		2AD36786254C01F100677F7E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2AD36789254C023900677F7E /* Networking */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		2AD36789254C023900677F7E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		2AD3678A254C024800677F7E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		2AD3679B254C075F00677F7E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				2AD3679C254C077500677F7E /* NetworkEndpoint.swift */,
+			);
+			name = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,6 +531,7 @@
 				2A664350254AC63C00A0490E /* UIColor+Name.swift in Sources */,
 				2A664300254A14E000A0490E /* FlightsVC.swift in Sources */,
 				2AD36777254BFE6400677F7E /* FlightsData.swift in Sources */,
+				2AD3679D254C077500677F7E /* NetworkEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
