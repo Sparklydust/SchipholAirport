@@ -44,6 +44,8 @@
 		2AD367D8254C170B00677F7E /* RequestArrayResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD367D7254C170B00677F7E /* RequestArrayResult.swift */; };
 		2AD367E7254C208B00677F7E /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD367E6254C208B00677F7E /* URLSessionProtocol.swift */; };
 		2AD367FE254C5C3B00677F7E /* URLSession+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD367FD254C5C3B00677F7E /* URLSession+Protocol.swift */; };
+		2AD36804254C836400677F7E /* FlightsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36803254C836400677F7E /* FlightsTVC.swift */; };
+		2AD3680C254C986800677F7E /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3680B254C986800677F7E /* UIView+Anchor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		2AD367D7254C170B00677F7E /* RequestArrayResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestArrayResult.swift; sourceTree = "<group>"; };
 		2AD367E6254C208B00677F7E /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		2AD367FD254C5C3B00677F7E /* URLSession+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Protocol.swift"; sourceTree = "<group>"; };
+		2AD36803254C836400677F7E /* FlightsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsTVC.swift; sourceTree = "<group>"; };
+		2AD3680B254C986800677F7E /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,7 @@
 				2A664336254ABC9900A0490E /* UIImage+Name.swift */,
 				2A66434F254AC63C00A0490E /* UIColor+Name.swift */,
 				2AD367FD254C5C3B00677F7E /* URLSession+Protocol.swift */,
+				2AD3680B254C986800677F7E /* UIView+Anchor.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				2A664307254A1E6100A0490E /* MainViews */,
+				2AD36802254C833B00677F7E /* Cells */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -466,6 +472,14 @@
 			name = Networking;
 			sourceTree = "<group>";
 		};
+		2AD36802254C833B00677F7E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2AD36803254C836400677F7E /* FlightsTVC.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -603,9 +617,11 @@
 			files = (
 				2AD367E7254C208B00677F7E /* URLSessionProtocol.swift in Sources */,
 				2AD36754254BF5DD00677F7E /* AirportsData.swift in Sources */,
+				2AD3680C254C986800677F7E /* UIView+Anchor.swift in Sources */,
 				2AD367D0254C12CC00677F7E /* NetworkRequest.swift in Sources */,
 				2A6642EB254A10BE00A0490E /* AirportsVC.swift in Sources */,
 				2A664313254A1F6400A0490E /* Localized.swift in Sources */,
+				2AD36804254C836400677F7E /* FlightsTVC.swift in Sources */,
 				2AD3675E254BF61000677F7E /* AirportsProtocol.swift in Sources */,
 				2AD3677C254C001A00677F7E /* AirlinesProtocol.swift in Sources */,
 				2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */,

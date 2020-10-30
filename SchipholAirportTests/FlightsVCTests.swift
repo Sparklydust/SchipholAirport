@@ -22,19 +22,33 @@ class FlightsVCTests: XCTestCase {
     try super.tearDownWithError()
   }
 
-  func testFlightsVC_setupBackgroundColor_colorEqualToBlue() throws {
-    let expected = UIColor.blue
-
-    sut.loadViewIfNeeded()
-
-    XCTAssertEqual(expected, sut.view.backgroundColor)
-  }
-
-  func testFlightsVC_setupViewControllerTitle_titleEqualToFlights() throws {
-    let expected = "Flights"
+  func testFlightsVC_viewTitle_LocalizedFlights() throws {
+    let expected = Localized.flights
 
     sut.loadViewIfNeeded()
 
     XCTAssertEqual(expected, sut.title)
+  }
+
+  func testFlightsVC_flightsVariableOfFlightsData_mustBeAnEmptyArrayAtStart() throws {
+    let expected = [FlightsData]()
+    sut.loadViewIfNeeded()
+
+    XCTAssertEqual(expected, sut.flights)
+  }
+
+  func testFlightsVC_checkIfTableViewExists_returnTrue() throws {
+    sut.loadViewIfNeeded()
+
+    XCTAssertNotNil(sut.tableView)
+  }
+
+  func testFlightsVC_checkTableViewNumberOfRows_returnFlightsArrayCount() throws {
+    let expected = sut.flights.count
+
+    sut.loadViewIfNeeded()
+    let rowCount = sut.tableView(sut.tableView, numberOfRowsInSection: 0)
+
+    XCTAssertEqual(expected, rowCount)
   }
 }
