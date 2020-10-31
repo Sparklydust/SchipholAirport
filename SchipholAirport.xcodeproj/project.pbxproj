@@ -46,6 +46,8 @@
 		2AD367FE254C5C3B00677F7E /* URLSession+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD367FD254C5C3B00677F7E /* URLSession+Protocol.swift */; };
 		2AD36804254C836400677F7E /* FlightsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36803254C836400677F7E /* FlightsTVC.swift */; };
 		2AD36821254D607800677F7E /* FlightsTVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36820254D607800677F7E /* FlightsTVCTests.swift */; };
+		2AD3682A254D762600677F7E /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36829254D762600677F7E /* Spinner.swift */; };
+		2AD36833254D764400677F7E /* SpinnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36832254D764400677F7E /* SpinnerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		2AD367FD254C5C3B00677F7E /* URLSession+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Protocol.swift"; sourceTree = "<group>"; };
 		2AD36803254C836400677F7E /* FlightsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsTVC.swift; sourceTree = "<group>"; };
 		2AD36820254D607800677F7E /* FlightsTVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsTVCTests.swift; sourceTree = "<group>"; };
+		2AD36829254D762600677F7E /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		2AD36832254D764400677F7E /* SpinnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 				2AD36786254C01F100677F7E /* Services */,
 				2A66433E254ABD3700A0490E /* Extensions */,
 				2A664317254A225000A0490E /* Localizables */,
+				2AD3682E254D763100677F7E /* Tools */,
 				2A6642D2254A0A6D00A0490E /* ViewControllers */,
 			);
 			name = Cases;
@@ -256,6 +261,7 @@
 				2AD3675B254BF5F100677F7E /* Protocols */,
 				2AD36785254C01D900677F7E /* Services */,
 				2AD36752254BF58100677F7E /* Models */,
+				2AD36828254D75BE00677F7E /* Tools */,
 				2A9236552549AD500058B96C /* ViewControllers */,
 			);
 			path = SchipholAirport;
@@ -488,6 +494,22 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		2AD36828254D75BE00677F7E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2AD36829254D762600677F7E /* Spinner.swift */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		2AD3682E254D763100677F7E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2AD36832254D764400677F7E /* SpinnerTests.swift */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -633,6 +655,7 @@
 				2AD3677C254C001A00677F7E /* AirlinesProtocol.swift in Sources */,
 				2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */,
 				2AD36772254BFD9100677F7E /* FlightsProtocol.swift in Sources */,
+				2AD3682A254D762600677F7E /* Spinner.swift in Sources */,
 				2A9236022549A20E0058B96C /* MainVC.swift in Sources */,
 				2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */,
 				2A664337254ABC9900A0490E /* UIImage+Name.swift in Sources */,
@@ -650,6 +673,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD36833254D764400677F7E /* SpinnerTests.swift in Sources */,
 				2A664355254AC6D300A0490E /* UIColor+NameTests.swift in Sources */,
 				2AD367C6254C111400677F7E /* MockURLSessionDataTask.swift in Sources */,
 				2AD367B9254C0BE700677F7E /* FakeDataResponse.swift in Sources */,
