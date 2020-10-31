@@ -73,17 +73,38 @@ extension FlightsTVC {
   ///
   func activateLayoutConstraints() {
     NSLayoutConstraint.activate([
+
       // flightsLabel
-      flightsLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-      flightsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-                                            constant: 16),
-      flightsLabel.topAnchor.constraint(equalTo: contentView.topAnchor,
-                                        constant: 16),
+      //
+      flightsLabel
+        .centerYAnchor
+        .constraint(equalTo: contentView.centerYAnchor),
+
+      flightsLabel
+        .leadingAnchor
+        .constraint(equalTo: contentView.leadingAnchor,
+                    constant: 16),
+
+      flightsLabel
+        .topAnchor
+        .constraint(equalTo: contentView.topAnchor,
+                    constant: 16),
+
       // distanceLabel
-      distanceLabel.centerYAnchor.constraint(equalTo: flightsLabel.centerYAnchor),
-      distanceLabel.leadingAnchor.constraint(greaterThanOrEqualToSystemSpacingAfter: flightsLabel.trailingAnchor, multiplier: 8),
-      distanceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
-                                              constant: -16)
+      //
+      distanceLabel
+        .centerYAnchor
+        .constraint(equalTo: flightsLabel.centerYAnchor),
+
+      distanceLabel
+        .leadingAnchor
+        .constraint(greaterThanOrEqualToSystemSpacingAfter: flightsLabel.trailingAnchor,
+                    multiplier: 8),
+
+      distanceLabel
+        .trailingAnchor
+        .constraint(equalTo: contentView.trailingAnchor,
+                    constant: -16)
     ])
   }
 }

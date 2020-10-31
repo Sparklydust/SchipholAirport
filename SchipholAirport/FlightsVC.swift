@@ -12,11 +12,46 @@ import UIKit
 ///
 class FlightsVC: UITableViewController {
 
+  // UI
+  var activityView: UIActivityIndicatorView?
+
+  // Data
   var flights = [FlightsData]()
+
+  // References
+  var flightsDownloader = NetworkRequest<FlightsData>(.flights)
+  let spinner = Spinner()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setupMainView()
+    downloadFlights()
+  }
+}
+
+// MARK: - Networking
+extension FlightsVC {
+  /// Download flights from flightassets api.
+  ///
+  /// The completion with @escaping is used to pass expectation
+  /// in tests mainly.
+  ///
+  func downloadFlights(_ completion: @escaping () -> Void = { }) {
+    spinner.starts(on: view)
+    flightsDownloader.getArray { response in
+      switch response {
+      case .failure:
+        self.spinner.stops()
+        completion()
+        return
+      case .success(let flights):
+        DispatchQueue.main.async {
+          self.flights = flights
+          self.spinner.stops()
+          completion()
+        }
+      }
+    }
   }
 }
 
