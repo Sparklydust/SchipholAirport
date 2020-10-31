@@ -27,4 +27,22 @@ class LocalizablesTests: XCTestCase {
 
     XCTAssertEqual(expected, Localized.airlines)
   }
+
+  func testLocalized_downloadFailureTitle_ErrorWhenDownlading() {
+    let expected = "Download Error"
+
+    XCTAssertEqual(expected, Localized.downloadFailure)
+  }
+
+  func testLocalized_downloadFailureMessage_AnErrorOccured() {
+    let expected = "There was an issue when loading the data. Please, try again later."
+
+    XCTAssertEqual(expected, Localized.downloadFailureMessage)
+  }
+
+  func testLocalized_okButton_OK() {
+    let expected = "OK"
+
+    XCTAssertEqual(expected, Localized.ok)
+  }
 }

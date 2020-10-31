@@ -14,6 +14,7 @@ class FlightsVC: UITableViewController {
 
   // UI
   var activityView: UIActivityIndicatorView?
+  var alert = UIAlertController()
 
   // Data
   var flights = [FlightsData]()
@@ -42,6 +43,7 @@ extension FlightsVC {
       switch response {
       case .failure:
         self.spinner.stops()
+        self.showDownloadFailureAlert()
         completion()
         return
       case .success(let flights):
@@ -90,5 +92,26 @@ extension FlightsVC {
   func setupViewTitle() {
     title = Localized.flights
     navigationController?.navigationBar.prefersLargeTitles = true
+  }
+}
+
+// MARK: - Alerts
+extension FlightsVC {
+  /// Alert with message to user when download failed.
+  ///
+  /// A simple ok button to dismiss the alert is added.
+  ///
+  func showDownloadFailureAlert() {
+    alert = UIAlertController(
+      title: Localized.downloadFailure,
+      message: Localized.downloadFailureMessage,
+      preferredStyle: .alert)
+
+    alert.addAction(
+      UIAlertAction(
+        title: Localized.ok,
+        style: .default))
+
+    present(alert, animated: true)
   }
 }

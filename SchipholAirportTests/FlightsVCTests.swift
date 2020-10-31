@@ -105,4 +105,12 @@ class FlightsVCTests: XCTestCase {
     wait(for: [expectation], timeout: 0.1)
     XCTAssertEqual(expected, sut.flights.count)
   }
+
+  func testFlightVC_showAlert_returnLocalizedFailureMessageInPopUp() throws {
+    let expected = Localized.downloadFailureMessage
+
+    sut.showDownloadFailureAlert()
+
+    XCTAssertEqual(expected, sut.alert.message)
+  }
 }

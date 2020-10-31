@@ -6,8 +6,18 @@
   
 */
 
-// MARK: - French translation
+// MARK: French translation
 
+// MARK: - Tab Bar
 "airports" = "Aéroports";
 "flights" = "Vols";
 "airlines" = "Compagnies";
+
+// MARK: - Buttons
+"ok" = "OK";
+
+// MARK: - Error Titles
+"downloadFailure" = "Erreur de téléchargement";
+
+// MARK: - Error Messages
+"downloadFailureMessage" = "Il y a eu un problème lors du téléchargement. Merci de réessayer plus tard.";

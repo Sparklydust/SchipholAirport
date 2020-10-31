@@ -6,8 +6,18 @@
   
 */
 
-// MARK: - English translation
+// MARK: English translation
 
+// MARK: - Tab Bar
 "airports" = "Airports";
 "flights" = "Flights";
 "airlines" = "Airlines";
+
+// MARK: - Buttons
+"ok" = "OK";
+
+// MARK: - Error Titles
+"downloadFailure" = "Download Error";
+
+// MARK: - Error Messages
+"downloadFailureMessage" = "There was an issue when loading the data. Please, try again later.";

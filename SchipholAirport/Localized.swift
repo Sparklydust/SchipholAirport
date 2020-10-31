@@ -19,9 +19,38 @@ import Foundation
 /// ```
 enum Localized {}
 
+// MARK: - Tab Bar
 extension Localized {
+  static let airports = NSLocalizedString(
+    "airports",
+    comment: "airport tab bar name")
 
-  static let airports = NSLocalizedString("airports", comment: "airport tab bar name")
-  static let flights = NSLocalizedString("flights", comment: "flights tab bar name")
-  static let airlines = NSLocalizedString("airlines", comment: "airlines tab bar name")
+  static let flights = NSLocalizedString(
+    "flights",
+    comment: "flights tab bar name")
+
+  static let airlines = NSLocalizedString(
+    "airlines",
+    comment: "airlines tab bar name")
+}
+
+// MARK: - Buttons
+extension Localized {
+  static let ok = NSLocalizedString(
+    "ok",
+    comment: "classic ok button name")
+}
+
+// MARK: - Error Titles
+extension Localized {
+  static let downloadFailure = NSLocalizedString(
+    "downloadFailure",
+    comment: "error title when downlad from api failed")
+}
+
+// MARK: - Error messages
+extension Localized {
+  static let downloadFailureMessage = NSLocalizedString(
+    "downloadFailureMessage",
+    comment: "message shown to user when downlad from api failed")
 }
