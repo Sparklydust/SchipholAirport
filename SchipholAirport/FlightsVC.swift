@@ -19,9 +19,11 @@ class FlightsVC: UITableViewController {
 
   // Data
   var flights = [FlightsData]()
+  var airports = [AirportsData]()
 
   // Reference Types
   var flightsDownloader = NetworkRequest<FlightsData>(.flights)
+  var airportsDownloader = NetworkRequest<AirportsData>(.airports)
   let spinner = Spinner()
 
   override func viewDidLoad() {
@@ -33,8 +35,15 @@ class FlightsVC: UITableViewController {
 
 // MARK: - Networking
 extension FlightsVC {
-  func downloadData() {
-    downloadFlights()
+  /// Download all data for the view.
+  ///
+  /// Flights and airports are being fetch from the api.
+  /// The completion with @escaping isused to pass expectation
+  /// in tests mainly.
+  ///
+  func downloadData(_ completion: @escaping () -> Void = { }) {
+    downloadFlights(completion)
+    downloadAirports(completion)
   }
 
   /// Download flights from flightassets api.
@@ -63,6 +72,32 @@ extension FlightsVC {
     }
   }
 
+  /// Download airports from flightassets api.
+  ///
+  /// The completion with @escaping is used to pass expectation
+  /// in tests mainly.
+  ///
+  func downloadAirports(_ completion: @escaping () -> Void = { }) {
+    spinner.starts(on: view)
+
+    airportsDownloader.getArray { response in
+      switch response {
+      case .failure:
+        DispatchQueue.main.async {
+          self.handleDownloadFailure()
+          completion()
+        }
+        return
+      case .success(let airports):
+        DispatchQueue.main.async {
+          self.handleDownloadSuccess(airports)
+          completion()
+        }
+        return
+      }
+    }
+  }
+
   /// Handling downlading failure from api call.
   ///
   func handleDownloadFailure() {
@@ -74,6 +109,13 @@ extension FlightsVC {
   ///
   func handleDownloadSuccess(_ flightsData: [FlightsData]) {
     flights = flightsData
+    spinner.stops()
+  }
+
+  /// Handling downloading airports data success from api call.
+  ///
+  func handleDownloadSuccess(_ airportsData: [AirportsData]) {
+    airports = airportsData
     spinner.stops()
   }
 }

@@ -127,4 +127,40 @@ class FlightsVCTests: XCTestCase {
 
     XCTAssertEqual(expected, sut.flights.count)
   }
+
+  func testFlightsTVC_getAllAirportsFromAPI_returnsAirportsWithSuccess() throws {
+    let expected = 3
+
+    let expectation = XCTestExpectation(
+      description: "Success with airports from api in an array")
+
+    sut.airportsDownloader.resourceSession =
+      MockURLSession(
+        data: FakeDataResponse.airportsCorrectData,
+        response: FakeDataResponse.response200OK,
+        error: nil)
+
+    sut.downloadData { expectation.fulfill() }
+
+    wait(for: [expectation], timeout: 0.1)
+    XCTAssertEqual(expected, sut.airports.count)
+  }
+
+  func testFlightsTVC_getAllAirportsFromAPI_returnsFailureWithAlert() throws {
+    let expected = 0
+
+    let expectation = XCTestExpectation(
+      description: "Success with airports from api in an array")
+
+    sut.airportsDownloader.resourceSession =
+      MockURLSession(
+        data: nil,
+        response: nil,
+        error: FakeDataResponse.error)
+
+    sut.downloadAirports { expectation.fulfill() }
+
+    wait(for: [expectation], timeout: 0.1)
+    XCTAssertEqual(expected, sut.airports.count)
+  }
 }
