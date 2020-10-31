@@ -44,6 +44,7 @@ extension FlightsVC {
   }
 
   /// Setup table view style and cell type.
+  ///
   func setupTableView() {
     tableView.register(FlightsTVC.self, forCellReuseIdentifier: FlightsTVC.identifier)
     tableView.tableFooterView = UIView()

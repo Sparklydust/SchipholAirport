@@ -32,15 +32,20 @@ class FlightsVCTests: XCTestCase {
 
   func testFlightsVC_flightsVariableOfFlightsData_mustBeAnEmptyArrayAtStart() throws {
     let expected = [FlightsData]()
+
     sut.loadViewIfNeeded()
 
     XCTAssertEqual(expected, sut.flights)
   }
 
-  func testFlightsVC_checkIfTableViewExists_returnTrue() throws {
+  func testFlightsVC_checkIfTableViewExists_returnNotNil() throws {
     sut.loadViewIfNeeded()
 
     XCTAssertNotNil(sut.tableView)
+  }
+
+  func testFlightsVC_TableViewHasDelegate_returnNotNil() {
+      XCTAssertNotNil(sut.tableView.delegate)
   }
 
   func testFlightsVC_checkTableViewNumberOfRows_returnFlightsArrayCount() throws {
@@ -50,5 +55,13 @@ class FlightsVCTests: XCTestCase {
     let rowCount = sut.tableView(sut.tableView, numberOfRowsInSection: 0)
 
     XCTAssertEqual(expected, rowCount)
+  }
+
+  func testFlightVC_checkTableViewCell_returnsFlightsTVCCell() throws {
+    let expected: String? = nil
+
+    let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? FlightsTVC
+    
+    XCTAssertEqual(expected, cell?.flightsLabel.text)
   }
 }
