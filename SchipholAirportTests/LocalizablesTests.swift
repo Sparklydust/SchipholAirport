@@ -45,4 +45,10 @@ class LocalizablesTests: XCTestCase {
 
     XCTAssertEqual(expected, Localized.ok)
   }
+
+  func testLocalized_tryAgainButton_tryAgain() throws {
+    let expected = "Try again"
+
+    XCTAssertEqual(expected, Localized.tryAgain)
+  }
 }

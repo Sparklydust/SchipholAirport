@@ -39,6 +39,10 @@ extension Localized {
   static let ok = NSLocalizedString(
     "ok",
     comment: "classic ok button name")
+
+  static let tryAgain = NSLocalizedString(
+    "tryAgain",
+    comment: "try again button title when api call failed")
 }
 
 // MARK: - Error Titles

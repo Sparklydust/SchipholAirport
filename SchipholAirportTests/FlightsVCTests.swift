@@ -113,4 +113,18 @@ class FlightsVCTests: XCTestCase {
 
     XCTAssertEqual(expected, sut.alert.message)
   }
+
+  func testFlightVC_showRealodButton_buttonIsPopulated() throws {
+    sut.populateReloadButton()
+
+    XCTAssertTrue(sut.reloadButton.isEnabled)
+  }
+
+  func testFlightVC_reloadButtonIsTapped_flightsDataIsBeingRealoded() throws {
+    let expected = 0
+
+    sut.reloadButtonAction()
+
+    XCTAssertEqual(expected, sut.flights.count)
+  }
 }

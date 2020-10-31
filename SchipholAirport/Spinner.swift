@@ -13,6 +13,7 @@ import UIKit
 final class Spinner {
 
   var activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+  
 }
 
 // MARK: - Spinner Actions
@@ -55,26 +56,24 @@ extension Spinner {
   func setupLayout(on view: UIView) {
     activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 
-    // activityIndicator
-    //
-    activityIndicator
-      .centerXAnchor
-      .constraint(equalTo: view.centerXAnchor)
-      .isActive = true
+    NSLayoutConstraint.activate([
+      // activityIndicator
+      //
+      activityIndicator
+        .leadingAnchor
+        .constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
 
-    activityIndicator
-      .centerYAnchor
-      .constraint(equalTo: view.centerYAnchor)
-      .isActive = true
+      activityIndicator
+        .trailingAnchor
+        .constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
 
-    activityIndicator
-      .topAnchor
-      .constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-      .isActive = true
+      activityIndicator
+        .topAnchor
+        .constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
 
-    activityIndicator
-      .bottomAnchor
-      .constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-      .isActive = true
+      activityIndicator
+        .bottomAnchor
+        .constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+    ])
   }
 }
