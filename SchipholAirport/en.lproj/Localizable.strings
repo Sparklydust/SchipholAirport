@@ -12,6 +12,7 @@
 "airports" = "Airports";
 "flights" = "Flights";
 "airlines" = "Airlines";
+"settings" = "Settings";
 
 // MARK: - Buttons
 "ok" = "OK";

@@ -248,4 +248,14 @@ extension FlightsVCTests {
 
     XCTAssertEqual(expected, sut.distanceFormat)
   }
+
+  func testFlightsVC_kmDistanceValueFromAirports_returnsStringWithDistanceAndUnit() throws {
+    let expected = "625.17 km"
+    let airports = loadFakeJsonAirports()
+    let airport = airports[0]
+
+    let result = sut.distanceFromSchiphol(to: airport)
+
+    XCTAssertEqual(expected, result)
+  }
 }

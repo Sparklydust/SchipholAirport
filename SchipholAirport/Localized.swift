@@ -32,6 +32,10 @@ extension Localized {
   static let airlines = NSLocalizedString(
     "airlines",
     comment: "airlines tab bar name")
+
+  static let settings = NSLocalizedString(
+    "settings",
+    comment: "settings tab bar name")
 }
 
 // MARK: - Buttons

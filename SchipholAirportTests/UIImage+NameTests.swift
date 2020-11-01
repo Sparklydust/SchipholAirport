@@ -27,4 +27,10 @@ class UIImage_NameTests: XCTestCase {
 
     XCTAssertEqual(expected, UIImage.airlinesIcon)
   }
+
+  func testUIImageName_settingsIcon() throws {
+    let expected = UIImage(named: "settingsIcon")
+
+    XCTAssertEqual(expected, UIImage.settingsIcon)
+  }
 }

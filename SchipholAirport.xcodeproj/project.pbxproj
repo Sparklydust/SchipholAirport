@@ -48,6 +48,8 @@
 		2AD36821254D607800677F7E /* FlightsTVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36820254D607800677F7E /* FlightsTVCTests.swift */; };
 		2AD3682A254D762600677F7E /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36829254D762600677F7E /* Spinner.swift */; };
 		2AD36833254D764400677F7E /* SpinnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36832254D764400677F7E /* SpinnerTests.swift */; };
+		2AD3688F254F333800677F7E /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3688E254F333800677F7E /* SettingsVC.swift */; };
+		2AD36894254F4AEF00677F7E /* SettingsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36893254F4AEF00677F7E /* SettingsVCTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,8 @@
 		2AD36820254D607800677F7E /* FlightsTVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsTVCTests.swift; sourceTree = "<group>"; };
 		2AD36829254D762600677F7E /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		2AD36832254D764400677F7E /* SpinnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerTests.swift; sourceTree = "<group>"; };
+		2AD3688E254F333800677F7E /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		2AD36893254F4AEF00677F7E /* SettingsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,7 @@
 				2A6642F5254A10F200A0490E /* AirportsVCTests.swift */,
 				2A6642FA254A145F00A0490E /* FlightsVCTests.swift */,
 				2A6642E0254A0D4100A0490E /* AirlinesVCTests.swift */,
+				2AD36893254F4AEF00677F7E /* SettingsVCTests.swift */,
 			);
 			name = TabBars;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 				2A6642EA254A10BE00A0490E /* AirportsVC.swift */,
 				2A6642FF254A14E000A0490E /* FlightsVC.swift */,
 				2A9236662549CAF40058B96C /* AirlinesVC.swift */,
+				2AD3688E254F333800677F7E /* SettingsVC.swift */,
 			);
 			name = TabBars;
 			sourceTree = "<group>";
@@ -656,6 +662,7 @@
 				2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */,
 				2AD36772254BFD9100677F7E /* FlightsProtocol.swift in Sources */,
 				2AD3682A254D762600677F7E /* Spinner.swift in Sources */,
+				2AD3688F254F333800677F7E /* SettingsVC.swift in Sources */,
 				2A9236022549A20E0058B96C /* MainVC.swift in Sources */,
 				2A9235FE2549A20E0058B96C /* AppDelegate.swift in Sources */,
 				2A664337254ABC9900A0490E /* UIImage+Name.swift in Sources */,
@@ -682,6 +689,7 @@
 				2AD36821254D607800677F7E /* FlightsTVCTests.swift in Sources */,
 				2AD367CB254C127700677F7E /* NetworkRequestTests.swift in Sources */,
 				2A6642E1254A0D4100A0490E /* AirlinesVCTests.swift in Sources */,
+				2AD36894254F4AEF00677F7E /* SettingsVCTests.swift in Sources */,
 				2A6642E6254A0FBF00A0490E /* MainVCTests.swift in Sources */,
 				2AD367C1254C105E00677F7E /* MockURLSession.swift in Sources */,
 				2A66434B254ABDD900A0490E /* UIImage+NameTests.swift in Sources */,

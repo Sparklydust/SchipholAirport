@@ -213,7 +213,7 @@ extension FlightsVC {
   }
 }
 
-// MARK: - MainVC Setup
+// MARK: - FlightsVC Setup
 extension FlightsVC {
   /// Main setup.
   ///
@@ -247,15 +247,25 @@ extension FlightsVC {
   ///
   func setup(_ cell: FlightsTVC, at indexPath: IndexPath) -> FlightsTVC {
     let airport = airportsConnected[indexPath.row]
+    let distance = distanceFromSchiphol(to: airport)
 
+    cell.nameLabel.text = airport.name
+    cell.distanceLabel.text = distance
+
+    return cell
+  }
+
+  /// Calculate the distance between two airports.
+  ///
+  /// - Parameters:
+  ///     - airport: airport populated in cell.
+  /// - Returns: String value with distance and unit
+  ///
+  func distanceFromSchiphol(to airport: AirportsData) -> String {
     let distance = airport.distance(to: schipholLocation)
     let unit = isInKm ? Localized.km : Localized.miles
     let airportDistance = String(format: distanceFormat, distance, unit)
-
-    cell.nameLabel.text = airport.name
-    cell.distanceLabel.text = airportDistance
-
-    return cell
+    return airportDistance
   }
 
   /// Reload button shown when download from api failed.

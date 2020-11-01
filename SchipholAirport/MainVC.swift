@@ -17,20 +17,25 @@ class MainVC: UITabBarController, UITabBarControllerDelegate {
   let airportsNC = UINavigationController(rootViewController: AirportsVC())
   let flightsNC = UINavigationController(rootViewController: FlightsVC())
   let airlinesNC = UINavigationController(rootViewController: AirlinesVC())
+  let settingsNC = UINavigationController(rootViewController: SettingsVC())
 
   // Setup the tab bar items icons and titles
   let airportsTabItem = UITabBarItem(
     title: Localized.airports,
     image: .airportsIcon,
     tag: 0)
-  let airlinesTabItem = UITabBarItem(
-    title: Localized.airlines,
-    image: .airlinesIcon,
-    tag: 2)
   let flightsTabItem = UITabBarItem(
     title: Localized.flights,
     image: .flightsIcon,
     tag: 1)
+  let airlinesTabItem = UITabBarItem(
+    title: Localized.airlines,
+    image: .airlinesIcon,
+    tag: 2)
+  let settingsTabItem = UITabBarItem(
+    title: Localized.settings,
+    image: .settingsIcon,
+    tag: 3)
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -62,6 +67,7 @@ extension MainVC {
     airportsNC.tabBarItem = airportsTabItem
     flightsNC.tabBarItem = flightsTabItem
     airlinesNC.tabBarItem = airlinesTabItem
+    settingsNC.tabBarItem = settingsTabItem
   }
 
   /// Implement the navigation controllers to MainVC.
@@ -70,7 +76,8 @@ extension MainVC {
     let controllers = [
       airportsNC,
       flightsNC,
-      airlinesNC
+      airlinesNC,
+      settingsNC
     ]
     viewControllers = controllers
   }

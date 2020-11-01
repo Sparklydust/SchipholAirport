@@ -63,4 +63,10 @@ class LocalizablesTests: XCTestCase {
 
     XCTAssertEqual(expected, Localized.miles)
   }
+
+  func testLocalized_settingsTabItem_returnsSettings() throws {
+    let expected = "Settings"
+
+    XCTAssertEqual(expected, Localized.settings)
+  }
 }

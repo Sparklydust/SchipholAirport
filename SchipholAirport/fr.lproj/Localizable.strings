@@ -12,6 +12,7 @@
 "airports" = "Aéroports";
 "flights" = "Vols";
 "airlines" = "Compagnies";
+"settings" = "Paramètres";
 
 // MARK: - Buttons
 "ok" = "OK";
