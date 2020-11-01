@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 //  MARK: FlightsVC
 /// View that populates flights connected to Schiphol.
@@ -28,8 +29,10 @@ class FlightsVC: UITableViewController {
   var airportsDownloader = NetworkRequest<AirportsData>(.airports)
   let spinner = Spinner()
 
-  // Variables
-  var schipholAirportID = "AMS"
+  // Constants
+  let schipholAirportID = "AMS"
+  let schipholLocation = CLLocation(latitude: 52.30907,
+                                    longitude: 4.763385)
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,27 +48,54 @@ extension FlightsVC {
   ///
   /// - Warning: Order set in this func is important.
   ///
-  func filterAirports() {
+  func populateAirports() {
     filterFlightsFromSchiphol()
     filterAirportsConnectedToSchiphol()
+    sortConnectedAirports()
   }
 
   /// Filter flights fetch from api that are connected
   /// to Schiphol airport.
   ///
+  /// Arrival airport that are duplicated are being removed
+  /// from the updated flightsConnected variable.
+  ///
   func filterFlightsFromSchiphol() {
-    flightsConnected = flights
-      .filter { $0.airlineId != schipholAirportID }
+    _ = flights
+      .filter { $0.departureAirportId == schipholAirportID }
+      .map { flight in
+        if !flightsConnected.contains(
+            where: { $0.arrivalAirportId == flight.arrivalAirportId }) {
+          flightsConnected.append(flight)
+        }
+      }
   }
 
   /// Filter airports fetch from api with flights connected
   /// to Schiphol airport.
   ///
+  /// Duplicated airports are being removed using their id.
+  ///
   func filterAirportsConnectedToSchiphol() {
-    for f in flightsConnected {
-      airportsConnected = airports
-        .filter { $0.id != f.arrivalAirportId }
-    }
+    _ = airports
+      .compactMap { airport in
+        for f in flightsConnected {
+          if f.arrivalAirportId == airport.id {
+            if !airportsConnected.contains(where: { $0.id == airport.id }) {
+              airportsConnected.append(airport)
+            }
+          }
+        }
+      }
+  }
+
+  /// Sort airports in ascending distance from Schiphol airport.
+  ///
+  func sortConnectedAirports() {
+    airportsConnected
+      .sort {
+        $0.distance(to: schipholLocation) < $1.distance(to: schipholLocation)
+      }
   }
 }
 
@@ -93,13 +123,15 @@ extension FlightsVC {
     flightsDownloader.getArray { response in
       switch response {
       case .failure:
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
           self.handleDownloadFailure()
           completion()
         }
         return
       case .success(let flights):
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
           self.handleDownloadSuccess(flights)
           completion()
         }
@@ -119,13 +151,15 @@ extension FlightsVC {
     airportsDownloader.getArray { response in
       switch response {
       case .failure:
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
           self.handleDownloadFailure()
           completion()
         }
         return
       case .success(let airports):
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
           self.handleDownloadSuccess(airports)
           completion()
         }
@@ -153,6 +187,8 @@ extension FlightsVC {
   func handleDownloadSuccess(_ airportsData: [AirportsData]) {
     airports = airportsData
     spinner.stops()
+    populateAirports()
+    tableView.reloadData()
   }
 }
 

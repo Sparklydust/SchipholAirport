@@ -22,5 +22,77 @@
     "name": "Dyce Airport",
     "city": "Aberdeen",
     "countryId": "GB"
+  },
+  {
+    "id": "ACC",
+    "latitude": 5.60737,
+    "longitude": -0.171769,
+    "name": "Kotoka Airport",
+    "city": "Accra",
+    "countryId": "GH"
+  },
+  {
+    "id": "AES",
+    "latitude": 62.559643,
+    "longitude": 6.116605,
+    "name": "Vigra Airport",
+    "city": "Aalesund",
+    "countryId": "NO"
+  },
+  {
+    "id": "AGP",
+    "latitude": 36.675182,
+    "longitude": -4.489616,
+    "name": "Malaga Airport",
+    "city": "Malaga",
+    "countryId": "ES"
+  },
+  {
+    "id": "AKL",
+    "latitude": -37.004787,
+    "longitude": 174.78352,
+    "name": "Auckland International Airport",
+    "city": "Auckland",
+    "countryId": "NZ"
+  },
+  {
+    "id": "ALA",
+    "latitude": 43.346653,
+    "longitude": 77.01145,
+    "name": "Almaty Airport",
+    "city": "Almaty",
+    "countryId": "KZ"
+  },
+  {
+    "id": "ALC",
+    "latitude": 38.287098,
+    "longitude": -0.557381,
+    "name": "Alicante Airport",
+    "city": "Alicante",
+    "countryId": "ES"
+  },
+  {
+    "id": "AMM",
+    "latitude": 31.722534,
+    "longitude": 35.98932,
+    "name": "Queen Alia International Airport",
+    "city": "Amman",
+    "countryId": "JO"
+  },
+  {
+    "id": "AMS",
+    "latitude": 52.30907,
+    "longitude": 4.763385,
+    "name": "Amsterdam-Schiphol Airport",
+    "city": "Amsterdam",
+    "countryId": "NL"
+  },
+  {
+    "id": "CDG",
+    "latitude": 49.003197,
+    "longitude": 2.567023,
+    "name": "Charles De Gaulle Airport",
+    "city": "Paris",
+    "countryId": "FR"
   }
 ]

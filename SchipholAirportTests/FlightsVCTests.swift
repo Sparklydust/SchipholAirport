@@ -155,7 +155,7 @@ extension FlightsVCTests {
   }
 
   func testFlightsTVC_getAllAirportsFromAPI_returnsAirportsWithSuccess() throws {
-    let expected = 3
+    let expected = 12
 
     let expectation = XCTestExpectation(
       description: "Success with airports from api in an array")
@@ -197,7 +197,7 @@ extension FlightsVCTests {
   }
 
   func testFlightsVC_filterFlightsData_returnsFlightsConnectedToSchiphol() throws {
-    let expected = 3
+    let expected = 2
     sut.flights = loadFakeJsonFlights()
 
     sut.filterFlightsFromSchiphol()
@@ -206,7 +206,7 @@ extension FlightsVCTests {
   }
 
   func testFlightsVC_filterAirportsData_returnsAirportsConnectedToSchiphol() throws {
-    let expected = 3
+    let expected = 1
     sut.flightsConnected = loadFakeJsonFlights()
     sut.airports = loadFakeJsonAirports()
 
@@ -215,13 +215,30 @@ extension FlightsVCTests {
     XCTAssertEqual(expected, sut.airportsConnected.count)
   }
 
-  func testFlightsVC_filterFlightsAndAirportsData_returnAirportsConnectedToSchiphol() throws {
-    let expected = 3
+  func testFlightsVC_populateFlightsAndAirportsData_returnAirportsConnectedToSchiphol() throws {
+    let expected = 1
     sut.flights = loadFakeJsonFlights()
     sut.airports = loadFakeJsonAirports()
 
-    sut.filterAirports()
+    sut.populateAirports()
 
     XCTAssertEqual(expected, sut.airportsConnected.count)
+  }
+
+  func testFlightsVC_schipholAirportLocation_returnsCorrectLatitudeLongitude() throws {
+    let expectedLatitude = 52.30907
+    let expectedLongitude = 4.763385
+
+    XCTAssertEqual(expectedLatitude, sut.schipholLocation.coordinate.latitude)
+    XCTAssertEqual(expectedLongitude, sut.schipholLocation.coordinate.longitude)
+  }
+
+  func testFlightsVC_sortConnectedAirportsInOrder_returnsAscendingOrder() throws {
+    let expected = "Amsterdam-Schiphol Airport"
+    sut.airportsConnected = loadFakeJsonAirports()
+
+    sut.sortConnectedAirports()
+
+    XCTAssertEqual(expected, sut.airportsConnected[0].name)
   }
 }
