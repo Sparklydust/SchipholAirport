@@ -30,9 +30,13 @@ class FlightsVC: UITableViewController {
   let spinner = Spinner()
 
   // Constants
+  let distanceFormat = "%.2f %@"
   let schipholAirportID = "AMS"
   let schipholLocation = CLLocation(latitude: 52.30907,
                                     longitude: 4.763385)
+
+  // Variables
+  var isInKm = true
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -205,7 +209,7 @@ extension FlightsVC {
     let cell = tableView.dequeueReusableCell(withIdentifier: FlightsTVC.identifier,
                                              for: indexPath) as! FlightsTVC
 
-    return cell
+    return setup(cell, at: indexPath)
   }
 }
 
@@ -234,6 +238,24 @@ extension FlightsVC {
     navigationController?
       .navigationBar
       .prefersLargeTitles = true
+  }
+
+  /// Setup cell with airports informations.
+  ///
+  /// Cell is populated once the airports connected flights
+  /// from api are fetched and trimmed.
+  ///
+  func setup(_ cell: FlightsTVC, at indexPath: IndexPath) -> FlightsTVC {
+    let airport = airportsConnected[indexPath.row]
+
+    let distance = airport.distance(to: schipholLocation)
+    let unit = isInKm ? Localized.km : Localized.miles
+    let airportDistance = String(format: distanceFormat, distance, unit)
+
+    cell.nameLabel.text = airport.name
+    cell.distanceLabel.text = airportDistance
+
+    return cell
   }
 
   /// Reload button shown when download from api failed.

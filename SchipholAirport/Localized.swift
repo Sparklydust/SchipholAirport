@@ -58,3 +58,12 @@ extension Localized {
     "downloadFailureMessage",
     comment: "message shown to user when downlad from api failed")
 }
+
+// MARK: - UILabels
+extension Localized {
+  static let km = NSLocalizedString(
+    "km", comment: "km unit")
+
+  static let miles = NSLocalizedString(
+    "miles", comment: "miles unit")
+}

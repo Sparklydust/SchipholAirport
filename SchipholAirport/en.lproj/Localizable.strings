@@ -22,3 +22,7 @@
 
 // MARK: - Error Messages
 "downloadFailureMessage" = "There was an issue when loading the data. Please, try again later.";
+
+// MARK: - UILabels
+"km" = "km";
+"miles" = "mi";

@@ -34,7 +34,7 @@ extension FlightsTVC {
   ///
   func setupMainView() {
     addSubviews()
-    setupFlightsLabel()
+    setupNameLabel()
     setupDistanceLabel()
     activateLayoutConstraints()
   }
@@ -48,7 +48,7 @@ extension FlightsTVC {
 
   /// Setup nameLabel design.
   ///
-  func setupFlightsLabel() {
+  func setupNameLabel() {
     nameLabel.translatesAutoresizingMaskIntoConstraints = false
     nameLabel.font = .systemFont(ofSize: 16, weight: .medium)
     nameLabel.numberOfLines = 1
@@ -99,12 +99,16 @@ extension FlightsTVC {
       distanceLabel
         .leadingAnchor
         .constraint(greaterThanOrEqualToSystemSpacingAfter: nameLabel.trailingAnchor,
-                    multiplier: 8),
+                    multiplier: 1),
 
       distanceLabel
         .trailingAnchor
         .constraint(equalTo: contentView.trailingAnchor,
-                    constant: -16)
+                    constant: -16),
+
+      distanceLabel
+        .widthAnchor
+        .constraint(equalToConstant: 75)
     ])
   }
 }

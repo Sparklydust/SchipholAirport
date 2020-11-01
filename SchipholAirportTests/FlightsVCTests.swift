@@ -89,7 +89,8 @@ extension FlightsVCTests {
   }
 
   func testFlightVC_checkTableViewCell_returnsFlightsTVCCell() throws {
-    let expected: String? = nil
+    let expected = "Aalborg Airport"
+    sut.airportsConnected = loadFakeJsonAirports()
 
     let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? FlightsTVC
 
@@ -240,5 +241,11 @@ extension FlightsVCTests {
     sut.sortConnectedAirports()
 
     XCTAssertEqual(expected, sut.airportsConnected[0].name)
+  }
+
+  func testFlightVC_distanceFormat_returnsValidFormatWithDistanceAndUnit() {
+    let expected = "%.2f %@"
+
+    XCTAssertEqual(expected, sut.distanceFormat)
   }
 }

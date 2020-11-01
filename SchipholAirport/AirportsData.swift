@@ -30,11 +30,11 @@ struct AirportsData: AirportsProtocol, Codable {
                       longitude: longitude)
   }
 
-  /// Calculate distance from two core location points.
+  /// Calculate distance from two core location points in km.
   ///
   /// Used to calculate the distance between two airports.
   ///
   func distance(to location: CLLocation) -> CLLocationDistance {
-    return self.location.distance(from: location)
+    return self.location.distance(from: location) / 1000
   }
 }

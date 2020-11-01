@@ -51,4 +51,16 @@ class LocalizablesTests: XCTestCase {
 
     XCTAssertEqual(expected, Localized.tryAgain)
   }
+
+  func testLocalized_kmUnit_km() throws {
+    let expected = "km"
+
+    XCTAssertEqual(expected, Localized.km)
+  }
+
+  func testLocalized_milesUnit_ms() throws {
+    let expected = "mi"
+
+    XCTAssertEqual(expected, Localized.miles)
+  }
 }
