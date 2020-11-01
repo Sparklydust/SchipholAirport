@@ -15,7 +15,7 @@ class FlightsTVC: UITableViewCell {
   /// Identifier for UITAbleView cell setup
   static let identifier = "flightsTVC"
 
-  var flightsLabel = UILabel()
+  var nameLabel = UILabel()
   var distanceLabel = UILabel()
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -42,16 +42,16 @@ extension FlightsTVC {
   /// Adding all subviews into FlightsTVC.
   ///
   func addSubviews() {
-    contentView.addSubview(flightsLabel)
+    contentView.addSubview(nameLabel)
     contentView.addSubview(distanceLabel)
   }
 
-  /// Setup flightsLabel design.
+  /// Setup nameLabel design.
   ///
   func setupFlightsLabel() {
-    flightsLabel.translatesAutoresizingMaskIntoConstraints = false
-    flightsLabel.font = .systemFont(ofSize: 16, weight: .medium)
-    flightsLabel.numberOfLines = 1
+    nameLabel.translatesAutoresizingMaskIntoConstraints = false
+    nameLabel.font = .systemFont(ofSize: 16, weight: .medium)
+    nameLabel.numberOfLines = 1
     distanceLabel.textAlignment = .left
   }
 
@@ -74,18 +74,18 @@ extension FlightsTVC {
   func activateLayoutConstraints() {
     NSLayoutConstraint.activate([
 
-      // flightsLabel
+      // nameLabel
       //
-      flightsLabel
+      nameLabel
         .centerYAnchor
         .constraint(equalTo: contentView.centerYAnchor),
 
-      flightsLabel
+      nameLabel
         .leadingAnchor
         .constraint(equalTo: contentView.leadingAnchor,
                     constant: 16),
 
-      flightsLabel
+      nameLabel
         .topAnchor
         .constraint(equalTo: contentView.topAnchor,
                     constant: 16),
@@ -94,11 +94,11 @@ extension FlightsTVC {
       //
       distanceLabel
         .centerYAnchor
-        .constraint(equalTo: flightsLabel.centerYAnchor),
+        .constraint(equalTo: nameLabel.centerYAnchor),
 
       distanceLabel
         .leadingAnchor
-        .constraint(greaterThanOrEqualToSystemSpacingAfter: flightsLabel.trailingAnchor,
+        .constraint(greaterThanOrEqualToSystemSpacingAfter: nameLabel.trailingAnchor,
                     multiplier: 8),
 
       distanceLabel

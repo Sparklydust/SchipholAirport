@@ -19,17 +19,53 @@ class FlightsVC: UITableViewController {
 
   // Data
   var flights = [FlightsData]()
+  var flightsConnected = [FlightsData]()
   var airports = [AirportsData]()
+  var airportsConnected = [AirportsData]()
 
   // Reference Types
   var flightsDownloader = NetworkRequest<FlightsData>(.flights)
   var airportsDownloader = NetworkRequest<AirportsData>(.airports)
   let spinner = Spinner()
 
+  // Variables
+  var schipholAirportID = "AMS"
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setupMainView()
     downloadData()
+  }
+}
+
+// MARK: - Algorithms
+extension FlightsVC {
+  /// Filter flights and then airports connected to
+  /// Schiphol airport.
+  ///
+  /// - Warning: Order set in this func is important.
+  ///
+  func filterAirports() {
+    filterFlightsFromSchiphol()
+    filterAirportsConnectedToSchiphol()
+  }
+
+  /// Filter flights fetch from api that are connected
+  /// to Schiphol airport.
+  ///
+  func filterFlightsFromSchiphol() {
+    flightsConnected = flights
+      .filter { $0.airlineId != schipholAirportID }
+  }
+
+  /// Filter airports fetch from api with flights connected
+  /// to Schiphol airport.
+  ///
+  func filterAirportsConnectedToSchiphol() {
+    for f in flightsConnected {
+      airportsConnected = airports
+        .filter { $0.id != f.arrivalAirportId }
+    }
   }
 }
 
@@ -124,7 +160,7 @@ extension FlightsVC {
 extension FlightsVC {
   override func tableView(_ tableView: UITableView,
                           numberOfRowsInSection section: Int) -> Int {
-    return flights.count
+    return airportsConnected.count
   }
 
   override func tableView(_ tableView: UITableView,

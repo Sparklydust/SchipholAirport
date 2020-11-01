@@ -26,7 +26,33 @@ class FlightsVCTests: XCTestCase {
     sut = nil
     try super.tearDownWithError()
   }
+}
 
+// MARK: - Helpers
+extension FlightsVCTests {
+  /// Load fake flights data from json file inside Fakes/Json folder.
+  ///
+  func loadFakeJsonFlights() -> [FlightsData] {
+    let bundle = Bundle(for: FlightsVCTests.self)
+    let url = bundle.url(forResource: "Flights", withExtension: "json")
+    let data = try! Data(contentsOf: url!)
+    let flights = try! JSONDecoder().decode([FlightsData].self, from: data)
+    return flights
+  }
+
+  /// Load fake airports data from json file inside Fakes/Json folder.
+  ///
+  func loadFakeJsonAirports() -> [AirportsData] {
+    let bundle = Bundle(for: FlightsVCTests.self)
+    let url = bundle.url(forResource: "Airports", withExtension: "json")
+    let data = try! Data(contentsOf: url!)
+    let airports = try! JSONDecoder().decode([AirportsData].self, from: data)
+    return airports
+  }
+}
+
+// MARK: - Tests
+extension FlightsVCTests {
   func testFlightsVC_viewTitle_LocalizedFlights() throws {
     let expected = Localized.flights
 
@@ -67,7 +93,7 @@ class FlightsVCTests: XCTestCase {
 
     let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? FlightsTVC
 
-    XCTAssertEqual(expected, cell?.flightsLabel.text)
+    XCTAssertEqual(expected, cell?.nameLabel.text)
   }
 
   func testFlightsTVC_getAllFlightsFromAPI_returnsZeroFlightsWithFailure() throws {
@@ -162,5 +188,40 @@ class FlightsVCTests: XCTestCase {
 
     wait(for: [expectation], timeout: 0.1)
     XCTAssertEqual(expected, sut.airports.count)
+  }
+
+  func testFlightsVC_schipholAirportID_returnAMS() throws {
+    let expected = "AMS"
+
+    XCTAssertEqual(expected, sut.schipholAirportID)
+  }
+
+  func testFlightsVC_filterFlightsData_returnsFlightsConnectedToSchiphol() throws {
+    let expected = 3
+    sut.flights = loadFakeJsonFlights()
+
+    sut.filterFlightsFromSchiphol()
+
+    XCTAssertEqual(expected, sut.flightsConnected.count)
+  }
+
+  func testFlightsVC_filterAirportsData_returnsAirportsConnectedToSchiphol() throws {
+    let expected = 3
+    sut.flightsConnected = loadFakeJsonFlights()
+    sut.airports = loadFakeJsonAirports()
+
+    sut.filterAirportsConnectedToSchiphol()
+
+    XCTAssertEqual(expected, sut.airportsConnected.count)
+  }
+
+  func testFlightsVC_filterFlightsAndAirportsData_returnAirportsConnectedToSchiphol() throws {
+    let expected = 3
+    sut.flights = loadFakeJsonFlights()
+    sut.airports = loadFakeJsonAirports()
+
+    sut.filterAirports()
+
+    XCTAssertEqual(expected, sut.airportsConnected.count)
   }
 }
