@@ -22,13 +22,18 @@ final class UserDefaultsContainer {
     static let isInKm = "isInKm"
   }
 
+  /// Default value at app first launch for the
+  /// isInKm app Settings.
+  ///
+  let IsInKmDefaultValue = "true"
+
   init() {
     // Initialize with default value when application
-    // starts if none has been saved.
+    // starts if none has been saved for Key.isInKm.
     //
     UserDefaults
       .standard
-      .register(defaults: [Key.isInKm: "true"])
+      .register(defaults: [Key.isInKm: IsInKmDefaultValue])
   }
 }
 

@@ -23,7 +23,7 @@ class SettingsVC: UIViewController {
   ]
 
   // Variables
-  var isInKm = true
+  var isInKm = UserDefaultsService.shared.isInKm
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -87,6 +87,8 @@ extension SettingsVC {
     sectionOneLabel.textAlignment = .left
   }
 
+  /// Setup segemented control for unit design.
+  ///
   func setupUnitSegementedControl() {
     unitSegmentedControl = UISegmentedControl(items: segContItems)
     unitSegmentedControl.selectedSegmentIndex = isInKm ? 0 : 1
@@ -96,7 +98,18 @@ extension SettingsVC {
                                    for: .valueChanged)
   }
 
+  /// Action performed when user tap on unit segmented control.
+  ///
+  /// Value goes in km if true and in miles if false.
+  ///
   @objc func changeUnit() {
+    switch unitSegmentedControl.selectedSegmentIndex {
+    case 0:
+      UserDefaultsService.shared.isInKm = true
+    case 1:
+      UserDefaultsService.shared.isInKm = false
+    default: ()
+    }
   }
 }
 

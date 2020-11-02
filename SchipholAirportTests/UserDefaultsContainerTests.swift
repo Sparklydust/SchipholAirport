@@ -26,9 +26,9 @@ class UserDefaultsContainerTests: XCTestCase {
 // MARK: - Tests
 extension UserDefaultsContainerTests {
   func testUserDefaultsContainer_isInKmContainerInitializeAtStart_returnTrue() throws {
-    let expected = true
+    let expected = "true"
 
-    XCTAssertEqual(expected, sut.isInKm)
+    XCTAssertEqual(expected, sut.IsInKmDefaultValue)
   }
 
   func testUserDefaultsContainer_keyForIsInKm_isInKm() {

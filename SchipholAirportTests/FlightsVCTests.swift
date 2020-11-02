@@ -12,17 +12,36 @@ class FlightsVCTests: XCTestCase {
 
   var sut: FlightsVC!
 
+  var airportData: AirportData!
+
+  var fakeUserDefaultsService: UserDefaultsService!
+  var mockUserDefaultsContainer: MockUserDefaultsContainer!
+
   override func setUpWithError() throws {
     try super.setUpWithError()
     sut = FlightsVC()
+
+    airportData = AirportData(
+      id: "CDG",
+      latitude: 49.003197,
+      longitude: 2.567023,
+      name: "Charles De Gaulle Airport",
+      city: "Paris",
+      countryId: "FR")
 
     sut.flightsDownloader.resourceSession =
       MockURLSession(data: nil,
                      response: nil,
                      error: nil)
+
+    mockUserDefaultsContainer = MockUserDefaultsContainer()
+    fakeUserDefaultsService = UserDefaultsService(userDefaultsContainer: mockUserDefaultsContainer)
   }
 
   override func tearDownWithError() throws {
+    airportData = nil
+    fakeUserDefaultsService = nil
+    mockUserDefaultsContainer = nil
     sut = nil
     try super.tearDownWithError()
   }
@@ -46,6 +65,7 @@ extension FlightsVCTests {
     let bundle = Bundle(for: FlightsVCTests.self)
     let url = bundle.url(forResource: "Airports", withExtension: "json")
     let data = try! Data(contentsOf: url!)
+
     let airports = try! JSONDecoder().decode([AirportData].self, from: data)
     return airports
   }
@@ -76,7 +96,7 @@ extension FlightsVCTests {
   }
 
   func testFlightsVC_TableViewHasDelegate_returnNotNil() {
-      XCTAssertNotNil(sut.tableView.delegate)
+    XCTAssertNotNil(sut.tableView.delegate)
   }
 
   func testFlightsVC_checkTableViewNumberOfRows_returnFlightsArrayCount() throws {
@@ -259,9 +279,28 @@ extension FlightsVCTests {
     XCTAssertEqual(expected, result)
   }
 
+  func testFlightsVC_checkDistanceUnitSettings_changeUnitIfNewValueFromSettings() throws {
+    sut.isInKm = fakeUserDefaultsService.isInKm
+    sut.trackIsInKm = !fakeUserDefaultsService.isInKm
+
+    sut.checkDistanceUnitSettings()
+
+    XCTAssertEqual(!sut.isInKm, sut.trackIsInKm)
+  }
+
+  func testFlightsVC_checkTrackIsInKmHasSameValueAsIsInKm_changeTrackIsInKmOppositeBoolToIsInKm() throws {
+    sut.isInKm = fakeUserDefaultsService.isInKm
+    sut.trackIsInKm = fakeUserDefaultsService.isInKm
+
+    sut.checkDistanceUnitSettings()
+
+    XCTAssertEqual(!sut.isInKm, sut.trackIsInKm)
+  }
+
   func testFlightsVC_milesDistanceValueFromAirports_returnsStringWithDistanceAndUnit() throws {
     let expected = "388.46 mi"
     sut.isInKm = false
+
     let airports = loadFakeJsonAirports()
     let airport = airports[0]
 

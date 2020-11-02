@@ -36,12 +36,18 @@ class FlightsVC: UITableViewController {
                                     longitude: 4.763385)
 
   // Variables
-  var isInKm = true
+  var isInKm = UserDefaultsService.shared.isInKm
+  var trackIsInKm = !UserDefaultsService.shared.isInKm
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setupMainView()
     downloadData()
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    checkDistanceUnitSettings()
   }
 }
 
@@ -98,8 +104,22 @@ extension FlightsVC {
   func sortConnectedAirports() {
     airportsConnected
       .sort {
-        $0.distance(to: schipholLocation) < $1.distance(to: schipholLocation)
+        $0.distance(isInKm, to: schipholLocation)
+          < $1.distance(isInKm, to: schipholLocation)
       }
+  }
+
+  /// User distance unit set in settings.
+  ///
+  /// Value are being saved and retrieve in
+  /// UserDefaults.
+  ///
+  func checkDistanceUnitSettings() {
+    isInKm = UserDefaultsService.shared.isInKm
+    if trackIsInKm == isInKm {
+      downloadData()
+      trackIsInKm = !UserDefaultsService.shared.isInKm
+    }
   }
 }
 
@@ -262,7 +282,7 @@ extension FlightsVC {
   /// - Returns: String value with distance and unit
   ///
   func distanceFromSchiphol(to airport: AirportData) -> String {
-    let distance = airport.distance(to: schipholLocation)
+    let distance = airport.distance(isInKm, to: schipholLocation)
     let unit = isInKm ? Localized.km : Localized.mi
     let airportDistance = String(format: distanceFormat, distance, unit)
     return airportDistance
