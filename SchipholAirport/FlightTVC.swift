@@ -61,7 +61,7 @@ extension FlightTVC {
   func setupNameLabel() {
     nameLabel.font = .systemFont(ofSize: 16, weight: .medium)
     nameLabel.numberOfLines = 1
-    distanceLabel.textAlignment = .left
+    nameLabel.textAlignment = .left
   }
 
   /// Setup distanceLabel design.
