@@ -19,14 +19,14 @@ class FlightsVC: UITableViewController {
   var reloadButton = UIButton()
 
   // Data
-  var flights = [FlightsData]()
-  var flightsConnected = [FlightsData]()
-  var airports = [AirportsData]()
-  var airportsConnected = [AirportsData]()
+  var flights = [FlightData]()
+  var flightsConnected = [FlightData]()
+  var airports = [AirportData]()
+  var airportsConnected = [AirportData]()
 
   // Reference Types
-  var flightsDownloader = NetworkRequest<FlightsData>(.flights)
-  var airportsDownloader = NetworkRequest<AirportsData>(.airports)
+  var flightsDownloader = NetworkRequest<FlightData>(.flights)
+  var airportsDownloader = NetworkRequest<AirportData>(.airports)
   let spinner = Spinner()
 
   // Constants
@@ -181,14 +181,14 @@ extension FlightsVC {
 
   /// Handling downloading flights data success from api call.
   ///
-  func handleDownloadSuccess(_ flightsData: [FlightsData]) {
+  func handleDownloadSuccess(_ flightsData: [FlightData]) {
     flights = flightsData
     spinner.stops()
   }
 
   /// Handling downloading airports data success from api call.
   ///
-  func handleDownloadSuccess(_ airportsData: [AirportsData]) {
+  func handleDownloadSuccess(_ airportsData: [AirportData]) {
     airports = airportsData
     spinner.stops()
     populateAirports()
@@ -261,9 +261,9 @@ extension FlightsVC {
   ///     - airport: airport populated in cell.
   /// - Returns: String value with distance and unit
   ///
-  func distanceFromSchiphol(to airport: AirportsData) -> String {
+  func distanceFromSchiphol(to airport: AirportData) -> String {
     let distance = airport.distance(to: schipholLocation)
-    let unit = isInKm ? Localized.km : Localized.miles
+    let unit = isInKm ? Localized.km : Localized.mi
     let airportDistance = String(format: distanceFormat, distance, unit)
     return airportDistance
   }
@@ -296,15 +296,16 @@ extension FlightsVC {
     reloadButton.removeFromSuperview()
     downloadData()
   }
+}
 
-  /// Setup try again button layout.
+// MARK: - Autolayouts
+extension FlightsVC {
+  /// Layout reloadButton.
   ///
   func setupReloadButtonLayout() {
     reloadButton.translatesAutoresizingMaskIntoConstraints = false
 
     NSLayoutConstraint.activate([
-      // reload button
-      //
       reloadButton
         .centerXAnchor
         .constraint(equalTo: view.centerXAnchor),

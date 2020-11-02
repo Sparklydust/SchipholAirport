@@ -32,4 +32,13 @@ extension SettingsVCTests {
 
     XCTAssertEqual(expected, sut.title)
   }
+
+  func testSettingsVC_segmentedControlItems_returnsKmAndMiles() throws {
+    let expected = [
+      Localized.kilometers,
+      Localized.miles
+    ]
+
+    XCTAssertEqual(expected, sut.segContItems)
+  }
 }

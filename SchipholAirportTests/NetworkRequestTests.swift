@@ -10,13 +10,13 @@ import XCTest
 
 class NetworkRequestTests: XCTestCase {
 
-  var airport: AirportsData!
-  var flight: FlightsData!
-  var airline: AirlinesData!
+  var airport: AirportData!
+  var flight: FlightData!
+  var airline: AirlineData!
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    airport = AirportsData(
+    airport = AirportData(
       id: "AAL",
       latitude: 57.08655,
       longitude: 9.872241,
@@ -24,13 +24,13 @@ class NetworkRequestTests: XCTestCase {
       city: "Aalborg",
       countryId: "DK")
 
-    flight = FlightsData(
+    flight = FlightData(
       airlineId: "3O",
       flightNumber: 2128,
       departureAirportId: "AMS",
       arrivalAirportId: "TNG")
 
-    airline = AirlinesData(
+    airline = AirlineData(
       id: "5D",
       name: "AeroMexico Connect")
 
@@ -50,8 +50,8 @@ extension NetworkRequestTests {
     let expected = airport.name
     let mockURLSession = mockURLSessionResponseOK(data: FakeDataResponse.airportsCorrectData)
 
-    let networkRequest = NetworkRequest<AirportsData>(.airports,
-                                                      resourceSession: mockURLSession)
+    let networkRequest = NetworkRequest<AirportData>(.airports,
+                                                     resourceSession: mockURLSession)
 
     let expectation = XCTestExpectation(description: "all airports from api")
 
@@ -73,8 +73,8 @@ extension NetworkRequestTests {
                                         response: FakeDataResponse.responseKO,
                                         error: nil)
 
-    let networkRequest = NetworkRequest<AirportsData>(.airports,
-                                                      resourceSession: mockURLSession)
+    let networkRequest = NetworkRequest<AirportData>(.airports,
+                                                     resourceSession: mockURLSession)
 
     let expectation = XCTestExpectation(description: "failure with incorrect response")
 
@@ -97,8 +97,8 @@ extension NetworkRequestTests {
     let expected = flight.flightNumber
     let mockURLSession = mockURLSessionResponseOK(data: FakeDataResponse.flightsCorrectData)
 
-    let networkRequest = NetworkRequest<FlightsData>(.flights,
-                                                      resourceSession: mockURLSession)
+    let networkRequest = NetworkRequest<FlightData>(.flights,
+                                                    resourceSession: mockURLSession)
 
     let expectation = XCTestExpectation(description: "all flights from api")
 
@@ -120,8 +120,8 @@ extension NetworkRequestTests {
                                         response: nil,
                                         error: FakeDataResponse.error)
 
-    let networkRequest = NetworkRequest<FlightsData>(.flights,
-                                                      resourceSession: mockURLSession)
+    let networkRequest = NetworkRequest<FlightData>(.flights,
+                                                    resourceSession: mockURLSession)
 
     let expectation = XCTestExpectation(description: "failure with error")
 
@@ -144,8 +144,8 @@ extension NetworkRequestTests {
     let expected = airline.name
     let mockURLSession = mockURLSessionResponseOK(data: FakeDataResponse.airlinesCorrectData)
 
-    let networkRequest = NetworkRequest<AirlinesData>(.airlines,
-                                                      resourceSession: mockURLSession)
+    let networkRequest = NetworkRequest<AirlineData>(.airlines,
+                                                     resourceSession: mockURLSession)
 
     let expectation = XCTestExpectation(description: "all airlines from api")
 
@@ -167,8 +167,8 @@ extension NetworkRequestTests {
                                         response: FakeDataResponse.response200OK,
                                         error: nil)
 
-    let networkRequest = NetworkRequest<AirlinesData>(.airlines,
-                                                      resourceSession: mockURLSession)
+    let networkRequest = NetworkRequest<AirlineData>(.airlines,
+                                                     resourceSession: mockURLSession)
 
     let expectation = XCTestExpectation(description: "failure with incorrect data")
 

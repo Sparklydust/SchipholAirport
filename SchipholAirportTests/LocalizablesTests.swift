@@ -58,8 +58,20 @@ class LocalizablesTests: XCTestCase {
     XCTAssertEqual(expected, Localized.km)
   }
 
-  func testLocalized_milesUnit_ms() throws {
+  func testLocalized_miUnit_mi() throws {
     let expected = "mi"
+
+    XCTAssertEqual(expected, Localized.mi)
+  }
+
+  func testLocalized_kilometerUnit_kilometer() throws {
+    let expected = "kilometers"
+
+    XCTAssertEqual(expected, Localized.kilometers)
+  }
+
+  func testLocalized_milesUnit_miles() throws {
+    let expected = "miles"
 
     XCTAssertEqual(expected, Localized.miles)
   }
@@ -68,5 +80,11 @@ class LocalizablesTests: XCTestCase {
     let expected = "Settings"
 
     XCTAssertEqual(expected, Localized.settings)
+  }
+
+  func testLocalized_unitLabel_returnsUnit() throws {
+    let expected = "Unit"
+
+    XCTAssertEqual(expected, Localized.unit)
   }
 }

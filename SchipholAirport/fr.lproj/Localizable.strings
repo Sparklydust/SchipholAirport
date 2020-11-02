@@ -26,4 +26,7 @@
 
 // MARK: - UILabels
 "km" = "km";
-"miles" = "mi";
+"mi" = "mi";
+"kilometers" = "kilomètres";
+"miles" = "milles";
+"unit" = "Unité";

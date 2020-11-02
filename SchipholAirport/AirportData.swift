@@ -1,5 +1,5 @@
 //
-//  AirportsData.swift
+//  AirportData.swift
 //  SchipholAirport
 //
 //  Created by Roland Lariotte on 30/10/2020.
@@ -8,13 +8,13 @@
 import Foundation
 import CoreLocation
 
-//  MARK: AirportsData
+//  MARK: AirportData
 /// Airports data coming from the api.
 ///
 /// Additional elements from the api are added to
-/// AirportsData, the location and func distance(location:).
+/// AirportData, the location and func distance(location:).
 ///
-struct AirportsData: AirportsProtocol, Codable {
+struct AirportData: AirportsProtocol, Codable {
 
   var id: String
   var latitude: Double

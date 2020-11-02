@@ -33,10 +33,16 @@ extension FlightsTVC {
   /// Setup main view design and layout.
   ///
   func setupMainView() {
+    setupDesign()
     addSubviews()
+    activateLayoutConstraints()
+  }
+
+  /// Setup view design on all elements.
+  ///
+  func setupDesign() {
     setupNameLabel()
     setupDistanceLabel()
-    activateLayoutConstraints()
   }
 
   /// Adding all subviews into FlightsTVC.
@@ -45,11 +51,13 @@ extension FlightsTVC {
     contentView.addSubview(nameLabel)
     contentView.addSubview(distanceLabel)
   }
+}
 
+// MARK: - Design
+extension FlightsTVC {
   /// Setup nameLabel design.
   ///
   func setupNameLabel() {
-    nameLabel.translatesAutoresizingMaskIntoConstraints = false
     nameLabel.font = .systemFont(ofSize: 16, weight: .medium)
     nameLabel.numberOfLines = 1
     distanceLabel.textAlignment = .left
@@ -58,24 +66,32 @@ extension FlightsTVC {
   /// Setup distanceLabel design.
   ///
   func setupDistanceLabel() {
-    distanceLabel.translatesAutoresizingMaskIntoConstraints = false
     distanceLabel.font = .systemFont(ofSize: 12, weight: .regular)
     distanceLabel.textColor = .systemGray
     distanceLabel.numberOfLines = 1
     distanceLabel.textAlignment = .right
   }
+}
 
-  /// Setup and activate all layout of the FlightsTVC.
+// MARK: - Layouts
+extension FlightsTVC {
+  /// Setup and activate all layouts of the FlightsTVC.
   ///
-  /// Elements are set in NSLayoutConstraint.activate()from top to
-  /// bottom. Comments are added in func to define which view
-  /// element is being anchored.
+  /// Elements are set from top to bottom.
   ///
   func activateLayoutConstraints() {
-    NSLayoutConstraint.activate([
+    activateNameLabelLayout()
+    activateDistanceLabelLayout()
+  }
 
-      // nameLabel
-      //
+  /// Layout nameLabel.
+  ///
+  /// First element in view anchored from centerY of view.
+  ///
+  func activateNameLabelLayout() {
+    nameLabel.translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
       nameLabel
         .centerYAnchor
         .constraint(equalTo: contentView.centerYAnchor),
@@ -89,9 +105,17 @@ extension FlightsTVC {
         .topAnchor
         .constraint(equalTo: contentView.topAnchor,
                     constant: 16),
+    ])
+  }
 
-      // distanceLabel
-      //
+  /// Layout distanceLabel.
+  ///
+  /// Center to nameLabel Y axis
+  ///
+  func activateDistanceLabelLayout() {
+    distanceLabel.translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
       distanceLabel
         .centerYAnchor
         .constraint(equalTo: nameLabel.centerYAnchor),

@@ -1,5 +1,5 @@
 //
-//  FlightsData.swift
+//  FlightData.swift
 //  SchipholAirport
 //
 //  Created by Roland Lariotte on 30/10/2020.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-//  MARK: FlightsData
+//  MARK: FlightData
 /// Flights data coming from the api.
 ///
-struct FlightsData: FlightsProtocol, Codable, Equatable {
+struct FlightData: FlightsProtocol, Codable, Equatable {
 
   var airlineId: String
   var flightNumber: Int

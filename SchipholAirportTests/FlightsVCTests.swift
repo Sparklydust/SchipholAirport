@@ -32,21 +32,21 @@ class FlightsVCTests: XCTestCase {
 extension FlightsVCTests {
   /// Load fake flights data from json file inside Fakes/Json folder.
   ///
-  func loadFakeJsonFlights() -> [FlightsData] {
+  func loadFakeJsonFlights() -> [FlightData] {
     let bundle = Bundle(for: FlightsVCTests.self)
     let url = bundle.url(forResource: "Flights", withExtension: "json")
     let data = try! Data(contentsOf: url!)
-    let flights = try! JSONDecoder().decode([FlightsData].self, from: data)
+    let flights = try! JSONDecoder().decode([FlightData].self, from: data)
     return flights
   }
 
   /// Load fake airports data from json file inside Fakes/Json folder.
   ///
-  func loadFakeJsonAirports() -> [AirportsData] {
+  func loadFakeJsonAirports() -> [AirportData] {
     let bundle = Bundle(for: FlightsVCTests.self)
     let url = bundle.url(forResource: "Airports", withExtension: "json")
     let data = try! Data(contentsOf: url!)
-    let airports = try! JSONDecoder().decode([AirportsData].self, from: data)
+    let airports = try! JSONDecoder().decode([AirportData].self, from: data)
     return airports
   }
 }
@@ -62,7 +62,7 @@ extension FlightsVCTests {
   }
 
   func testFlightsVC_flightsVariableOfFlightsData_mustBeAnEmptyArrayAtStart() throws {
-    let expected = [FlightsData]()
+    let expected = [FlightData]()
 
     sut.loadViewIfNeeded()
 
@@ -251,6 +251,17 @@ extension FlightsVCTests {
 
   func testFlightsVC_kmDistanceValueFromAirports_returnsStringWithDistanceAndUnit() throws {
     let expected = "625.17 km"
+    let airports = loadFakeJsonAirports()
+    let airport = airports[0]
+
+    let result = sut.distanceFromSchiphol(to: airport)
+
+    XCTAssertEqual(expected, result)
+  }
+
+  func testFlightsVC_milesDistanceValueFromAirports_returnsStringWithDistanceAndUnit() throws {
+    let expected = "388.46 mi"
+    sut.isInKm = false
     let airports = loadFakeJsonAirports()
     let airport = airports[0]
 

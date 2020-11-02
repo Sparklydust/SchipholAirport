@@ -66,8 +66,17 @@ extension Localized {
 // MARK: - UILabels
 extension Localized {
   static let km = NSLocalizedString(
-    "km", comment: "km unit")
+    "km", comment: "kilometer unit shorten to km")
+
+  static let mi = NSLocalizedString(
+    "mi", comment: "miles unit shorten to mi")
+
+  static let kilometers = NSLocalizedString(
+    "kilometers", comment: "kilometers unit")
 
   static let miles = NSLocalizedString(
     "miles", comment: "miles unit")
+
+  static let unit = NSLocalizedString(
+    "unit", comment: "unit distance label in settings")
 }
