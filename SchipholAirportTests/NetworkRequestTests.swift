@@ -44,7 +44,18 @@ class NetworkRequestTests: XCTestCase {
   }
 }
 
-// MARK: - Tests
+// MARK: - Helpers
+extension NetworkRequestTests {
+  /// Helper to mock url session with api response 200.
+  ///
+  func mockURLSessionResponseOK(data: Data) -> MockURLSession {
+    MockURLSession(data: data,
+                   response: FakeDataResponse.response200OK,
+                   error: nil)
+  }
+}
+
+// MARK: - Airports API Tests
 extension NetworkRequestTests {
   func testNetworkRequest_getAllAirports_returnsAllAirportsFromAPI() throws {
     let expected = airport.name
@@ -182,16 +193,5 @@ extension NetworkRequestTests {
       expectation.fulfill()
     }
     wait(for: [expectation], timeout: 0.1)
-  }
-}
-
-// MARK: - Helpers
-extension NetworkRequestTests {
-  /// Helper to mock url session with api response 200.
-  ///
-  func mockURLSessionResponseOK(data: Data) -> MockURLSession {
-    MockURLSession(data: data,
-                   response: FakeDataResponse.response200OK,
-                   error: nil)
   }
 }

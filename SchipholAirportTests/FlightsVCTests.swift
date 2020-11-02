@@ -177,7 +177,7 @@ extension FlightsVCTests {
     XCTAssertEqual(expected, sut.flights.count)
   }
 
-  func testFlightsTVC_getAllAirportsFromAPI_returnsAirportsWithSuccess() throws {
+  func testFlightsVC_getAllAirportsFromAPI_returnsAirportsWithSuccess() throws {
     let expected = 12
 
     let expectation = XCTestExpectation(
@@ -195,7 +195,7 @@ extension FlightsVCTests {
     XCTAssertEqual(expected, sut.airports.count)
   }
 
-  func testFlightsTVC_getAllAirportsFromAPI_returnsFailureWithAlert() throws {
+  func testFlightsVC_getAllAirportsFromAPI_returnsFailureWithAlert() throws {
     let expected = 0
 
     let expectation = XCTestExpectation(

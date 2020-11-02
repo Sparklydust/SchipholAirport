@@ -193,6 +193,8 @@ extension FlightsVC {
 
   /// Handling downlading failure from api call.
   ///
+  /// Populate an alert to the user with a try again button.
+  ///
   func handleDownloadFailure() {
     spinner.stops()
     showDownloadFailureAlert()

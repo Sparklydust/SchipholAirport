@@ -144,4 +144,76 @@ extension AirlinesVCTests {
 
     XCTAssertEqual(expected, sut.airlines.count)
   }
+
+  func testAirlinesVC_getAllFlightsFromAPI_returnsZeroFlightsWithFailure() throws {
+    let expected = 0
+
+    let expectation = XCTestExpectation(
+      description: "Failure from api call")
+
+    sut.flightsDownloader.resourceSession =
+      MockURLSession(
+        data: FakeDataResponse.flightsCorrectData,
+        response: FakeDataResponse.responseKO,
+        error: nil)
+
+    sut.downloadFlights { expectation.fulfill() }
+
+    wait(for: [expectation], timeout: 0.1)
+    XCTAssertEqual(expected, sut.flights.count)
+  }
+
+  func testAirlinesVC_getAllFlightsFromAPI_returnsFlightsWithSuccess() throws {
+    let expected = 3
+
+    let expectation = XCTestExpectation(
+      description: "Success with flights from api in an array")
+
+    sut.flightsDownloader.resourceSession =
+      MockURLSession(
+        data: FakeDataResponse.flightsCorrectData,
+        response: FakeDataResponse.response200OK,
+        error: nil)
+
+    sut.downloadFlights { expectation.fulfill() }
+
+    wait(for: [expectation], timeout: 0.1)
+    XCTAssertEqual(expected, sut.flights.count)
+  }
+
+  func testAirlinesVC_getAllAirportsFromAPI_returnsAirportsWithSuccess() throws {
+    let expected = 12
+
+    let expectation = XCTestExpectation(
+      description: "Success with airports from api in an array")
+
+    sut.airportsDownloader.resourceSession =
+      MockURLSession(
+        data: FakeDataResponse.airportsCorrectData,
+        response: FakeDataResponse.response200OK,
+        error: nil)
+
+    sut.downloadData { expectation.fulfill() }
+
+    wait(for: [expectation], timeout: 0.1)
+    XCTAssertEqual(expected, sut.airports.count)
+  }
+
+  func testAirlinesVC_getAllAirportsFromAPI_returnsFailureWithAlert() throws {
+    let expected = 0
+
+    let expectation = XCTestExpectation(
+      description: "Success with airports from api in an array")
+
+    sut.airportsDownloader.resourceSession =
+      MockURLSession(
+        data: nil,
+        response: nil,
+        error: FakeDataResponse.error)
+
+    sut.downloadAirports { expectation.fulfill() }
+
+    wait(for: [expectation], timeout: 0.1)
+    XCTAssertEqual(expected, sut.airports.count)
+  }
 }

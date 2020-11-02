@@ -35,6 +35,7 @@
 		2AB05B022550217B0052FC21 /* AirportDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B012550217B0052FC21 /* AirportDataTests.swift */; };
 		2AB05B0A25504CC60052FC21 /* AirlineTVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B0925504CC60052FC21 /* AirlineTVCTests.swift */; };
 		2AB05B0F25504DB00052FC21 /* AirlineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B0E25504DB00052FC21 /* AirlineTVC.swift */; };
+		2AB05B1D255094390052FC21 /* NetworkEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B1C255094390052FC21 /* NetworkEndpointTests.swift */; };
 		2AD36754254BF5DD00677F7E /* AirportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36753254BF5DC00677F7E /* AirportData.swift */; };
 		2AD3675E254BF61000677F7E /* AirportsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3675D254BF61000677F7E /* AirportsProtocol.swift */; };
 		2AD36772254BFD9100677F7E /* FlightsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36771254BFD9100677F7E /* FlightsProtocol.swift */; };
@@ -115,6 +116,7 @@
 		2AB05B012550217B0052FC21 /* AirportDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDataTests.swift; sourceTree = "<group>"; };
 		2AB05B0925504CC60052FC21 /* AirlineTVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineTVCTests.swift; sourceTree = "<group>"; };
 		2AB05B0E25504DB00052FC21 /* AirlineTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineTVC.swift; sourceTree = "<group>"; };
+		2AB05B1C255094390052FC21 /* NetworkEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpointTests.swift; sourceTree = "<group>"; };
 		2AD36753254BF5DC00677F7E /* AirportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportData.swift; sourceTree = "<group>"; };
 		2AD3675D254BF61000677F7E /* AirportsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsProtocol.swift; sourceTree = "<group>"; };
 		2AD36771254BFD9100677F7E /* FlightsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsProtocol.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				2AD36786254C01F100677F7E /* Services */,
 				2A66433E254ABD3700A0490E /* Extensions */,
+				2AB05B212550948C0052FC21 /* Enums */,
 				2A664317254A225000A0490E /* Localizables */,
 				2AB05B002550214F0052FC21 /* Models */,
 				2AD3682E254D763100677F7E /* Tools */,
@@ -421,6 +424,14 @@
 				2AB05B012550217B0052FC21 /* AirportDataTests.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		2AB05B212550948C0052FC21 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				2AB05B1C255094390052FC21 /* NetworkEndpointTests.swift */,
+			);
+			name = Enums;
 			sourceTree = "<group>";
 		};
 		2AD36752254BF58100677F7E /* Models */ = {
@@ -762,6 +773,7 @@
 				2AD36821254D607800677F7E /* FlightTVCTests.swift in Sources */,
 				2AD367CB254C127700677F7E /* NetworkRequestTests.swift in Sources */,
 				2A6642E1254A0D4100A0490E /* AirlinesVCTests.swift in Sources */,
+				2AB05B1D255094390052FC21 /* NetworkEndpointTests.swift in Sources */,
 				2AD36894254F4AEF00677F7E /* SettingsVCTests.swift in Sources */,
 				2A6642E6254A0FBF00A0490E /* MainVCTests.swift in Sources */,
 				2AD367C1254C105E00677F7E /* MockURLSession.swift in Sources */,

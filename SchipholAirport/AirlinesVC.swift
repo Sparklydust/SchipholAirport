@@ -16,10 +16,14 @@ class AirlinesVC: UITableViewController {
 
   // Data
   var airlines = [AirlineData]()
+  var flights = [FlightData]()
+  var airports = [AirportData]()
 
   // Reference Types
   let spinner = Spinner()
   var airlinesDownloader = NetworkRequest<AirlineData>(.airlines)
+  var flightsDownloader = NetworkRequest<FlightData>(.flights)
+  var airportsDownloader = NetworkRequest<AirportData>(.airports)
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,6 +41,8 @@ extension AirlinesVC {
   ///
   func downloadData(_ completion: @escaping () -> Void = { }) {
     downloadAirlines(completion)
+    downloadFlights(completion)
+    downloadAirports(completion)
   }
 
   /// Download airlines from flightassets api.
@@ -67,7 +73,65 @@ extension AirlinesVC {
     }
   }
 
+  /// Download flights from flightassets api.
+  ///
+  /// The completion with @escaping is used to pass expectation
+  /// in tests mainly.
+  ///
+  func downloadFlights(_ completion: @escaping () -> Void = { }) {
+    spinner.starts(on: view)
+
+    flightsDownloader.getArray { response in
+      switch response {
+      case .failure:
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
+          self.handleDownloadFailure()
+          completion()
+        }
+        return
+      case .success(let flights):
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
+          self.handleDownloadSuccess(flights)
+          completion()
+        }
+        return
+      }
+    }
+  }
+
+  /// Download airports from flightassets api.
+  ///
+  /// The completion with @escaping is used to pass expectation
+  /// in tests mainly.
+  ///
+  func downloadAirports(_ completion: @escaping () -> Void = { }) {
+    spinner.starts(on: view)
+
+    airportsDownloader.getArray { response in
+      switch response {
+      case .failure:
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
+          self.handleDownloadFailure()
+          completion()
+        }
+        return
+      case .success(let airports):
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
+          self.handleDownloadSuccess(airports)
+          completion()
+        }
+        return
+      }
+    }
+  }
+
   /// Handling downlading failure from api call.
+  ///
+  /// Populate an alert to the user with a try again button.
   ///
   func handleDownloadFailure() {
     spinner.stops()
@@ -78,6 +142,20 @@ extension AirlinesVC {
   ///
   func handleDownloadSuccess(_ airlinesData: [AirlineData]) {
     airlines = airlinesData
+    spinner.stops()
+  }
+
+  /// Handling downloading flights data success from api call.
+  ///
+  func handleDownloadSuccess(_ flightsData: [FlightData]) {
+    flights = flightsData
+    spinner.stops()
+  }
+
+  /// Handling downloading airports data success from api call.
+  ///
+  func handleDownloadSuccess(_ airportsData: [AirportData]) {
+    airports = airportsData
     spinner.stops()
     tableView.reloadData()
   }
