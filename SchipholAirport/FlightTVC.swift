@@ -1,5 +1,5 @@
 //
-//  FlightsTVC.swift
+//  FlightTVC.swift
 //  SchipholAirport
 //
 //  Created by Roland Lariotte on 30/10/2020.
@@ -7,13 +7,14 @@
 
 import UIKit
 
-//  MARK: FlightsTVC
+//  MARK: FlightTVC
 /// Cell that populate flights connected to Schiphol.
 ///
-class FlightsTVC: UITableViewCell {
+class FlightTVC: UITableViewCell {
 
   /// Identifier for UITAbleView cell setup
-  static let identifier = "flightsTVC"
+  ///
+  static let identifier = "flightTVC"
 
   var nameLabel = UILabel()
   var distanceLabel = UILabel()
@@ -29,7 +30,7 @@ class FlightsTVC: UITableViewCell {
 }
 
 // MARK: - Main Setup
-extension FlightsTVC {
+extension FlightTVC {
   /// Setup main view design and layout.
   ///
   func setupMainView() {
@@ -45,7 +46,7 @@ extension FlightsTVC {
     setupDistanceLabel()
   }
 
-  /// Adding all subviews into FlightsTVC.
+  /// Adding all subviews into FlightTVC.
   ///
   func addSubviews() {
     contentView.addSubview(nameLabel)
@@ -54,7 +55,7 @@ extension FlightsTVC {
 }
 
 // MARK: - Design
-extension FlightsTVC {
+extension FlightTVC {
   /// Setup nameLabel design.
   ///
   func setupNameLabel() {
@@ -74,7 +75,7 @@ extension FlightsTVC {
 }
 
 // MARK: - Layouts
-extension FlightsTVC {
+extension FlightTVC {
   /// Setup and activate all layouts of the FlightsTVC.
   ///
   /// Elements are set from top to bottom.

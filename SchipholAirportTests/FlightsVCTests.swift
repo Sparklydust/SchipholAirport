@@ -81,7 +81,7 @@ extension FlightsVCTests {
     XCTAssertEqual(expected, sut.title)
   }
 
-  func testFlightsVC_flightsVariableOfFlightsData_mustBeAnEmptyArrayAtStart() throws {
+  func testFlightsVC_flightsVariableOfFlightData_mustBeAnEmptyArrayAtStart() throws {
     let expected = [FlightData]()
 
     sut.loadViewIfNeeded()
@@ -95,24 +95,24 @@ extension FlightsVCTests {
     XCTAssertNotNil(sut.tableView)
   }
 
-  func testFlightsVC_TableViewHasDelegate_returnNotNil() {
+  func testFlightsVC_tableViewHasDelegate_returnNotNil() throws {
     XCTAssertNotNil(sut.tableView.delegate)
   }
 
-  func testFlightsVC_checkTableViewNumberOfRows_returnFlightsArrayCount() throws {
-    let expected = sut.flights.count
+  func testFlightsVC_checkTableViewNumberOfRows_returnAirportsConnectedArrayCount() throws {
+    let expected = sut.airportsConnected.count
 
     sut.loadViewIfNeeded()
-    let rowCount = sut.tableView(sut.tableView, numberOfRowsInSection: 0)
+    let result = sut.tableView(sut.tableView, numberOfRowsInSection: 0)
 
-    XCTAssertEqual(expected, rowCount)
+    XCTAssertEqual(expected, result)
   }
 
   func testFlightVC_checkTableViewCell_returnsFlightsTVCCell() throws {
     let expected = "Aalborg Airport"
     sut.airportsConnected = loadFakeJsonAirports()
 
-    let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? FlightsTVC
+    let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? FlightTVC
 
     XCTAssertEqual(expected, cell?.nameLabel.text)
   }
@@ -269,16 +269,6 @@ extension FlightsVCTests {
     XCTAssertEqual(expected, sut.distanceFormat)
   }
 
-  func testFlightsVC_kmDistanceValueFromAirports_returnsStringWithDistanceAndUnit() throws {
-    let expected = "625.17 km"
-    let airports = loadFakeJsonAirports()
-    let airport = airports[0]
-
-    let result = sut.distanceFromSchiphol(to: airport)
-
-    XCTAssertEqual(expected, result)
-  }
-
   func testFlightsVC_checkDistanceUnitSettings_changeUnitIfNewValueFromSettings() throws {
     sut.isInKm = fakeUserDefaultsService.isInKm
     sut.trackIsInKm = !fakeUserDefaultsService.isInKm
@@ -292,17 +282,27 @@ extension FlightsVCTests {
     sut.isInKm = fakeUserDefaultsService.isInKm
     sut.trackIsInKm = fakeUserDefaultsService.isInKm
 
-    sut.checkDistanceUnitSettings()
+    sut.viewWillAppear(false)
 
     XCTAssertEqual(!sut.isInKm, sut.trackIsInKm)
   }
 
-  func testFlightsVC_milesDistanceValueFromAirports_returnsStringWithDistanceAndUnit() throws {
-    let expected = "388.46 mi"
-    sut.isInKm = false
-
+  func testFlightsVC_kmDistanceValueFromAirports_returnsStringWithDistanceAndUnit() throws {
+    let expected = "625.17 km"
     let airports = loadFakeJsonAirports()
     let airport = airports[0]
+    sut.isInKm = true
+
+    let result = sut.distanceFromSchiphol(to: airport)
+
+    XCTAssertEqual(expected, result)
+  }
+
+  func testFlightsVC_milesDistanceValueFromAirports_returnsStringWithDistanceAndUnit() throws {
+    let expected = "388.46 mi"
+    let airports = loadFakeJsonAirports()
+    let airport = airports[0]
+    sut.isInKm = false
 
     let result = sut.distanceFromSchiphol(to: airport)
 

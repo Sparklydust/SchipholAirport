@@ -226,8 +226,8 @@ extension FlightsVC {
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-    let cell = tableView.dequeueReusableCell(withIdentifier: FlightsTVC.identifier,
-                                             for: indexPath) as! FlightsTVC
+    let cell = tableView.dequeueReusableCell(withIdentifier: FlightTVC.identifier,
+                                             for: indexPath) as! FlightTVC
 
     return setup(cell, at: indexPath)
   }
@@ -245,8 +245,8 @@ extension FlightsVC {
   /// Setup table view style and cell type.
   ///
   func setupTableView() {
-    tableView.register(FlightsTVC.self,
-                       forCellReuseIdentifier: FlightsTVC.identifier)
+    tableView.register(FlightTVC.self,
+                       forCellReuseIdentifier: FlightTVC.identifier)
     tableView.tableFooterView = UIView()
   }
 
@@ -265,7 +265,7 @@ extension FlightsVC {
   /// Cell is populated once the airports connected flights
   /// from api are fetched and trimmed.
   ///
-  func setup(_ cell: FlightsTVC, at indexPath: IndexPath) -> FlightsTVC {
+  func setup(_ cell: FlightTVC, at indexPath: IndexPath) -> FlightTVC {
     let airport = airportsConnected[indexPath.row]
     let distance = distanceFromSchiphol(to: airport)
 
