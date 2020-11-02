@@ -26,6 +26,12 @@
 		2A92360A2549A20F0058B96C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9236082549A20F0058B96C /* LaunchScreen.storyboard */; };
 		2A9236202549A2100058B96C /* SchipholAirportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A92361F2549A2100058B96C /* SchipholAirportUITests.swift */; };
 		2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9236662549CAF40058B96C /* AirlinesVC.swift */; };
+		2AB05ADA255009FC0052FC21 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05AD9255009FC0052FC21 /* UserDefaultsProtocol.swift */; };
+		2AB05AE125500C3D0052FC21 /* UserDefaultsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05AE025500C3D0052FC21 /* UserDefaultsContainer.swift */; };
+		2AB05AE625500D6A0052FC21 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05AE525500D6A0052FC21 /* UserDefaultsService.swift */; };
+		2AB05AEC25500EF80052FC21 /* UserDefaultsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05AEB25500EF80052FC21 /* UserDefaultsServiceTests.swift */; };
+		2AB05AF425500F740052FC21 /* MockUserDefaultsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05AF325500F740052FC21 /* MockUserDefaultsContainer.swift */; };
+		2AB05AF9255011100052FC21 /* UserDefaultsContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05AF8255011100052FC21 /* UserDefaultsContainerTests.swift */; };
 		2AD36754254BF5DD00677F7E /* AirportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36753254BF5DC00677F7E /* AirportData.swift */; };
 		2AD3675E254BF61000677F7E /* AirportsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3675D254BF61000677F7E /* AirportsProtocol.swift */; };
 		2AD36772254BFD9100677F7E /* FlightsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36771254BFD9100677F7E /* FlightsProtocol.swift */; };
@@ -97,6 +103,12 @@
 		2A9236212549A2100058B96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A9236612549C8CF0058B96C /* Development.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Development.xctestplan; sourceTree = "<group>"; };
 		2A9236662549CAF40058B96C /* AirlinesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlinesVC.swift; sourceTree = "<group>"; };
+		2AB05AD9255009FC0052FC21 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
+		2AB05AE025500C3D0052FC21 /* UserDefaultsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsContainer.swift; sourceTree = "<group>"; };
+		2AB05AE525500D6A0052FC21 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		2AB05AEB25500EF80052FC21 /* UserDefaultsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsServiceTests.swift; sourceTree = "<group>"; };
+		2AB05AF325500F740052FC21 /* MockUserDefaultsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaultsContainer.swift; sourceTree = "<group>"; };
+		2AB05AF8255011100052FC21 /* UserDefaultsContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsContainerTests.swift; sourceTree = "<group>"; };
 		2AD36753254BF5DC00677F7E /* AirportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportData.swift; sourceTree = "<group>"; };
 		2AD3675D254BF61000677F7E /* AirportsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsProtocol.swift; sourceTree = "<group>"; };
 		2AD36771254BFD9100677F7E /* FlightsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsProtocol.swift; sourceTree = "<group>"; };
@@ -362,6 +374,40 @@
 			name = TabBars;
 			sourceTree = "<group>";
 		};
+		2AB05AD8255009DD0052FC21 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				2AB05AD9255009FC0052FC21 /* UserDefaultsProtocol.swift */,
+			);
+			name = UserDefaults;
+			sourceTree = "<group>";
+		};
+		2AB05ADE25500BCA0052FC21 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				2AB05AF8255011100052FC21 /* UserDefaultsContainerTests.swift */,
+				2AB05AEB25500EF80052FC21 /* UserDefaultsServiceTests.swift */,
+			);
+			name = UserDefaults;
+			sourceTree = "<group>";
+		};
+		2AB05ADF25500C280052FC21 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				2AB05AE025500C3D0052FC21 /* UserDefaultsContainer.swift */,
+				2AB05AE525500D6A0052FC21 /* UserDefaultsService.swift */,
+			);
+			name = UserDefaults;
+			sourceTree = "<group>";
+		};
+		2AB05AEA25500ED50052FC21 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				2AB05AF325500F740052FC21 /* MockUserDefaultsContainer.swift */,
+			);
+			name = UserDefaults;
+			sourceTree = "<group>";
+		};
 		2AD36752254BF58100677F7E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +421,7 @@
 		2AD3675B254BF5F100677F7E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				2AB05AD8255009DD0052FC21 /* UserDefaults */,
 				2AD367E5254C207700677F7E /* Networking */,
 				2AD3675C254BF60100677F7E /* Models */,
 			);
@@ -395,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				2AD3678A254C024800677F7E /* Networking */,
+				2AB05ADF25500C280052FC21 /* UserDefaults */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -403,6 +451,7 @@
 			isa = PBXGroup;
 			children = (
 				2AD36789254C023900677F7E /* Networking */,
+				2AB05ADE25500BCA0052FC21 /* UserDefaults */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -436,6 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				2AD367B5254C0B6D00677F7E /* Networking */,
+				2AB05AEA25500ED50052FC21 /* UserDefaults */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -658,8 +708,11 @@
 				2A664313254A1F6400A0490E /* Localized.swift in Sources */,
 				2AD36804254C836400677F7E /* FlightsTVC.swift in Sources */,
 				2AD3675E254BF61000677F7E /* AirportsProtocol.swift in Sources */,
+				2AB05AE625500D6A0052FC21 /* UserDefaultsService.swift in Sources */,
 				2AD3677C254C001A00677F7E /* AirlinesProtocol.swift in Sources */,
+				2AB05AE125500C3D0052FC21 /* UserDefaultsContainer.swift in Sources */,
 				2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */,
+				2AB05ADA255009FC0052FC21 /* UserDefaultsProtocol.swift in Sources */,
 				2AD36772254BFD9100677F7E /* FlightsProtocol.swift in Sources */,
 				2AD3682A254D762600677F7E /* Spinner.swift in Sources */,
 				2AD3688F254F333800677F7E /* SettingsVC.swift in Sources */,
@@ -684,6 +737,8 @@
 				2A664355254AC6D300A0490E /* UIColor+NameTests.swift in Sources */,
 				2AD367C6254C111400677F7E /* MockURLSessionDataTask.swift in Sources */,
 				2AD367B9254C0BE700677F7E /* FakeDataResponse.swift in Sources */,
+				2AB05AEC25500EF80052FC21 /* UserDefaultsServiceTests.swift in Sources */,
+				2AB05AF9255011100052FC21 /* UserDefaultsContainerTests.swift in Sources */,
 				2A6642FB254A145F00A0490E /* FlightsVCTests.swift in Sources */,
 				2A664319254A229B00A0490E /* LocalizablesTests.swift in Sources */,
 				2AD36821254D607800677F7E /* FlightsTVCTests.swift in Sources */,
@@ -693,6 +748,7 @@
 				2A6642E6254A0FBF00A0490E /* MainVCTests.swift in Sources */,
 				2AD367C1254C105E00677F7E /* MockURLSession.swift in Sources */,
 				2A66434B254ABDD900A0490E /* UIImage+NameTests.swift in Sources */,
+				2AB05AF425500F740052FC21 /* MockUserDefaultsContainer.swift in Sources */,
 				2A6642F6254A10F200A0490E /* AirportsVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

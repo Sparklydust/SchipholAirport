@@ -11,7 +11,7 @@ import Foundation
 /// Mock url session data task to fake completion handler
 /// response.
 ///
-class MockURLSessionDataTask: URLSessionDataTask {
+final class MockURLSessionDataTask: URLSessionDataTask {
 
   var completionHandler: ((Data?, URLResponse?, Error?) -> Void)?
 

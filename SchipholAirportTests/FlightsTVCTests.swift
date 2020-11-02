@@ -21,7 +21,10 @@ class FlightsTVCTests: XCTestCase {
     sut = nil
     try super.tearDownWithError()
   }
+}
 
+// MARK: - Tests
+extension FlightsTVC {
   func testFlightsTVC_requiredInitWithCoder_returnsNil() throws {
     let flightTVC = FlightsTVC(coder: NSCoder())
 

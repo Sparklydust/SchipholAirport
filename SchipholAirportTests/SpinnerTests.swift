@@ -21,7 +21,10 @@ class SpinnerTests: XCTestCase {
     sut = nil
     try super.tearDownWithError()
   }
+}
 
+// MARK: - Tests
+extension SpinnerTests {
   func testSpinner_isAnimating_returnsTrue() throws {
     sut.starts(on: UIView())
 

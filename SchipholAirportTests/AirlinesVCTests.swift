@@ -21,7 +21,10 @@ class AirlinesVCTests: XCTestCase {
     sut = nil
     try super.tearDownWithError()
   }
+}
 
+// MARK: - Tests
+extension AirlinesVCTests {
   func testAirlinesVC_setupBackgroundColor_colorEqualToGreen() throws {
     let expected = UIColor.green
 

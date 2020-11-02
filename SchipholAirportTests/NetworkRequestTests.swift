@@ -44,7 +44,7 @@ class NetworkRequestTests: XCTestCase {
   }
 }
 
-// MARK: - Airports API Tests
+// MARK: - Tests
 extension NetworkRequestTests {
   func testNetworkRequest_getAllAirports_returnsAllAirportsFromAPI() throws {
     let expected = airport.name
