@@ -108,16 +108,18 @@ extension FlightsVCTests {
     XCTAssertEqual(expected, result)
   }
 
-  func testFlightVC_checkTableViewCell_returnsFlightsTVCCell() throws {
+  func testFlightVC_checkTableViewCell_returnsFlightTVCCell() throws {
     let expected = "Aalborg Airport"
     sut.airportsConnected = loadFakeJsonAirports()
 
-    let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? FlightTVC
+    let cell = sut.tableView(
+      sut.tableView,
+      cellForRowAt: IndexPath(row: 0, section: 0)) as? FlightTVC
 
     XCTAssertEqual(expected, cell?.nameLabel.text)
   }
 
-  func testFlightsTVC_getAllFlightsFromAPI_returnsZeroFlightsWithFailure() throws {
+  func testFlightsVC_getAllFlightsFromAPI_returnsZeroFlightsWithFailure() throws {
     let expected = 0
 
     let expectation = XCTestExpectation(
@@ -135,7 +137,7 @@ extension FlightsVCTests {
     XCTAssertEqual(expected, sut.flights.count)
   }
 
-  func testFlightsTVC_getAllFlightsFromAPI_returnsFlightsWithSuccess() throws {
+  func testFlightsVC_getAllFlightsFromAPI_returnsFlightsWithSuccess() throws {
     let expected = 3
 
     let expectation = XCTestExpectation(
@@ -162,15 +164,15 @@ extension FlightsVCTests {
   }
 
   func testFlightVC_showRealodButton_buttonIsPopulated() throws {
-    sut.populateReloadButton()
+    sut.populateTryAgainButton()
 
-    XCTAssertTrue(sut.reloadButton.isEnabled)
+    XCTAssertTrue(sut.tryAgainButton.isEnabled)
   }
 
   func testFlightVC_reloadButtonIsTapped_flightsDataIsBeingRealoded() throws {
     let expected = 0
 
-    sut.reloadButtonAction()
+    sut.tryAgainButtonAction()
 
     XCTAssertEqual(expected, sut.flights.count)
   }

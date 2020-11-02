@@ -10,12 +10,76 @@ import UIKit
 //  MARK: AirlinesVC
 class AirlinesVC: UITableViewController {
 
+  // UI
+  var alert = UIAlertController()
+  var tryAgainButton = UIButton()
+
   // Data
   var airlines = [AirlineData]()
+
+  // Reference Types
+  let spinner = Spinner()
+  var airlinesDownloader = NetworkRequest<AirlineData>(.airlines)
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setupMainView()
+    downloadData()
+  }
+}
+// MARK: - Networking
+extension AirlinesVC {
+  /// Download all data for the view.
+  ///
+  /// Airlines, Flights and Airports are being fetch from the api.
+  /// The completion with @escaping isused to pass expectation
+  /// in tests mainly.
+  ///
+  func downloadData(_ completion: @escaping () -> Void = { }) {
+    downloadAirlines(completion)
+  }
+
+  /// Download airlines from flightassets api.
+  ///
+  /// The completion with @escaping is used to pass expectation
+  /// in tests mainly.
+  ///
+  func downloadAirlines(_ completion: @escaping () -> Void = { }) {
+    spinner.starts(on: view)
+
+    airlinesDownloader.getArray { response in
+      switch response {
+      case .failure:
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
+          self.handleDownloadFailure()
+          completion()
+        }
+        return
+      case .success(let airlines):
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
+          self.handleDownloadSuccess(airlines)
+          completion()
+        }
+        return
+      }
+    }
+  }
+
+  /// Handling downlading failure from api call.
+  ///
+  func handleDownloadFailure() {
+    spinner.stops()
+    showDownloadFailureAlert()
+  }
+
+  /// Handling downloading airlines data success from api call.
+  ///
+  func handleDownloadSuccess(_ airlinesData: [AirlineData]) {
+    airlines = airlinesData
+    spinner.stops()
+    tableView.reloadData()
   }
 }
 
@@ -32,7 +96,7 @@ extension AirlinesVC {
     let cell = tableView.dequeueReusableCell(withIdentifier: AirlineTVC.identifier,
                                              for: indexPath) as! AirlineTVC
 
-    return cell
+    return setup(cell, at: indexPath)
   }
 }
 
@@ -64,5 +128,104 @@ extension AirlinesVC {
     tableView.register(AirlineTVC.self,
                        forCellReuseIdentifier: AirlineTVC.identifier)
     tableView.tableFooterView = UIView()
+  }
+
+  /// Setup cell with airlines informations.
+  ///
+  /// Cell is populated once the airports connected flights
+  /// with airlines are fetched from api and trimmed.
+  ///
+  func setup(_ cell: AirlineTVC, at indexPath: IndexPath) -> AirlineTVC {
+    let airline = airlines[indexPath.row]
+
+    cell.nameLabel.text = airline.name
+
+    return cell
+  }
+
+  /// Try again button shown when download from api failed.
+  ///
+  /// User can with it reload the data later manually.
+  ///
+  func populateTryAgainButton() {
+    setupTryAgainButtonDesign()
+    setupTryAgainButtonLayout()
+  }
+
+  /// Setup try again button design.
+  ///
+  func setupTryAgainButtonDesign() {
+    tryAgainButton.backgroundColor = .accentColor$
+    tryAgainButton.layer.cornerRadius = 8
+    tryAgainButton.setTitle(Localized.tryAgain, for: .normal)
+    tryAgainButton.titleLabel?.font =  .systemFont(ofSize: 20,
+                                                 weight: .medium)
+    tryAgainButton.addTarget(self, action: #selector(tryAgainButtonAction),
+                           for: .touchUpInside)
+    view.addSubview(tryAgainButton)
+  }
+
+  /// Restart the viewDidLoad downloading process for this view.
+  ///
+  @objc func tryAgainButtonAction() {
+    tryAgainButton.removeFromSuperview()
+    downloadData()
+  }
+}
+
+// MARK: - Autolayouts
+extension AirlinesVC {
+  /// Layout tryAgainButton.
+  ///
+  func setupTryAgainButtonLayout() {
+    tryAgainButton.translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
+      tryAgainButton
+        .centerXAnchor
+        .constraint(equalTo: view.centerXAnchor),
+
+      tryAgainButton
+        .centerYAnchor
+        .constraint(equalTo: view.centerYAnchor),
+
+      tryAgainButton
+        .leadingAnchor
+        .constraint(equalTo: view.leadingAnchor,
+                    constant: 40),
+
+      tryAgainButton
+        .trailingAnchor
+        .constraint(equalTo: view.trailingAnchor,
+                    constant: -40),
+
+      tryAgainButton
+        .heightAnchor
+        .constraint(equalToConstant: 50)
+    ])
+  }
+}
+
+// MARK: - Alerts
+extension AirlinesVC {
+  /// Alert with message to user when download failed.
+  ///
+  /// A simple ok button to dismiss the alert is added
+  /// and when tapped, try again button is populated on view.
+  ///
+  func showDownloadFailureAlert() {
+    alert = UIAlertController(
+      title: Localized.downloadFailure,
+      message: Localized.downloadFailureMessage,
+      preferredStyle: .alert)
+
+    alert.addAction(
+      UIAlertAction(
+        title: Localized.ok,
+        style: .default) { _ in
+        self.populateTryAgainButton()
+      })
+
+    present(alert, animated: true)
   }
 }

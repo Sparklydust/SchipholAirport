@@ -14,9 +14,8 @@ import CoreLocation
 class FlightsVC: UITableViewController {
 
   // UI
-  var activityView: UIActivityIndicatorView?
   var alert = UIAlertController()
-  var reloadButton = UIButton()
+  var tryAgainButton = UIButton()
 
   // Data
   var flights = [FlightData]()
@@ -288,63 +287,63 @@ extension FlightsVC {
     return airportDistance
   }
 
-  /// Reload button shown when download from api failed.
+  /// Try again button shown when download from api failed.
   ///
   /// User can with it reload the data later manually.
   ///
-  func populateReloadButton() {
-    setupReloadButtonDesign()
-    setupReloadButtonLayout()
+  func populateTryAgainButton() {
+    setupTryAgainButtonDesign()
+    setupTryAgainButtonLayout()
   }
 
   /// Setup try again button design.
   ///
-  func setupReloadButtonDesign() {
-    reloadButton.backgroundColor = .accentColor$
-    reloadButton.layer.cornerRadius = 8
-    reloadButton.setTitle(Localized.tryAgain, for: .normal)
-    reloadButton.titleLabel?.font =  .systemFont(ofSize: 20,
+  func setupTryAgainButtonDesign() {
+    tryAgainButton.backgroundColor = .accentColor$
+    tryAgainButton.layer.cornerRadius = 8
+    tryAgainButton.setTitle(Localized.tryAgain, for: .normal)
+    tryAgainButton.titleLabel?.font =  .systemFont(ofSize: 20,
                                                  weight: .medium)
-    reloadButton.addTarget(self, action: #selector(reloadButtonAction),
+    tryAgainButton.addTarget(self, action: #selector(tryAgainButtonAction),
                            for: .touchUpInside)
-    view.addSubview(reloadButton)
+    view.addSubview(tryAgainButton)
   }
 
   /// Restart the viewDidLoad downloading process for this view.
   ///
-  @objc func reloadButtonAction() {
-    reloadButton.removeFromSuperview()
+  @objc func tryAgainButtonAction() {
+    tryAgainButton.removeFromSuperview()
     downloadData()
   }
 }
 
 // MARK: - Autolayouts
 extension FlightsVC {
-  /// Layout reloadButton.
+  /// Layout tryAgainButton.
   ///
-  func setupReloadButtonLayout() {
-    reloadButton.translatesAutoresizingMaskIntoConstraints = false
+  func setupTryAgainButtonLayout() {
+    tryAgainButton.translatesAutoresizingMaskIntoConstraints = false
 
     NSLayoutConstraint.activate([
-      reloadButton
+      tryAgainButton
         .centerXAnchor
         .constraint(equalTo: view.centerXAnchor),
 
-      reloadButton
+      tryAgainButton
         .centerYAnchor
         .constraint(equalTo: view.centerYAnchor),
 
-      reloadButton
+      tryAgainButton
         .leadingAnchor
         .constraint(equalTo: view.leadingAnchor,
                     constant: 40),
 
-      reloadButton
+      tryAgainButton
         .trailingAnchor
         .constraint(equalTo: view.trailingAnchor,
                     constant: -40),
 
-      reloadButton
+      tryAgainButton
         .heightAnchor
         .constraint(equalToConstant: 50)
     ])
@@ -355,7 +354,8 @@ extension FlightsVC {
 extension FlightsVC {
   /// Alert with message to user when download failed.
   ///
-  /// A simple ok button to dismiss the alert is added.
+  /// A simple ok button to dismiss the alert is added
+  /// and when tapped, try again button is populated on view.
   ///
   func showDownloadFailureAlert() {
     alert = UIAlertController(
@@ -367,7 +367,7 @@ extension FlightsVC {
       UIAlertAction(
         title: Localized.ok,
         style: .default) { _ in
-        self.populateReloadButton()
+        self.populateTryAgainButton()
       })
 
     present(alert, animated: true)
