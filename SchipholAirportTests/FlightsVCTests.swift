@@ -178,7 +178,7 @@ extension FlightsVCTests {
   }
 
   func testFlightsVC_getAllAirportsFromAPI_returnsAirportsWithSuccess() throws {
-    let expected = 12
+    let expected = 13
 
     let expectation = XCTestExpectation(
       description: "Success with airports from api in an array")
@@ -229,7 +229,7 @@ extension FlightsVCTests {
   }
 
   func testFlightsVC_filterAirportsData_returnsAirportsConnectedToSchiphol() throws {
-    let expected = 1
+    let expected = 2
     sut.flightsConnected = loadFakeJsonFlights()
     sut.airports = loadFakeJsonAirports()
 
@@ -239,7 +239,7 @@ extension FlightsVCTests {
   }
 
   func testFlightsVC_populateFlightsAndAirportsData_returnAirportsConnectedToSchiphol() throws {
-    let expected = 1
+    let expected = 2
     sut.flights = loadFakeJsonFlights()
     sut.airports = loadFakeJsonAirports()
 

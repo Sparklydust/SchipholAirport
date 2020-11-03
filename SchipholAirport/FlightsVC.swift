@@ -249,6 +249,7 @@ extension FlightsVC {
     tableView.register(FlightTVC.self,
                        forCellReuseIdentifier: FlightTVC.identifier)
     tableView.tableFooterView = UIView()
+    tableView.allowsSelection = false
   }
 
   /// Setup view title.

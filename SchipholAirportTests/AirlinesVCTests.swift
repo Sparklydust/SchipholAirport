@@ -12,17 +12,37 @@ class AirlinesVCTests: XCTestCase {
 
   var sut: AirlinesVC!
 
+  var airline30: AirlineData!
+  var airlineAF: AirlineData!
+
+  var fakeUserDefaultsService: UserDefaultsService!
+  var mockUserDefaultsContainer: MockUserDefaultsContainer!
+
   override func setUpWithError() throws {
     try super.setUpWithError()
     sut = AirlinesVC()
+
+    airline30 = AirlineData(
+      id: "3O",
+      name: "Air Arabia Maroc")
+    airlineAF = AirlineData(
+      id: "AF",
+      name: "Air France")
 
     sut.airlinesDownloader.resourceSession =
       MockURLSession(data: nil,
                      response: nil,
                      error: nil)
+
+    mockUserDefaultsContainer = MockUserDefaultsContainer()
+    fakeUserDefaultsService = UserDefaultsService(userDefaultsContainer: mockUserDefaultsContainer)
   }
 
   override func tearDownWithError() throws {
+    fakeUserDefaultsService = nil
+    mockUserDefaultsContainer = nil
+    airlineAF = nil
+    airline30 = nil
     sut = nil
     try super.tearDownWithError()
   }
@@ -38,6 +58,27 @@ extension AirlinesVCTests {
     let data = try! Data(contentsOf: url!)
     let airlines = try! JSONDecoder().decode([AirlineData].self, from: data)
     return airlines
+  }
+
+  /// Load fake flights data from json file inside Fakes/Json folder.
+  ///
+  func loadFakeJsonFlights() -> [FlightData] {
+    let bundle = Bundle(for: AirlinesVCTests.self)
+    let url = bundle.url(forResource: "Flights", withExtension: "json")
+    let data = try! Data(contentsOf: url!)
+    let flights = try! JSONDecoder().decode([FlightData].self, from: data)
+    return flights
+  }
+
+  /// Load fake airports data from json file inside Fakes/Json folder.
+  ///
+  func loadFakeJsonAirports() -> [AirportData] {
+    let bundle = Bundle(for: AirlinesVCTests.self)
+    let url = bundle.url(forResource: "Airports", withExtension: "json")
+    let data = try! Data(contentsOf: url!)
+
+    let airports = try! JSONDecoder().decode([AirportData].self, from: data)
+    return airports
   }
 }
 
@@ -107,7 +148,7 @@ extension AirlinesVCTests {
   }
 
   func testAirlinesVC_getAllAirlinesFromAPI_returnAirlinesWithSuccess() throws {
-    let expected = 3
+    let expected = 4
 
     let expectation = XCTestExpectation(description: "Success with airlines from api in an array")
 
@@ -182,7 +223,7 @@ extension AirlinesVCTests {
   }
 
   func testAirlinesVC_getAllAirportsFromAPI_returnsAirportsWithSuccess() throws {
-    let expected = 12
+    let expected = 13
 
     let expectation = XCTestExpectation(
       description: "Success with airports from api in an array")
@@ -215,5 +256,107 @@ extension AirlinesVCTests {
 
     wait(for: [expectation], timeout: 0.1)
     XCTAssertEqual(expected, sut.airports.count)
+  }
+
+  func testAirlinesVC_distanceFormat_returnsValidFormatWithDistanceAndUnit() {
+    let expected = "%.2f %@"
+
+    XCTAssertEqual(expected, sut.distanceFormat)
+  }
+
+  func testAirlinesVC_schipholAirportID_returnAMS() throws {
+    let expected = "AMS"
+
+    XCTAssertEqual(expected, sut.schipholAirportID)
+  }
+
+  func testAirlinesVC_schipholAirportLocation_returnsCorrectLatitudeLongitude() throws {
+    let expectedLatitude = 52.30907
+    let expectedLongitude = 4.763385
+
+    XCTAssertEqual(expectedLatitude, sut.schipholLocation.coordinate.latitude)
+    XCTAssertEqual(expectedLongitude, sut.schipholLocation.coordinate.longitude)
+  }
+
+  func testAirlinesVC_checkDistanceUnitSettings_changeUnitIfNewValueFromSettings() throws {
+    sut.isInKm = fakeUserDefaultsService.isInKm
+    sut.trackIsInKm = !fakeUserDefaultsService.isInKm
+
+    sut.checkDistanceUnitSettings()
+
+    XCTAssertEqual(!sut.isInKm, sut.trackIsInKm)
+  }
+
+  func testAirlinesVC_checkTrackIsInKmHasSameValueAsIsInKm_changeTrackIsInKmOppositeBoolToIsInKm() throws {
+    sut.isInKm = fakeUserDefaultsService.isInKm
+    sut.trackIsInKm = fakeUserDefaultsService.isInKm
+
+    sut.viewWillAppear(false)
+
+    XCTAssertEqual(!sut.isInKm, sut.trackIsInKm)
+  }
+
+  func testAirlinesVC_filterFlightsData_returnsFlightsConnectedToSchiphol() throws {
+    let expected = 3
+    sut.flights = loadFakeJsonFlights()
+
+    sut.filterFlightsFromSchiphol()
+
+    XCTAssertEqual(expected, sut.flightsConnected.count)
+  }
+
+  func testAirlinesVC_filterAirlinesDeparture_returnAirlinesConnectedToSchiphol() throws {
+    let expected = 2
+    sut.flightsConnected = loadFakeJsonFlights()
+    sut.airlines = loadFakeJsonAirlines()
+
+    sut.filterAirlinesFromSchiphol()
+
+    XCTAssertEqual(expected, sut.airlinesConnected.count)
+  }
+
+  func testAirlinesVC_setAirlinesIntoADictionaryWithZeroAsValue_returnAirlinesDictionary() throws {
+    let expected: [AirlineData: Double] = [
+      airlineAF: 0,
+      airline30: 0
+    ]
+    sut.isInKm = false
+    sut.flightsConnected = loadFakeJsonFlights()
+    sut.airlinesConnected = loadFakeJsonAirlines()
+    sut.airports = loadFakeJsonAirports()
+
+    sut.setAirlinesConnectedDictionary()
+
+    XCTAssertEqual(expected, sut.airlinesDictionary)
+  }
+
+  func testAirlinesVC_calculateAirlineDistanceFromSchiphol_returnAirlinesDictWithTotalDistanceOfAllFlightInKm() throws {
+    let expected: [AirlineData: Double] = [
+      airlineAF: 798.3115413997741,
+      airline30: 2026.634960748272
+    ]
+    sut.isInKm = true
+    sut.flights = loadFakeJsonFlights()
+    sut.airlines = loadFakeJsonAirlines()
+    sut.airports = loadFakeJsonAirports()
+
+    sut.populateAirlines()
+
+    XCTAssertEqual(expected, sut.airlinesDictionary)
+  }
+
+  func testAirlinesVC_calculateAirlineDistanceFromSchiphol_returnAirlinesDictWithTotalDistanceOfAllFlightInMiles() throws {
+    let expected: [AirlineData: Double] = [
+      airlineAF: 496.0476407911191,
+      airline30: 1259.2921921951145
+    ]
+    sut.isInKm = false
+    sut.flights = loadFakeJsonFlights()
+    sut.airlines = loadFakeJsonAirlines()
+    sut.airports = loadFakeJsonAirports()
+
+    sut.populateAirlines()
+
+    XCTAssertEqual(expected, sut.airlinesDictionary)
   }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 //  MARK: AirlinesVC
 class AirlinesVC: UITableViewController {
@@ -16,7 +17,10 @@ class AirlinesVC: UITableViewController {
 
   // Data
   var airlines = [AirlineData]()
+  var airlinesConnected = [AirlineData]()
+  var airlinesDictionary = [AirlineData: Double]()
   var flights = [FlightData]()
+  var flightsConnected = [FlightData]()
   var airports = [AirportData]()
 
   // Reference Types
@@ -25,12 +29,129 @@ class AirlinesVC: UITableViewController {
   var flightsDownloader = NetworkRequest<FlightData>(.flights)
   var airportsDownloader = NetworkRequest<AirportData>(.airports)
 
+  // Constants
+  let distanceFormat = "%.2f %@"
+  let schipholAirportID = "AMS"
+  let schipholLocation = CLLocation(latitude: 52.30907,
+                                    longitude: 4.763385)
+
+  // Variables
+  var isInKm = UserDefaultsService.shared.isInKm
+  var trackIsInKm = !UserDefaultsService.shared.isInKm
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setupMainView()
     downloadData()
   }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    checkDistanceUnitSettings()
+  }
 }
+
+// MARK: - Algorithms
+extension AirlinesVC {
+  /// Filter flights, airlines and airports distance from
+  /// Schiphol airport.
+  ///
+  /// - Warning: Order set in this func is very important.
+  ///
+  func populateAirlines() {
+    filterFlightsFromSchiphol()
+    filterAirlinesFromSchiphol()
+    setAirlinesConnectedDictionary()
+    calculateAirlinesDistanceSorted()
+  }
+
+  /// Filter flights fetch from api that are connected
+  /// to Schiphol airport.
+  ///
+  /// Arrival airport that are duplicated are being removed
+  /// from the updated flightsConnected variable.
+  ///
+  func filterFlightsFromSchiphol() {
+    _ = flights
+      .filter { $0.departureAirportId == schipholAirportID }
+      .map { flightsConnected.append($0) }
+  }
+
+  /// Filter airlines fetch from api that are leaving
+  /// Schiphol airport.
+  ///
+  /// Airlines that are dubplicated are being removed
+  /// from the updated airlinesConnected variable.
+  ///
+  func filterAirlinesFromSchiphol() {
+    _ = airlines
+      .compactMap { airline in
+        for f in flightsConnected {
+          if f.airlineId == airline.id {
+            if !airlinesConnected.contains(where: { $0.id == airline.id }) {
+              airlinesConnected.append(airline)
+            }
+          }
+        }
+      }
+  }
+
+  /// Create a dictionary of airlines connected with
+  /// distance as value.
+  ///
+  /// Flights connected that are dubplicated are being removed
+  /// from the updated airlinesConnected variable.
+  ///
+  func setAirlinesConnectedDictionary() {
+    _ = flightsConnected
+      .compactMap { flight in
+        for a in airlinesConnected {
+          if a.id == flight.airlineId {
+            if !airlinesDictionary.contains(where: { $0.key.id == a.id }) {
+              airlinesDictionary[a] = 0
+            }
+          }
+        }
+      }
+  }
+
+  /// Calculate distance of all airline flights.
+  ///
+  /// Distance of each airline are added as a value in
+  /// the airlinesDictionary.
+  ///
+  func calculateAirlinesDistanceSorted() {
+    _ = airlinesDictionary
+      .compactMap { airline, distance in
+        var distance = distance
+        for f in flightsConnected {
+          if f.airlineId == airline.id {
+            for a in airports {
+              if a.id == f.arrivalAirportId
+                  && f.airlineId == airline.id {
+                distance += a.distance(isInKm, to: schipholLocation)
+                airlinesDictionary[airline] = distance
+              }
+            }
+          }
+        }
+      }
+  }
+
+  /// User distance unit set in settings.
+  ///
+  /// Value are being saved and retrieve in UserDefaults.
+  ///
+  func checkDistanceUnitSettings() {
+    isInKm = UserDefaultsService.shared.isInKm
+    if trackIsInKm == isInKm {
+      downloadData()
+      trackIsInKm = !UserDefaultsService.shared.isInKm
+    }
+  }
+}
+
+
 // MARK: - Networking
 extension AirlinesVC {
   /// Download all data for the view.
@@ -156,6 +277,7 @@ extension AirlinesVC {
   ///
   func handleDownloadSuccess(_ airportsData: [AirportData]) {
     airports = airportsData
+    populateAirlines()
     spinner.stops()
     tableView.reloadData()
   }
@@ -206,6 +328,7 @@ extension AirlinesVC {
     tableView.register(AirlineTVC.self,
                        forCellReuseIdentifier: AirlineTVC.identifier)
     tableView.tableFooterView = UIView()
+    tableView.allowsSelection = false
   }
 
   /// Setup cell with airlines informations.
@@ -214,6 +337,7 @@ extension AirlinesVC {
   /// with airlines are fetched from api and trimmed.
   ///
   func setup(_ cell: AirlineTVC, at indexPath: IndexPath) -> AirlineTVC {
+
     let airline = airlines[indexPath.row]
 
     cell.nameLabel.text = airline.name

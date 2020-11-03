@@ -94,5 +94,13 @@
     "name": "Charles De Gaulle Airport",
     "city": "Paris",
     "countryId": "FR"
+  },
+  {
+    "id": "TNG",
+    "latitude": 35.726288,
+    "longitude": -5.912898,
+    "name": "Boukhalef Airport",
+    "city": "Tangier",
+    "countryId": "MA"
   }
 ]

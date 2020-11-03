@@ -10,7 +10,7 @@ import Foundation
 //  MARK: AirlineData
 /// Airlines data coming from the api.
 ///
-struct AirlineData: AirlinesProtocol, Codable, Equatable {
+struct AirlineData: AirlinesProtocol, Codable, Equatable, Hashable {
 
   var id: String
   var name: String
