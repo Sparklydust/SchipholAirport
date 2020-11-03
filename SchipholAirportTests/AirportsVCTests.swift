@@ -25,14 +25,6 @@ class AirportsVCTests: XCTestCase {
 
 // MARK: - Tests
 extension AirportsVCTests {
-  func testAirportsVC_setupBackgroundColor_colorEqualToRed() throws {
-    let expected = UIColor.red
-
-    sut.loadViewIfNeeded()
-
-    XCTAssertEqual(expected, sut.view.backgroundColor)
-  }
-
   func testAirportsVC_setupViewControllerTitle_titleEqualToAirports() throws {
     let expected = "Airports"
 

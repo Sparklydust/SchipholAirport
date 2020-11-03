@@ -39,5 +39,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>The location will be used to show you the airports close to you.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>The location will be used to show you the airports close to you.</string>
 </dict>
 </plist>
