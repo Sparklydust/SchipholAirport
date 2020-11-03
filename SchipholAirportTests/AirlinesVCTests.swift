@@ -111,7 +111,7 @@ extension AirlinesVCTests {
   }
 
   func testAirlinesVC_checkTableViewNumberOfRows_returnAirlinesArrayCount() throws {
-    let expected = sut.airlines.count
+    let expected = sut.airlinesDictionary.count
 
     sut.loadViewIfNeeded()
     let result = sut.tableView(sut.tableView, numberOfRowsInSection: 0)
@@ -120,12 +120,16 @@ extension AirlinesVCTests {
   }
 
   func testAirlinesVC_checkTableViewCell_returnsAirlineTVCCell() throws {
-    let expected = "AeroMexico Connect"
+    let expected = "Air France"
     sut.airlines = loadFakeJsonAirlines()
+    sut.airlinesDictionary = [
+      airlineAF: 496.0476407911191,
+      airline30: 1259.2921921951145
+    ]
 
     let cell = sut.tableView(
       sut.tableView,
-      cellForRowAt: IndexPath(row: 1, section: 0)) as? AirlineTVC
+      cellForRowAt: IndexPath(row: 0, section: 0)) as? AirlineTVC
 
     XCTAssertEqual(expected, cell?.nameLabel.text)
   }

@@ -66,36 +66,17 @@ extension FlightsVC {
   /// Filter flights fetch from api that are connected
   /// to Schiphol airport.
   ///
-  /// Arrival airport that are duplicated are being removed
-  /// from the updated flightsConnected variable.
-  ///
   func filterFlightsFromSchiphol() {
     _ = flights
       .filter { $0.departureAirportId == schipholAirportID }
-      .map { flight in
-        if !flightsConnected.contains(
-            where: { $0.arrivalAirportId == flight.arrivalAirportId }) {
-          flightsConnected.append(flight)
-        }
-      }
+      .map { filterConnected($0) }
   }
 
   /// Filter airports fetch from api with flights connected
   /// to Schiphol airport.
   ///
-  /// Duplicated airports are being removed using their id.
-  ///
   func filterAirportsConnectedToSchiphol() {
-    _ = airports
-      .compactMap { airport in
-        for f in flightsConnected {
-          if f.arrivalAirportId == airport.id {
-            if !airportsConnected.contains(where: { $0.id == airport.id }) {
-              airportsConnected.append(airport)
-            }
-          }
-        }
-      }
+    _ = airports.compactMap { filterConnected($0) }
   }
 
   /// Sort airports in ascending distance from Schiphol airport.
@@ -106,6 +87,32 @@ extension FlightsVC {
         $0.distance(isInKm, to: schipholLocation)
           < $1.distance(isInKm, to: schipholLocation)
       }
+  }
+
+  /// Filter Schiphol connected flights from all api flights data.
+  ///
+  /// Arrival airport that are duplicated are being removed
+  /// from the updated flightsConnected variable.
+  ///
+  func filterConnected(_ flight: FlightData) {
+    if !flightsConnected.contains(
+        where: { $0.arrivalAirportId == flight.arrivalAirportId }) {
+      flightsConnected.append(flight)
+    }
+  }
+
+  /// Filter Schiphol connected airports from all api airports data.
+  ///
+  /// Duplicated airports are being removed using their id.
+  ///
+  func filterConnected(_ airport: AirportData) {
+    for f in flightsConnected {
+      if f.arrivalAirportId == airport.id {
+        if !airportsConnected.contains(where: { $0.id == airport.id }) {
+          airportsConnected.append(airport)
+        }
+      }
+    }
   }
 
   /// User distance unit set in settings.

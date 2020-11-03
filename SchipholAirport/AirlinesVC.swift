@@ -84,34 +84,16 @@ extension AirlinesVC {
   /// from the updated airlinesConnected variable.
   ///
   func filterAirlinesFromSchiphol() {
-    _ = airlines
-      .compactMap { airline in
-        for f in flightsConnected {
-          if f.airlineId == airline.id {
-            if !airlinesConnected.contains(where: { $0.id == airline.id }) {
-              airlinesConnected.append(airline)
-            }
-          }
-        }
-      }
+    _ = airlines.compactMap { filterConnected($0) }
   }
 
   /// Create a dictionary of airlines connected with
   /// distance as value.
   ///
-  /// Flights connected that are dubplicated are being removed
-  /// from the updated airlinesConnected variable.
-  ///
   func setAirlinesConnectedDictionary() {
     _ = flightsConnected
       .compactMap { flight in
-        for a in airlinesConnected {
-          if a.id == flight.airlineId {
-            if !airlinesDictionary.contains(where: { $0.key.id == a.id }) {
-              airlinesDictionary[a] = 0
-            }
-          }
-        }
+        setAirlinesDictionary(from: flight)
       }
   }
 
@@ -123,19 +105,58 @@ extension AirlinesVC {
   func calculateAirlinesDistanceSorted() {
     _ = airlinesDictionary
       .compactMap { airline, distance in
-        var distance = distance
-        for f in flightsConnected {
-          if f.airlineId == airline.id {
-            for a in airports {
-              if a.id == f.arrivalAirportId
-                  && f.airlineId == airline.id {
-                distance += a.distance(isInKm, to: schipholLocation)
-                airlinesDictionary[airline] = distance
-              }
-            }
+        calculate(airline, distance)
+      }
+  }
+
+  /// Filter Schiphol connected airlines from all api airlines data.
+  ///
+  /// Airline that are duplicated are being removed
+  /// from the updated airlinesConnected variable.
+  ///
+  func filterConnected(_ airline: AirlineData) {
+    for f in flightsConnected {
+      if f.airlineId == airline.id {
+        if !airlinesConnected.contains(where: { $0.id == airline.id }) {
+          airlinesConnected.append(airline)
+        }
+      }
+    }
+  }
+
+  /// Set dictionary of airline with a value of distance associated.
+  ///
+  /// airlines connected that are dubplicated are being removed
+  /// from the updated airlinesDictionary variable.
+  ///
+  func setAirlinesDictionary(from flight: FlightData) {
+    for a in airlinesConnected {
+      if a.id == flight.airlineId {
+        if !airlinesDictionary.contains(where: { $0.key.id == a.id }) {
+          airlinesDictionary[a] = 0
+        }
+      }
+    }
+  }
+
+  /// Calculate the distance done for the airline.
+  ///
+  /// All flights of the airline leaving Schiphol are
+  /// being added to calculate the total of all.
+  ///
+  func calculate(_ airline: AirlineData, _ distance: CLLocationDistance) {
+    var distance = distance
+    for f in flightsConnected {
+      if f.airlineId == airline.id {
+        for a in airports {
+          if a.id == f.arrivalAirportId
+              && f.airlineId == airline.id {
+            distance += a.distance(isInKm, to: schipholLocation)
+            airlinesDictionary[airline] = distance
           }
         }
       }
+    }
   }
 
   /// User distance unit set in settings.
@@ -331,18 +352,33 @@ extension AirlinesVC {
     tableView.allowsSelection = false
   }
 
-  /// Setup cell with airlines informations.
+  /// Setup cell with sorted airlines informations.
   ///
   /// Cell is populated once the airports connected flights
   /// with airlines are fetched from api and trimmed.
   ///
   func setup(_ cell: AirlineTVC, at indexPath: IndexPath) -> AirlineTVC {
 
+    let airlines = airlinesDictionary.sorted { $0.1 < $1.1 }
     let airline = airlines[indexPath.row]
+    let distance = distanceAllFlights(airline.value)
 
-    cell.nameLabel.text = airline.name
+    cell.nameLabel.text = airline.key.name
+    cell.distanceLabel.text = distance
 
     return cell
+  }
+
+  /// Calculate the distance done for all flights of one airline.
+  ///
+  /// - Parameters:
+  ///     - distance: distance from airline dictionary value.
+  /// - Returns: String value with distance and unit
+  ///
+  func distanceAllFlights(_ distance: CLLocationDistance) -> String {
+    let unit = isInKm ? Localized.km : Localized.mi
+    let flightsDistance = String(format: distanceFormat, distance, unit)
+    return flightsDistance
   }
 
   /// Try again button shown when download from api failed.
