@@ -8,6 +8,8 @@
 import Foundation
 
 //  MARK: UserDefaultsProtocol
+/// Rewrite value from User Defaults for
+/// testing purposes.
 ///
 protocol UserDefaultsProtocol {
 

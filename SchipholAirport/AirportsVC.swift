@@ -6,18 +6,19 @@
 //
 
 import UIKit
-import MapKit
 
 //  MARK: AirportsVC
 /// Map with airports set on it as annotations.
 ///
 class AirportsVC: UIViewController {
 
-  var mapView = MKMapView()
+  // Reference Types
+  var locationProvider = LocationProvider()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setupMainView()
+    locationProvider.startTracking()
   }
 }
 // MARK: - AirportsVC Setup
@@ -43,6 +44,7 @@ extension AirportsVC {
   /// Adding all subviews into AirportsVC.
   ///
   func addSubviews() {
+    guard let mapView = locationProvider.mapView as? UIView else { return }
     view.addSubview(mapView)
   }
 }
@@ -60,22 +62,22 @@ extension AirportsVC {
   /// Map view anchored to fit all the view.
   ///
   func activateMapViewLayout() {
-    mapView.translatesAutoresizingMaskIntoConstraints = false
+    locationProvider.mapView.translatesAutoresizingMaskIntoConstraints = false
 
     NSLayoutConstraint.activate([
-      mapView
+      locationProvider.mapView
         .topAnchor
         .constraint(equalTo: view.topAnchor),
 
-      mapView
+      locationProvider.mapView
         .leadingAnchor
         .constraint(equalTo: view.leadingAnchor),
 
-      mapView
+      locationProvider.mapView
         .trailingAnchor
         .constraint(equalTo: view.trailingAnchor),
 
-      mapView
+      locationProvider.mapView
         .bottomAnchor
         .constraint(equalTo: view.bottomAnchor)
     ])

@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  SchipholAirport
+
+  Created by Roland Lariotte on 03/11/2020.
+  
+*/
+
+//  MARK: English translation
+/// Info.plist file strings localized.
+
+"NSLocationWhenInUseUsageDescription" = "Your location is required if you desire to see airports that are closed to you.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Your location is required if you desire to see airports that are closed to you.";

@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import CoreLocation
 @testable import SchipholAirport
 
 class AirportsVCTests: XCTestCase {
@@ -15,6 +16,9 @@ class AirportsVCTests: XCTestCase {
   override func setUpWithError() throws {
     try super.setUpWithError()
     sut = AirportsVC()
+
+    sut.locationProvider = LocationProvider(
+      locationManager: MockCLLocationManager())
   }
 
   override func tearDownWithError() throws {
@@ -26,7 +30,7 @@ class AirportsVCTests: XCTestCase {
 // MARK: - Tests
 extension AirportsVCTests {
   func testAirportsVC_setupViewControllerTitle_titleEqualToAirports() throws {
-    let expected = "Airports"
+    let expected = Localized.airports
 
     sut.loadViewIfNeeded()
 

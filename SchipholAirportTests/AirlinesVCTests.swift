@@ -147,7 +147,7 @@ extension AirlinesVCTests {
 
     sut.downloadAirlines { expectation.fulfill() }
 
-    wait(for: [expectation], timeout: 0.1)
+    wait(for: [expectation], timeout: 1)
     XCTAssertEqual(expected, sut.airlines.count)
   }
 
@@ -164,7 +164,7 @@ extension AirlinesVCTests {
 
     sut.downloadAirlines { expectation.fulfill() }
 
-    wait(for: [expectation], timeout: 0.1)
+    wait(for: [expectation], timeout: 1)
     XCTAssertEqual(expected, sut.airlines.count)
   }
 

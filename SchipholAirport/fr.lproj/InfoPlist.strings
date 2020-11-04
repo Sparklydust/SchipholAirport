@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  SchipholAirport
+
+  Created by Roland Lariotte on 03/11/2020.
+  
+*/
+
+//  MARK: French translation
+/// Info.plist file strings localized.
+
+"NSLocationWhenInUseUsageDescription" = "Votre localisation est nécessaire si vous souhaitez voir les aéorports les plus proches de vous.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Votre localisation est nécessaire si vous souhaitez voir les aéorports les plus proches de vous.";

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import CoreData
+import CoreLocation
 
 //  MARK: AirlinesVC
 class AirlinesVC: UITableViewController {

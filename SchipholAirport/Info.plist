@@ -40,8 +40,8 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>The location will be used to show you the airports close to you.</string>
+	<string>translation in InfoPlist.strings file</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>The location will be used to show you the airports close to you.</string>
+	<string>translation in InfoPlist.strings file</string>
 </dict>
 </plist>

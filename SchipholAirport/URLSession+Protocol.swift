@@ -17,4 +17,4 @@ import Foundation
 /// a protocol to URLSession for having this new
 /// function enabled.
 ///
-extension URLSession: URLSessionProtocol {}
+extension URLSession: URLSessionProtocol { }
