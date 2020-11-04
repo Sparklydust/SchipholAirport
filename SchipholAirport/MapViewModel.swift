@@ -1,5 +1,5 @@
 //
-//  LocationProvider.swift
+//  MapViewModel.swift
 //  SchipholAirport
 //
 //  Created by Roland Lariotte on 04/11/2020.
@@ -8,19 +8,26 @@
 import CoreLocation
 import MapKit
 
-//  MARK: LocationProvider
+//  MARK: MapViewModel
 /// Handle the map view and the user location manager.
 ///
 /// Populate user and airports locations on map view.
 /// for testing purposes, locationManager and mapView
 /// parameters where added.
 ///
-final class LocationProvider: NSObject {
+final class MapViewModel: NSObject {
+
+  // UI
+  let identifier = "AirportAnnotation"
+  var detailDisclosureButton = UIButton()
+  var annotationView: MKAnnotationView?
+
+  // Reference Types
+  var airportsDownloader = NetworkRequest<AirportData>(.airports)
+  var airports = [AirportData]()
 
   // Constants
   let aroundUserDistance: CLLocationDistance = 500000
-  var airportsDownloader = NetworkRequest<AirportData>(.airports)
-  var airports = [AirportData]()
 
   // Parameters and initializations for testing purposes.
   //
@@ -33,19 +40,32 @@ final class LocationProvider: NSObject {
   }
 }
 
+// MARK: - Algorithms
+extension MapViewModel {
+  func populateAnnotations(_ airports: [AirportData]) {
+    for a in airports {
+      let annotation = MKPointAnnotation()
+      annotation.title = a.name
+      annotation.coordinate = CLLocationCoordinate2D(latitude: a.latitude,
+                                                     longitude: a.longitude)
+      mapView.addAnnotation(annotation)
+    }
+  }
+}
+
 // MARK: - Main Location Manager and Map Setup
-extension LocationProvider {
+extension MapViewModel {
   /// Start updating the map with the user info and
   /// airports location.
   ///
-  func startTracking() {
+  func startMapping() {
     setupLocationManager()
     setupMapView()
   }
 }
 
-// MARK: - LocationProvider Setup
-extension LocationProvider: CLLocationManagerDelegate {
+// MARK: - MapViewModel Setup
+extension MapViewModel {
   /// Setup location manager delegation.
   ///
   func setupLocationManager() {
@@ -60,13 +80,15 @@ extension LocationProvider: CLLocationManagerDelegate {
   /// Setup map view to show elements on it.
   ///
   func setupMapView() {
+    mapView.delegate = self
     mapView.showsUserLocation = true
     downloadAirports()
+    setupDetailDisclosureButton()
   }
 }
 
 // MARK: - Networking
-extension LocationProvider {
+extension MapViewModel {
   /// Download airports from flightassets api.
   ///
   /// The completion with @escaping is used to pass expectation
@@ -76,9 +98,7 @@ extension LocationProvider {
     airportsDownloader.getArray { response in
       switch response {
       case .failure:
-        DispatchQueue.main.async { [weak self] in
-          guard let self = self else { return }
-          self.handleDownloadFailure()
+        DispatchQueue.main.async {
           completion()
         }
         return
@@ -93,21 +113,16 @@ extension LocationProvider {
     }
   }
 
-  /// Handling downlading failure from api call.
-  ///
-  func handleDownloadFailure() {
-
-  }
-
   /// Handling downloading airports data success from api call.
   ///
   func handleDownloadSuccess(_ airportsData: [AirportData]) {
     airports = airportsData
+    populateAnnotations(airportsData)
   }
 }
 
 // MARK : - Location Manager
-extension LocationProvider {
+extension MapViewModel: CLLocationManagerDelegate {
   // Action when user change their authorization status.
   //
   func locationManager(_ manager: CLLocationManager,
@@ -144,5 +159,53 @@ extension LocationProvider {
   func locationManager(_ manager: CLLocationManager,
                        didFailWithError error: Error) {
     locationManager.stopUpdatingLocation()
+  }
+}
+
+// MARK: - Map View
+extension MapViewModel: MKMapViewDelegate {
+  // Add airport annotation on map view.
+  //
+  func mapView(_ mapView: MKMapView,
+               viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+    guard !annotation.isKind(of: MKUserLocation.self) else {
+      return nil
+    }
+    annotationView = mapView
+      .dequeueReusableAnnotationView(withIdentifier: identifier)
+    if annotationView == nil {
+      annotationView = MKAnnotationView(annotation: annotation,
+                                        reuseIdentifier: identifier)
+      annotationView?.rightCalloutAccessoryView = detailDisclosureButton
+      annotationView?.canShowCallout = true
+    }
+    else {
+      annotationView?.annotation = annotation
+    }
+
+    annotationView?.image = .flightAnnotation
+
+    return annotationView
+  }
+
+  /// Setup button shown when annotion is tapped.
+  ///
+  /// User to populate airports details informations
+  /// on tap.
+  ///
+  func setupDetailDisclosureButton() {
+    detailDisclosureButton = UIButton(type: .detailDisclosure)
+    detailDisclosureButton.tintColor = .accentColor$
+    detailDisclosureButton.addTarget(self,
+                                     action: #selector(detailDisclosureTapped),
+                                     for: .touchUpInside)
+  }
+
+  /// Perform actions when the detail disclosure from
+  /// annotation is tapped.
+  ///
+  @objc func detailDisclosureTapped() {
+
   }
 }

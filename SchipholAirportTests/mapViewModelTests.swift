@@ -1,5 +1,5 @@
 //
-//  LocationProviderTests.swift
+//  mapViewModelTests.swift
 //  SchipholAirportTests
 //
 //  Created by Roland Lariotte on 04/11/2020.
@@ -9,13 +9,13 @@ import XCTest
 import CoreLocation
 @testable import SchipholAirport
 
-class LocationProviderTests: XCTestCase {
+class mapViewModelTests: XCTestCase {
 
-  var sut: LocationProvider!
+  var sut: MapViewModel!
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    sut = LocationProvider(
+    sut = MapViewModel(
       locationManager: MockCLLocationManager(),
       mapView: MockMKMapView())
 
@@ -31,14 +31,14 @@ class LocationProviderTests: XCTestCase {
   }
 }
 
-extension LocationProviderTests {
-  func testLocationProvider_setupLocationManagerDelegate_returnNotNit() throws {
+extension mapViewModelTests {
+  func testMapViewModel_setupLocationManagerDelegate_returnNotNit() throws {
     sut.setupLocationManager()
 
     XCTAssertNotNil(sut.locationManager.delegate)
   }
 
-  func testLocationProvider_setupDesiredAccuracy_returnAccuracyBest() throws {
+  func testMapViewModel_setupDesiredAccuracy_returnAccuracyBest() throws {
     let expected = kCLLocationAccuracyBest
 
     sut.setupLocationManager()
@@ -47,26 +47,26 @@ extension LocationProviderTests {
     XCTAssertEqual(expected, result)
   }
 
-  func testLocationProvider_allowsBackgroundLocationUpdates_returnFalse() throws {
+  func testMapViewModel_allowsBackgroundLocationUpdates_returnFalse() throws {
     let expected = true
     let result = sut.locationManager.allowsBackgroundLocationUpdates
 
     XCTAssertEqual(expected, result)
   }
 
-  func testLocationProvider_aroundUserDistance_returnFiftyThousand() throws {
+  func testMapViewModel_aroundUserDistance_returnFiftyThousand() throws {
     let expected: CLLocationDistance = 500000
 
     XCTAssertEqual(expected, sut.aroundUserDistance)
   }
 
-  func testLocationProvider_airportsDataArrayEmptyAtInitialization_ReturnEmptyAirportDataArray() throws {
+  func testMapViewModel_airportsDataArrayEmptyAtInitialization_ReturnEmptyAirportDataArray() throws {
     let expected = [AirportData]()
 
     XCTAssertEqual(expected, sut.airports)
   }
 
-  func testLocationProvider_getAllAirportsFromAPI_returnsFailure() throws {
+  func testMapViewModel_getAllAirportsFromAPI_returnsFailure() throws {
     let expected = 0
 
     let expectation = XCTestExpectation(
@@ -84,7 +84,7 @@ extension LocationProviderTests {
     XCTAssertEqual(expected, sut.airports.count)
   }
 
-  func testLocationProvider_getAllAirportsFromAPI_returnsSuccess() throws {
+  func testMapViewModel_getAllAirportsFromAPI_returnsSuccess() throws {
     let expected = 13
 
     let expectation = XCTestExpectation(
@@ -100,5 +100,23 @@ extension LocationProviderTests {
 
     wait(for: [expectation], timeout: 1)
     XCTAssertEqual(expected, sut.airports.count)
+  }
+
+  func testMapViewModel_setupMapViewDelegate_returnNotNit() throws {
+    sut.setupMapView()
+
+    XCTAssertNotNil(sut.mapView.delegate)
+  }
+  
+  func testMapViewModel_checkMapShowUserLocation_returnTrue() throws {
+    let expected = true
+
+    XCTAssertEqual(expected, sut.mapView.showsUserLocation)
+  }
+
+  func testLocationProvider_identifierValue_equalToAirportAnnotation() throws {
+    let expected = "AirportAnnotation"
+
+    XCTAssertEqual(expected, sut.identifier)
   }
 }

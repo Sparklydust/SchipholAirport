@@ -17,7 +17,7 @@ class AirportsVCTests: XCTestCase {
     try super.setUpWithError()
     sut = AirportsVC()
 
-    sut.locationProvider = LocationProvider(
+    sut.viewModel = MapViewModel(
       locationManager: MockCLLocationManager())
   }
 

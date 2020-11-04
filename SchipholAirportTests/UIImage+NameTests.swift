@@ -33,4 +33,10 @@ class UIImage_NameTests: XCTestCase {
 
     XCTAssertEqual(expected, UIImage.settingsIcon)
   }
+
+  func testUIImageName_flightAnnotation() throws {
+  let expected = UIImage(named: "flightAnnotation")
+
+    XCTAssertEqual(expected, UIImage.flightAnnotation)
+  }
 }

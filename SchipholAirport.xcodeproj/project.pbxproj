@@ -40,8 +40,8 @@
 		2AB05B0F25504DB00052FC21 /* AirlineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B0E25504DB00052FC21 /* AirlineTVC.swift */; };
 		2AB05B1D255094390052FC21 /* NetworkEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B1C255094390052FC21 /* NetworkEndpointTests.swift */; };
 		2AB05B482551BFCA0052FC21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AB05B4A2551BFCA0052FC21 /* InfoPlist.strings */; };
-		2AB05B6D25529CD40052FC21 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B6C25529CD40052FC21 /* LocationProvider.swift */; };
-		2AB05B7225529DC80052FC21 /* LocationProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B7125529DC80052FC21 /* LocationProviderTests.swift */; };
+		2AB05B6D25529CD40052FC21 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B6C25529CD40052FC21 /* MapViewModel.swift */; };
+		2AB05B7225529DC80052FC21 /* mapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B7125529DC80052FC21 /* mapViewModelTests.swift */; };
 		2AB05B7825529EE00052FC21 /* MockCLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B7725529EE00052FC21 /* MockCLLocationManager.swift */; };
 		2AB05B8125529F670052FC21 /* LocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B8025529F670052FC21 /* LocationManagerProtocol.swift */; };
 		2AB05B8925529FE50052FC21 /* CLLocationManager+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B8825529FE50052FC21 /* CLLocationManager+Protocol.swift */; };
@@ -131,8 +131,8 @@
 		2AB05B1C255094390052FC21 /* NetworkEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpointTests.swift; sourceTree = "<group>"; };
 		2AB05B492551BFCA0052FC21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2AB05B4E2551BFCF0052FC21 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2AB05B6C25529CD40052FC21 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
-		2AB05B7125529DC80052FC21 /* LocationProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProviderTests.swift; sourceTree = "<group>"; };
+		2AB05B6C25529CD40052FC21 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		2AB05B7125529DC80052FC21 /* mapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewModelTests.swift; sourceTree = "<group>"; };
 		2AB05B7725529EE00052FC21 /* MockCLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCLLocationManager.swift; sourceTree = "<group>"; };
 		2AB05B8025529F670052FC21 /* LocationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerProtocol.swift; sourceTree = "<group>"; };
 		2AB05B8825529FE50052FC21 /* CLLocationManager+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Protocol.swift"; sourceTree = "<group>"; };
@@ -196,6 +196,7 @@
 				2A664317254A225000A0490E /* Localizables */,
 				2AB05B002550214F0052FC21 /* Models */,
 				2AD3682E254D763100677F7E /* Tools */,
+				2A67E20A25530EC800F176A3 /* ViewModels */,
 				2A6642D2254A0A6D00A0490E /* ViewControllers */,
 			);
 			name = Cases;
@@ -278,6 +279,22 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		2A67E20925530E9E00F176A3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2AB05B6C25529CD40052FC21 /* MapViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		2A67E20A25530EC800F176A3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2AB05B7125529DC80052FC21 /* mapViewModelTests.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
 		2A9235F12549A20E0058B96C = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +328,7 @@
 				2AD36785254C01D900677F7E /* Services */,
 				2AD36752254BF58100677F7E /* Models */,
 				2AD36828254D75BE00677F7E /* Tools */,
+				2A67E20925530E9E00F176A3 /* ViewModels */,
 				2A9236552549AD500058B96C /* ViewControllers */,
 			);
 			path = SchipholAirport;
@@ -624,7 +642,6 @@
 			isa = PBXGroup;
 			children = (
 				2AD36829254D762600677F7E /* Spinner.swift */,
-				2AB05B6C25529CD40052FC21 /* LocationProvider.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -633,7 +650,6 @@
 			isa = PBXGroup;
 			children = (
 				2AD36832254D764400677F7E /* SpinnerTests.swift */,
-				2AB05B7125529DC80052FC21 /* LocationProviderTests.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -787,7 +803,7 @@
 				2AB05AE125500C3D0052FC21 /* UserDefaultsContainer.swift in Sources */,
 				2AB05B0F25504DB00052FC21 /* AirlineTVC.swift in Sources */,
 				2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */,
-				2AB05B6D25529CD40052FC21 /* LocationProvider.swift in Sources */,
+				2AB05B6D25529CD40052FC21 /* MapViewModel.swift in Sources */,
 				2AB05ADA255009FC0052FC21 /* UserDefaultsProtocol.swift in Sources */,
 				2AD36772254BFD9100677F7E /* FlightsProtocol.swift in Sources */,
 				2AD3682A254D762600677F7E /* Spinner.swift in Sources */,
@@ -829,7 +845,7 @@
 				2A6642E6254A0FBF00A0490E /* MainVCTests.swift in Sources */,
 				2AD367C1254C105E00677F7E /* MockURLSession.swift in Sources */,
 				2AB05B7825529EE00052FC21 /* MockCLLocationManager.swift in Sources */,
-				2AB05B7225529DC80052FC21 /* LocationProviderTests.swift in Sources */,
+				2AB05B7225529DC80052FC21 /* mapViewModelTests.swift in Sources */,
 				2A66434B254ABDD900A0490E /* UIImage+NameTests.swift in Sources */,
 				2AB05AF425500F740052FC21 /* MockUserDefaultsContainer.swift in Sources */,
 				2A6642F6254A10F200A0490E /* AirportsVCTests.swift in Sources */,

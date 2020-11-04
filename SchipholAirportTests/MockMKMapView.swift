@@ -11,13 +11,13 @@ import MapKit
 final class MockMKMapView: MapViewProtocol {
 
   var showsUserLocation = true
-
+  var delegate: MKMapViewDelegate?
   var translatesAutoresizingMaskIntoConstraints = false
-
   var topAnchor = NSLayoutYAxisAnchor()
   var leadingAnchor = NSLayoutXAxisAnchor()
   var trailingAnchor = NSLayoutXAxisAnchor()
   var bottomAnchor = NSLayoutYAxisAnchor()
 
   func setRegion(_ region: MKCoordinateRegion, animated: Bool) { }
+  func addAnnotation(_ annotation: MKAnnotation) { }
 }

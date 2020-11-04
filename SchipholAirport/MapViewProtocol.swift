@@ -13,7 +13,7 @@ import MapKit
 protocol MapViewProtocol {
 
   var showsUserLocation: Bool { get set }
-
+  var delegate: MKMapViewDelegate? { get set }
   var translatesAutoresizingMaskIntoConstraints: Bool { get set }
   var topAnchor: NSLayoutYAxisAnchor { get }
   var leadingAnchor: NSLayoutXAxisAnchor { get }
@@ -21,4 +21,5 @@ protocol MapViewProtocol {
   var bottomAnchor: NSLayoutYAxisAnchor { get }
 
   func setRegion(_ region: MKCoordinateRegion, animated: Bool)
+  func addAnnotation(_ annotation: MKAnnotation)
 }
