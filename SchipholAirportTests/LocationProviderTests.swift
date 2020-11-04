@@ -18,6 +18,11 @@ class LocationProviderTests: XCTestCase {
     sut = LocationProvider(
       locationManager: MockCLLocationManager(),
       mapView: MockMKMapView())
+
+    sut.airportsDownloader.resourceSession =
+      MockURLSession(data: FakeDataResponse.airportsCorrectData,
+                     response: FakeDataResponse.response200OK,
+                     error: nil)
   }
 
   override func tearDownWithError() throws {
@@ -53,5 +58,47 @@ extension LocationProviderTests {
     let expected: CLLocationDistance = 500000
 
     XCTAssertEqual(expected, sut.aroundUserDistance)
+  }
+
+  func testLocationProvider_airportsDataArrayEmptyAtInitialization_ReturnEmptyAirportDataArray() throws {
+    let expected = [AirportData]()
+
+    XCTAssertEqual(expected, sut.airports)
+  }
+
+  func testLocationProvider_getAllAirportsFromAPI_returnsFailure() throws {
+    let expected = 0
+
+    let expectation = XCTestExpectation(
+      description: "Failure from api call")
+
+    sut.airportsDownloader.resourceSession =
+      MockURLSession(
+        data: FakeDataResponse.incorrectData,
+        response: FakeDataResponse.responseKO,
+        error: nil)
+
+    sut.downloadAirports() { expectation.fulfill() }
+
+    wait(for: [expectation], timeout: 1)
+    XCTAssertEqual(expected, sut.airports.count)
+  }
+
+  func testLocationProvider_getAllAirportsFromAPI_returnsSuccess() throws {
+    let expected = 13
+
+    let expectation = XCTestExpectation(
+      description: "Success with airports from api in an array")
+
+    sut.airportsDownloader.resourceSession =
+      MockURLSession(
+        data: FakeDataResponse.airportsCorrectData,
+        response: FakeDataResponse.response200OK,
+        error: nil)
+
+    sut.downloadAirports() { expectation.fulfill() }
+
+    wait(for: [expectation], timeout: 1)
+    XCTAssertEqual(expected, sut.airports.count)
   }
 }

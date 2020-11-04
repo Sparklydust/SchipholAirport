@@ -19,6 +19,8 @@ final class LocationProvider: NSObject {
 
   // Constants
   let aroundUserDistance: CLLocationDistance = 500000
+  var airportsDownloader = NetworkRequest<AirportData>(.airports)
+  var airports = [AirportData]()
 
   // Parameters and initializations for testing purposes.
   //
@@ -31,7 +33,7 @@ final class LocationProvider: NSObject {
   }
 }
 
-// MARK: - Location Manager and Map Setup
+// MARK: - Main Location Manager and Map Setup
 extension LocationProvider {
   /// Start updating the map with the user info and
   /// airports location.
@@ -59,10 +61,52 @@ extension LocationProvider: CLLocationManagerDelegate {
   ///
   func setupMapView() {
     mapView.showsUserLocation = true
+    downloadAirports()
   }
 }
 
-// MARK : - Location manager
+// MARK: - Networking
+extension LocationProvider {
+  /// Download airports from flightassets api.
+  ///
+  /// The completion with @escaping is used to pass expectation
+  /// in tests mainly.
+  ///
+  func downloadAirports(_ completion: @escaping () -> Void = { }) {
+    airportsDownloader.getArray { response in
+      switch response {
+      case .failure:
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
+          self.handleDownloadFailure()
+          completion()
+        }
+        return
+      case .success(let airports):
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
+          self.handleDownloadSuccess(airports)
+          completion()
+        }
+        return
+      }
+    }
+  }
+
+  /// Handling downlading failure from api call.
+  ///
+  func handleDownloadFailure() {
+
+  }
+
+  /// Handling downloading airports data success from api call.
+  ///
+  func handleDownloadSuccess(_ airportsData: [AirportData]) {
+    airports = airportsData
+  }
+}
+
+// MARK : - Location Manager
 extension LocationProvider {
   // Action when user change their authorization status.
   //
