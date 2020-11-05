@@ -31,3 +31,11 @@
 "miles" = "milles";
 "unit" = "Unité";
 "details" = "Détails";
+"idLabel" = "initiale de l'aéorport";
+"latLabel" = "latitude";
+"longLabel" = "longitude";
+"nameLabel" = "nom";
+"cityLabel" = "ville";
+"countryIdLabel" = "initiale du pays";
+"nearestAirportLabel" = "aéroport le plus proche";
+"distanceAirportsLabel" = "distance entre les aéroports";

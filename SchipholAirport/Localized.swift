@@ -82,4 +82,28 @@ extension Localized {
 
   static let details = NSLocalizedString(
     "details", comment: "label set as title in AirportDetailsVC")
+
+  static let idLabel = NSLocalizedString(
+    "idLabel", comment: "label for the airport id shown in AirportDetailsVC")
+
+  static let latLabel = NSLocalizedString(
+    "latLabel", comment: "label for the airport latitude shown in AirportDetailsVC")
+
+  static let longLabel = NSLocalizedString(
+    "longLabel", comment: "label for the airport longitude shown in AirportDetailsVC")
+
+  static let nameLabel = NSLocalizedString(
+    "nameLabel", comment: "label for the airport name shown in AirportDetailsVC")
+
+  static let cityLabel = NSLocalizedString(
+    "cityLabel", comment: "label for the airport city shown in AirportDetailsVC")
+
+  static let countryIdLabel = NSLocalizedString(
+    "countryIdLabel", comment: "label for the airport country shown in AirportDetailsVC")
+
+  static let nearestAirportLabel = NSLocalizedString(
+    "nearestAirportLabel", comment: "label for the nearest airport shown in AirportDetailsVC")
+
+  static let distanceAirportsLabel = NSLocalizedString(
+    "distanceAirportsLabel", comment: "label for the distance between airports shown in AirportDetailsVC")
 }

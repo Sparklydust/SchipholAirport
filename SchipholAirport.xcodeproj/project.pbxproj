@@ -47,6 +47,8 @@
 		2AB05B8925529FE50052FC21 /* CLLocationManager+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B8825529FE50052FC21 /* CLLocationManager+Protocol.swift */; };
 		2AB5A88B255427D5000B85E3 /* AirportDetailsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB5A88A255427D5000B85E3 /* AirportDetailsVCTests.swift */; };
 		2AB5A8912554283D000B85E3 /* AirportDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB5A8902554283D000B85E3 /* AirportDetailsVC.swift */; };
+		2AB5A89D25543AB0000B85E3 /* UILabel+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB5A89825543A16000B85E3 /* UILabel+Styles.swift */; };
+		2AB5A8A825544619000B85E3 /* UIStackView+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB5A8A725544619000B85E3 /* UIStackView+Styles.swift */; };
 		2AD36754254BF5DD00677F7E /* AirportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36753254BF5DC00677F7E /* AirportData.swift */; };
 		2AD3675E254BF61000677F7E /* AirportsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3675D254BF61000677F7E /* AirportsProtocol.swift */; };
 		2AD36772254BFD9100677F7E /* FlightsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36771254BFD9100677F7E /* FlightsProtocol.swift */; };
@@ -140,6 +142,8 @@
 		2AB05B8825529FE50052FC21 /* CLLocationManager+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Protocol.swift"; sourceTree = "<group>"; };
 		2AB5A88A255427D5000B85E3 /* AirportDetailsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsVCTests.swift; sourceTree = "<group>"; };
 		2AB5A8902554283D000B85E3 /* AirportDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsVC.swift; sourceTree = "<group>"; };
+		2AB5A89825543A16000B85E3 /* UILabel+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UILabel+Styles.swift"; path = "SchipholAirportTests/UILabel+Styles.swift"; sourceTree = SOURCE_ROOT; };
+		2AB5A8A725544619000B85E3 /* UIStackView+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Styles.swift"; sourceTree = "<group>"; };
 		2AD36753254BF5DC00677F7E /* AirportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportData.swift; sourceTree = "<group>"; };
 		2AD3675D254BF61000677F7E /* AirportsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsProtocol.swift; sourceTree = "<group>"; };
 		2AD36771254BFD9100677F7E /* FlightsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsProtocol.swift; sourceTree = "<group>"; };
@@ -268,6 +272,8 @@
 			children = (
 				2A664336254ABC9900A0490E /* UIImage+Name.swift */,
 				2A66434F254AC63C00A0490E /* UIColor+Name.swift */,
+				2AB5A89825543A16000B85E3 /* UILabel+Styles.swift */,
+				2AB5A8A725544619000B85E3 /* UIStackView+Styles.swift */,
 				2AD367FD254C5C3B00677F7E /* URLSession+Protocol.swift */,
 				2AB05B8825529FE50052FC21 /* CLLocationManager+Protocol.swift */,
 				2A67E2042552BB4E00F176A3 /* MKMapView+Protocol.swift */,
@@ -823,6 +829,7 @@
 				2AB05AE625500D6A0052FC21 /* UserDefaultsService.swift in Sources */,
 				2AD3677C254C001A00677F7E /* AirlinesProtocol.swift in Sources */,
 				2AB05AE125500C3D0052FC21 /* UserDefaultsContainer.swift in Sources */,
+				2AB5A89D25543AB0000B85E3 /* UILabel+Styles.swift in Sources */,
 				2AB05B0F25504DB00052FC21 /* AirlineTVC.swift in Sources */,
 				2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */,
 				2AB05B6D25529CD40052FC21 /* MapViewModel.swift in Sources */,
@@ -838,6 +845,7 @@
 				2AD367FE254C5C3B00677F7E /* URLSession+Protocol.swift in Sources */,
 				2AD36781254C003200677F7E /* AirlineData.swift in Sources */,
 				2AB05B8925529FE50052FC21 /* CLLocationManager+Protocol.swift in Sources */,
+				2AB5A8A825544619000B85E3 /* UIStackView+Styles.swift in Sources */,
 				2A664350254AC63C00A0490E /* UIColor+Name.swift in Sources */,
 				2A664300254A14E000A0490E /* FlightsVC.swift in Sources */,
 				2AD36777254BFE6400677F7E /* FlightData.swift in Sources */,

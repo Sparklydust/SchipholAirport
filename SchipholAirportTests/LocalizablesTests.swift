@@ -93,4 +93,52 @@ class LocalizablesTests: XCTestCase {
 
     XCTAssertEqual(expected, Localized.details)
   }
+
+  func testLocalized_idLabel_returnID() throws {
+    let expected = "airport id"
+
+    XCTAssertEqual(expected, Localized.idLabel)
+  }
+
+  func testLocalized_latLabel_returnLatitutde() throws {
+    let expected = "latitude"
+
+    XCTAssertEqual(expected, Localized.latLabel)
+  }
+
+  func testLocalized_longLabel_returnLongitude() throws {
+    let expected = "longitude"
+
+    XCTAssertEqual(expected, Localized.longLabel)
+  }
+
+  func testLocalized_nameLabel_returnName() throws {
+    let expected = "name"
+
+    XCTAssertEqual(expected, Localized.nameLabel)
+  }
+
+  func testLocalized_cityLabel_returnCity() throws {
+    let expected = "city"
+
+    XCTAssertEqual(expected, Localized.cityLabel)
+  }
+
+  func testLocalized_countryIdLabel_returnCountryId() throws {
+    let expected = "country id"
+
+    XCTAssertEqual(expected, Localized.countryIdLabel)
+  }
+
+  func testLocalized_nearestAirportLabel_returnNearestAirport() throws {
+    let expected = "nearest airport"
+
+    XCTAssertEqual(expected, Localized.nearestAirportLabel)
+  }
+
+  func testLocalized_distanceAirportsLabel_returnDistanceBetweenAirports() throws {
+    let expected = "distance between airports"
+
+    XCTAssertEqual(expected, Localized.distanceAirportsLabel)
+  }
 }

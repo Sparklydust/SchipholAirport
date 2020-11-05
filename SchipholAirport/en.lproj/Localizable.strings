@@ -31,3 +31,11 @@
 "miles" = "miles";
 "unit" = "Unit";
 "details" = "Details";
+"idLabel" = "airport id";
+"latLabel" = "latitude";
+"longLabel" = "longitude";
+"nameLabel" = "name";
+"cityLabel" = "city";
+"countryIdLabel" = "country id";
+"nearestAirportLabel" = "nearest airport";
+"distanceAirportsLabel" = "distance between airports";
