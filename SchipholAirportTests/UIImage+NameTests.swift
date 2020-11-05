@@ -35,8 +35,14 @@ class UIImage_NameTests: XCTestCase {
   }
 
   func testUIImageName_flightAnnotation() throws {
-  let expected = UIImage(named: "flightAnnotation")
+    let expected = UIImage(named: "flightAnnotation")
 
     XCTAssertEqual(expected, UIImage.flightAnnotation)
+  }
+
+  func testUIImageName_goldFlightAnnotation() throws {
+    let expected = UIImage(named: "goldFlightAnnotation")
+
+    XCTAssertEqual(expected, UIImage.goldFlightAnnotation)
   }
 }

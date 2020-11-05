@@ -21,6 +21,7 @@ final class MapViewModel: NSObject {
   let identifier = "AirportAnnotation"
   var detailDisclosureButton = UIButton()
   var annotationView: MKAnnotationView?
+  var annotationImage = UIImage()
 
   // Reference Types
   var airportsDownloader = NetworkRequest<AirportData>(.airports)
@@ -35,8 +36,8 @@ final class MapViewModel: NSObject {
   var mapView: MapViewProtocol
   init(locationManager: LocationManagerProtocol = CLLocationManager(),
        mapView: MapViewProtocol = MKMapView()) {
-    self.mapView = mapView
     self.locationManager = locationManager
+    self.mapView = mapView
   }
 }
 
@@ -48,6 +49,9 @@ extension MapViewModel {
       annotation.title = a.name
       annotation.coordinate = CLLocationCoordinate2D(latitude: a.latitude,
                                                      longitude: a.longitude)
+
+      annotationImage = .flightAnnotation ?? UIImage()
+
       mapView.addAnnotation(annotation)
     }
   }
@@ -183,8 +187,7 @@ extension MapViewModel: MKMapViewDelegate {
     else {
       annotationView?.annotation = annotation
     }
-
-    annotationView?.image = .flightAnnotation
+    annotationView?.image = annotationImage
 
     return annotationView
   }

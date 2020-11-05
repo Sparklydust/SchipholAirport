@@ -19,4 +19,5 @@ extension UIImage {
   static let airlinesIcon = UIImage(named: "airlinesIcon")
   static let settingsIcon = UIImage(named: "settingsIcon")
   static let flightAnnotation = UIImage(named: "flightAnnotation")
+  static let goldFlightAnnotation = UIImage(named: "goldFlightAnnotation")
 }

@@ -87,4 +87,10 @@ class LocalizablesTests: XCTestCase {
 
     XCTAssertEqual(expected, Localized.unit)
   }
+
+  func testLocalized_detailsTitle_returnDetails() throws {
+    let expected = "Details"
+
+    XCTAssertEqual(expected, Localized.details)
+  }
 }

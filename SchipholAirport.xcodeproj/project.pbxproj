@@ -45,6 +45,8 @@
 		2AB05B7825529EE00052FC21 /* MockCLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B7725529EE00052FC21 /* MockCLLocationManager.swift */; };
 		2AB05B8125529F670052FC21 /* LocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B8025529F670052FC21 /* LocationManagerProtocol.swift */; };
 		2AB05B8925529FE50052FC21 /* CLLocationManager+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05B8825529FE50052FC21 /* CLLocationManager+Protocol.swift */; };
+		2AB5A88B255427D5000B85E3 /* AirportDetailsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB5A88A255427D5000B85E3 /* AirportDetailsVCTests.swift */; };
+		2AB5A8912554283D000B85E3 /* AirportDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB5A8902554283D000B85E3 /* AirportDetailsVC.swift */; };
 		2AD36754254BF5DD00677F7E /* AirportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36753254BF5DC00677F7E /* AirportData.swift */; };
 		2AD3675E254BF61000677F7E /* AirportsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3675D254BF61000677F7E /* AirportsProtocol.swift */; };
 		2AD36772254BFD9100677F7E /* FlightsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36771254BFD9100677F7E /* FlightsProtocol.swift */; };
@@ -136,6 +138,8 @@
 		2AB05B7725529EE00052FC21 /* MockCLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCLLocationManager.swift; sourceTree = "<group>"; };
 		2AB05B8025529F670052FC21 /* LocationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerProtocol.swift; sourceTree = "<group>"; };
 		2AB05B8825529FE50052FC21 /* CLLocationManager+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Protocol.swift"; sourceTree = "<group>"; };
+		2AB5A88A255427D5000B85E3 /* AirportDetailsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsVCTests.swift; sourceTree = "<group>"; };
+		2AB5A8902554283D000B85E3 /* AirportDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsVC.swift; sourceTree = "<group>"; };
 		2AD36753254BF5DC00677F7E /* AirportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportData.swift; sourceTree = "<group>"; };
 		2AD3675D254BF61000677F7E /* AirportsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsProtocol.swift; sourceTree = "<group>"; };
 		2AD36771254BFD9100677F7E /* FlightsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsProtocol.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				2A664308254A1E7A00A0490E /* MainViews */,
+				2AB5A87E255426D2000B85E3 /* Subviews */,
 				2AD3681F254D605B00677F7E /* Cells */,
 			);
 			name = ViewControllers;
@@ -392,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				2A664307254A1E6100A0490E /* MainViews */,
+				2AB5A88F2554281E000B85E3 /* Subviews */,
 				2AD36802254C833B00677F7E /* Cells */,
 			);
 			name = ViewControllers;
@@ -490,6 +496,22 @@
 				2A67E1FC2552BA9B00F176A3 /* MapViewProtocol.swift */,
 			);
 			name = Location;
+			sourceTree = "<group>";
+		};
+		2AB5A87E255426D2000B85E3 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				2AB5A88A255427D5000B85E3 /* AirportDetailsVCTests.swift */,
+			);
+			name = Subviews;
+			sourceTree = "<group>";
+		};
+		2AB5A88F2554281E000B85E3 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				2AB5A8902554283D000B85E3 /* AirportDetailsVC.swift */,
+			);
+			name = Subviews;
 			sourceTree = "<group>";
 		};
 		2AD36752254BF58100677F7E /* Models */ = {
@@ -807,6 +829,7 @@
 				2AB05ADA255009FC0052FC21 /* UserDefaultsProtocol.swift in Sources */,
 				2AD36772254BFD9100677F7E /* FlightsProtocol.swift in Sources */,
 				2AD3682A254D762600677F7E /* Spinner.swift in Sources */,
+				2AB5A8912554283D000B85E3 /* AirportDetailsVC.swift in Sources */,
 				2AD3688F254F333800677F7E /* SettingsVC.swift in Sources */,
 				2A67E1FD2552BA9B00F176A3 /* MapViewProtocol.swift in Sources */,
 				2A9236022549A20E0058B96C /* MainVC.swift in Sources */,
@@ -845,6 +868,7 @@
 				2A6642E6254A0FBF00A0490E /* MainVCTests.swift in Sources */,
 				2AD367C1254C105E00677F7E /* MockURLSession.swift in Sources */,
 				2AB05B7825529EE00052FC21 /* MockCLLocationManager.swift in Sources */,
+				2AB5A88B255427D5000B85E3 /* AirportDetailsVCTests.swift in Sources */,
 				2AB05B7225529DC80052FC21 /* mapViewModelTests.swift in Sources */,
 				2A66434B254ABDD900A0490E /* UIImage+NameTests.swift in Sources */,
 				2AB05AF425500F740052FC21 /* MockUserDefaultsContainer.swift in Sources */,

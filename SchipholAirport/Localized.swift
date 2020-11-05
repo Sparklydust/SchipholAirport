@@ -79,4 +79,7 @@ extension Localized {
 
   static let unit = NSLocalizedString(
     "unit", comment: "unit distance label in settings")
+
+  static let details = NSLocalizedString(
+    "details", comment: "label set as title in AirportDetailsVC")
 }
