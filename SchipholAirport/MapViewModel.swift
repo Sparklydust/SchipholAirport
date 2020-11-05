@@ -43,6 +43,8 @@ final class MapViewModel: NSObject {
 
 // MARK: - Algorithms
 extension MapViewModel {
+  /// Populate annotations with a custom image.
+  ///
   func populateAnnotations(_ airports: [AirportData]) {
     for a in airports {
       let annotation = MKPointAnnotation()
@@ -54,6 +56,46 @@ extension MapViewModel {
 
       mapView.addAnnotation(annotation)
     }
+  }
+
+  /// Perform actions when the detail disclosure from
+  /// annotation is tapped.
+  ///
+  /// Search for the annotation tapped and calculate the
+  /// distance of the nearest airport after finding its name.
+  /// airportsDistance is initialize at 100000 because we need
+  /// a hight value to start for comparaison.
+  ///
+  /// - Parameters:
+  ///     - view: annation that comes from calloutAccessoryControlTapped
+  ///     map view method.
+  /// - Returns: AirportDetailsData model for AirportDetailsVC
+  ///
+  func detailDisclosureTapped(_ view: MKAnnotationView) -> AirportDetailsData? {
+    var airportsDistance: Double = 100000
+    var nearestAirport: AirportData?
+
+    for a in airports {
+      if a.name == view.annotation?.title {
+        for b in airports {
+          let distance = a.distance(to: b.location)
+
+          if distance < airportsDistance
+              && a.id != b.id {
+
+            airportsDistance = distance
+            nearestAirport = b
+          }
+        }
+        let airportDetails = AirportDetailsData(
+          airportData: a,
+          nearestAirport: nearestAirport?.name ?? "",
+          airportsDistance: airportsDistance)
+
+        return airportDetails
+      }
+    }
+    return nil
   }
 }
 
@@ -192,6 +234,15 @@ extension MapViewModel: MKMapViewDelegate {
     return annotationView
   }
 
+  // Action when the annoation info button is tapped.
+  //
+  func mapView(_ mapView: MKMapView,
+               annotationView view: MKAnnotationView,
+               calloutAccessoryControlTapped control: UIControl) {
+    let aiportsDetails = detailDisclosureTapped(view)
+    
+  }
+
   /// Setup button shown when annotion is tapped.
   ///
   /// User to populate airports details informations
@@ -200,15 +251,5 @@ extension MapViewModel: MKMapViewDelegate {
   func setupDetailDisclosureButton() {
     detailDisclosureButton = UIButton(type: .detailDisclosure)
     detailDisclosureButton.tintColor = .accentColor$
-    detailDisclosureButton.addTarget(self,
-                                     action: #selector(detailDisclosureTapped),
-                                     for: .touchUpInside)
-  }
-
-  /// Perform actions when the detail disclosure from
-  /// annotation is tapped.
-  ///
-  @objc func detailDisclosureTapped() {
-
   }
 }

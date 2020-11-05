@@ -21,6 +21,7 @@ class AirportsVC: UIViewController {
     viewModel.startMapping()
   }
 }
+
 // MARK: - AirportsVC Setup
 extension AirportsVC {
   /// Main setup.

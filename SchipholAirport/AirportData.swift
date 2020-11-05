@@ -35,7 +35,7 @@ struct AirportData: AirportsProtocol, Codable, Equatable {
   ///
   /// Used to calculate the distance between two airports.
   ///
-  func distance(_ isInKm: Bool, to location: CLLocation) -> CLLocationDistance {
+  func distance(_ isInKm: Bool = true, to location: CLLocation) -> CLLocationDistance {
     guard isInKm else {
       return self.location.distance(from: location) * 0.000621371
     }
