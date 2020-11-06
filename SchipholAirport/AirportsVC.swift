@@ -19,6 +19,10 @@ class AirportsVC: UIViewController {
   // Reference Types
   var viewModel = MapViewModel()
 
+  // Constants
+  static let detailsModalNotification = "detailsModalNotification"
+  static let airportDetailsNotification = "airportDetailsNotification"
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setupMainView()
@@ -68,8 +72,11 @@ extension AirportsVC {
     view.addSubview(mapView)
   }
 
+  /// Add NotificationCenter to AirportsVC.
+  ///
   func addNotifications() {
     listenShowModalNotification()
+    listenAirportDetailsDataNotification()
   }
 }
 
@@ -84,7 +91,7 @@ extension AirportsVC {
       .addObserver(self,
                    selector: #selector(presentDetailsModalView),
                    name: NSNotification
-                    .Name(rawValue: AirportDetailsVC.detailsNotification),
+                    .Name(rawValue: AirportsVC.detailsModalNotification),
                    object: nil)
   }
 
@@ -92,6 +99,29 @@ extension AirportsVC {
   ///
   @objc func presentDetailsModalView(notif: NSNotification) {
     present(airportDetailsNC, animated: true)
+  }
+
+  /// Listen to notification from MapViewModel to fetch
+  /// airport details from view model.
+  ///
+  func listenAirportDetailsDataNotification() {
+    NotificationCenter
+      .default
+      .addObserver(self,
+                   selector: #selector(populateAirportDetailsData),
+                   name: NSNotification
+                    .Name(rawValue: AirportsVC.airportDetailsNotification),
+                   object: nil)
+  }
+
+  /// Receive the airport details data from mapViewModel
+  /// and perform action with them.
+  ///
+  @objc func populateAirportDetailsData(_ notification: NSNotification) {
+    guard let dict = notification.userInfo as NSDictionary?,
+          let airportDetails = dict[MapViewModel.airportDetailskey]
+            as? AirportDetailsData else { return }
+
   }
 }
 

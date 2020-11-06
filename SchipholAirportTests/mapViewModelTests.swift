@@ -116,10 +116,22 @@ extension mapViewModelTests {
     XCTAssertEqual(expected, sut.mapView.showsUserLocation)
   }
 
-  func testLocationProvider_identifierValue_equalToAirportAnnotation() throws {
+  func testMapViewModel_identifierValue_equalToAirportAnnotation() throws {
     let expected = "AirportAnnotation"
 
     XCTAssertEqual(expected, sut.identifier)
+  }
+
+  func testMapViewModel_aiportDetailsDictStartEmpty_returnEmptyDictionary() {
+    let expected = [String: AirportDetailsData]()
+
+    XCTAssertEqual(expected, sut.aiportDetailsDict)
+  }
+
+  func testMapViewModel_airportDetailskeyValue_returnDetails() {
+    let expected = "details"
+
+    XCTAssertEqual(expected, MapViewModel.airportDetailskey)
   }
 }
 

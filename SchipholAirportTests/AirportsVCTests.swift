@@ -36,4 +36,16 @@ extension AirportsVCTests {
 
     XCTAssertEqual(expected, sut.title)
   }
+
+  func testAirportsVC_modalViewNotification_returnDetailsModalNotification() throws {
+    let expected = "detailsModalNotification"
+
+    XCTAssertEqual(expected, AirportsVC.detailsModalNotification)
+  }
+
+  func testAirportsVC_AirportsDetailsNotification_returnAirportDetailsNotification() throws {
+    let expected = "airportDetailsNotification"
+
+    XCTAssertEqual(expected, AirportsVC.airportDetailsNotification)
+  }
 }

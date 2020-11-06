@@ -26,9 +26,11 @@ final class MapViewModel: NSObject {
   // Reference Types
   var airportsDownloader = NetworkRequest<AirportData>(.airports)
   var airports = [AirportData]()
+  var aiportDetailsDict = [String: AirportDetailsData]()
 
   // Constants
   let aroundUserDistance: CLLocationDistance = 500000
+  static let airportDetailskey = "details"
 
   // Parameters and initializations for testing purposes.
   //
@@ -239,9 +241,11 @@ extension MapViewModel: MKMapViewDelegate {
   func mapView(_ mapView: MKMapView,
                annotationView view: MKAnnotationView,
                calloutAccessoryControlTapped control: UIControl) {
-    print(view)
-    let aiportsDetails = detailDisclosureTapped(on: view)
 
+    guard let aiportsDetails = detailDisclosureTapped(on: view) else { return }
+    aiportDetailsDict = [MapViewModel.airportDetailskey: aiportsDetails]
+
+    sendDataNotification(of: aiportDetailsDict)
     sendModalViewNotification()
   }
 
@@ -258,14 +262,25 @@ extension MapViewModel: MKMapViewDelegate {
 
 // MARK: Notifications
 extension MapViewModel {
-  /// Send notification to show AirportDetailsVC as a modal
-  /// view on AirportsVC.
+  /// Send notification to show AirportsVC a modal view.
   ///
   func sendModalViewNotification() {
     NotificationCenter
       .default
       .post(name: NSNotification
-              .Name(rawValue: AirportDetailsVC.detailsNotification),
+              .Name(rawValue: AirportsVC.detailsModalNotification),
             object: nil)
+  }
+
+  /// Send notification to AirportsVC with the airport details data
+  /// inside it to share.
+  ///
+  func sendDataNotification(of aiportDetailsDict: [String: AirportDetailsData]) {
+    NotificationCenter
+      .default
+      .post(name: NSNotification
+              .Name(rawValue: AirportsVC.airportDetailsNotification),
+            object: nil,
+            userInfo: aiportDetailsDict)
   }
 }

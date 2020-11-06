@@ -42,9 +42,6 @@ class AirportDetailsVC: UIViewController {
   var seventhVStack = UIStackView()
   var eigthVStack = UIStackView()
 
-  // Constants
-  static let detailsNotification = "AirportDetailsVC"
-
   override func viewDidLoad() {
     super.viewDidLoad()
     setupMainView()
