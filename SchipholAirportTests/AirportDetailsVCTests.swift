@@ -96,4 +96,16 @@ extension AirportDetailsVCTests {
 
     XCTAssertEqual(expected, sut.distanceAirportsLabel.text)
   }
+
+  func testAirportDetailsVC_detailsNotification_returnAirportDetailsVC() throws {
+    let expected = "AirportDetailsVC"
+
+    XCTAssertEqual(expected, AirportDetailsVC.detailsNotification)
+  }
+
+  func testAirportDetailsVC_backgroundViewColor_returnCustomColorBackground$() throws {
+    let expected: UIColor = .background$ ?? UIColor()
+
+    XCTAssertEqual(expected, sut.view.backgroundColor)
+  }
 }

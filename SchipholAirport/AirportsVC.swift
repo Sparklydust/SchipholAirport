@@ -12,6 +12,10 @@ import UIKit
 ///
 class AirportsVC: UIViewController {
 
+  // Modal view
+  let airportDetailsNC = UINavigationController(
+    rootViewController: AirportDetailsVC())
+
   // Reference Types
   var viewModel = MapViewModel()
 
@@ -27,9 +31,17 @@ extension AirportsVC {
   /// Main setup.
   ///
   func setupMainView() {
-    setupViewTitle()
+    setupDesign()
     addSubviews()
     activateLayoutConstraints()
+    addNotifications()
+  }
+
+  /// Setup view design.
+  ///
+  func setupDesign() {
+    setupViewTitle()
+    setupAirportDetailsModalView()
   }
 
   /// Setup view title.
@@ -42,11 +54,44 @@ extension AirportsVC {
       .prefersLargeTitles = true
   }
 
+  /// Setup AirportDetailsVC as a modal view.
+  ///
+  func setupAirportDetailsModalView() {
+    airportDetailsNC.modalPresentationStyle = .pageSheet
+    airportDetailsNC.modalTransitionStyle = .coverVertical
+  }
+
   /// Adding all subviews into AirportsVC.
   ///
   func addSubviews() {
     guard let mapView = viewModel.mapView as? UIView else { return }
     view.addSubview(mapView)
+  }
+
+  func addNotifications() {
+    listenShowModalNotification()
+  }
+}
+
+// MARK: - Notifications
+extension AirportsVC {
+  /// Listen to notification from MapViewModel to trigger
+  /// modal view with AirportDetailsVC.
+  ///
+  func listenShowModalNotification() {
+    NotificationCenter
+      .default
+      .addObserver(self,
+                   selector: #selector(presentDetailsModalView),
+                   name: NSNotification
+                    .Name(rawValue: AirportDetailsVC.detailsNotification),
+                   object: nil)
+  }
+
+  /// Present AirportDetailsVC modal view.
+  ///
+  @objc func presentDetailsModalView(notif: NSNotification) {
+    present(airportDetailsNC, animated: true)
   }
 }
 

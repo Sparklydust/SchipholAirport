@@ -7,6 +7,7 @@
 
 import XCTest
 import CoreLocation
+import MapKit
 @testable import SchipholAirport
 
 class mapViewModelTests: XCTestCase {
@@ -31,6 +32,7 @@ class mapViewModelTests: XCTestCase {
   }
 }
 
+// MARK: - Tests
 extension mapViewModelTests {
   func testMapViewModel_setupLocationManagerDelegate_returnNotNit() throws {
     sut.setupLocationManager()
@@ -120,3 +122,4 @@ extension mapViewModelTests {
     XCTAssertEqual(expected, sut.identifier)
   }
 }
+

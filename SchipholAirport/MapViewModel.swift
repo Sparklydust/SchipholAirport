@@ -71,7 +71,7 @@ extension MapViewModel {
   ///     map view method.
   /// - Returns: AirportDetailsData model for AirportDetailsVC
   ///
-  func detailDisclosureTapped(_ view: MKAnnotationView) -> AirportDetailsData? {
+  func detailDisclosureTapped(on view: MKAnnotationView) -> AirportDetailsData? {
     var airportsDistance: Double = 100000
     var nearestAirport: AirportData?
 
@@ -239,8 +239,10 @@ extension MapViewModel: MKMapViewDelegate {
   func mapView(_ mapView: MKMapView,
                annotationView view: MKAnnotationView,
                calloutAccessoryControlTapped control: UIControl) {
-    let aiportsDetails = detailDisclosureTapped(view)
-    
+    print(view)
+    let aiportsDetails = detailDisclosureTapped(on: view)
+
+    sendModalViewNotification()
   }
 
   /// Setup button shown when annotion is tapped.
@@ -251,5 +253,19 @@ extension MapViewModel: MKMapViewDelegate {
   func setupDetailDisclosureButton() {
     detailDisclosureButton = UIButton(type: .detailDisclosure)
     detailDisclosureButton.tintColor = .accentColor$
+  }
+}
+
+// MARK: Notifications
+extension MapViewModel {
+  /// Send notification to show AirportDetailsVC as a modal
+  /// view on AirportsVC.
+  ///
+  func sendModalViewNotification() {
+    NotificationCenter
+      .default
+      .post(name: NSNotification
+              .Name(rawValue: AirportDetailsVC.detailsNotification),
+            object: nil)
   }
 }

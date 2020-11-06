@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct AirportDetailsData: AirportDetailsDataProtocol {
+//  MARK: AirportDetailsData
+/// Data to be retrieve in AirportDetailsVC.
+///
+struct AirportDetailsData: AirportDetailsDataProtocol, Equatable {
 
   var airportData: AirportData
   var nearestAirport: String

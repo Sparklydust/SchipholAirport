@@ -31,6 +31,7 @@ class AirportDetailsVC: UIViewController {
   var distanceAirportsLabel = UILabel()
   var distanceAirportsResultLabel = UILabel()
 
+  // Stack views
   var mainVStack = UIStackView()
   var firstVStack = UIStackView()
   var secondVStack = UIStackView()
@@ -40,6 +41,9 @@ class AirportDetailsVC: UIViewController {
   var sixthVStack = UIStackView()
   var seventhVStack = UIStackView()
   var eigthVStack = UIStackView()
+
+  // Constants
+  static let detailsNotification = "AirportDetailsVC"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -94,6 +98,7 @@ extension AirportDetailsVC {
     navigationController?
       .navigationBar
       .prefersLargeTitles = true
+    view.backgroundColor = .background$
   }
 
   /// Setup static label title to populate info to user.
