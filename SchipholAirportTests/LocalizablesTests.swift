@@ -141,4 +141,10 @@ class LocalizablesTests: XCTestCase {
 
     XCTAssertEqual(expected, Localized.distanceAirportsLabel)
   }
+
+  func testLocalized_failedDownloadLabel_returnFailure() throws {
+    let expected = "failure"
+
+    XCTAssertEqual(expected, Localized.failure)
+  }
 }

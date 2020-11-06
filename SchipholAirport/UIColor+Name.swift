@@ -17,4 +17,6 @@ extension UIColor {
   static let background$ = UIColor(named: "background$")
 
   static let accentColor$ = UIColor(named: "accentColor$")
+
+  static let black$White = UIColor(named: "black$White")
 }

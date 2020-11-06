@@ -15,21 +15,21 @@ class AirportDetailsVC: UIViewController {
 
   // UI
   var idLabel = UILabel()
-  var idResultLabel = UILabel()
+  var idDataLabel = UILabel()
   var latLabel = UILabel()
-  var latResultLabel = UILabel()
+  var latDataLabel = UILabel()
   var longLabel = UILabel()
-  var longLabelResult = UILabel()
+  var longDataLabel = UILabel()
   var nameLabel = UILabel()
-  var nameResultLabel = UILabel()
+  var nameDataLabel = UILabel()
   var cityLabel = UILabel()
-  var cityResultLabel = UILabel()
+  var cityDataLabel = UILabel()
   var countryIdLabel = UILabel()
-  var countryIdResultLabel = UILabel()
+  var countryIdDataLabel = UILabel()
   var nearestAirportLabel = UILabel()
-  var nearestAirportResultLabel = UILabel()
+  var nearestAirportDataLabel = UILabel()
   var distanceAirportsLabel = UILabel()
-  var distanceAirportsResultLabel = UILabel()
+  var distanceAirportsDataLabel = UILabel()
 
   // Stack views
   var mainVStack = UIStackView()
@@ -42,9 +42,46 @@ class AirportDetailsVC: UIViewController {
   var seventhVStack = UIStackView()
   var eigthVStack = UIStackView()
 
+  // Variables
+  var id = String()
+  var latitude = Double()
+  var longitude = Double()
+  var name = String()
+  var city = String()
+  var countryId = String()
+  var nearestAirport = String()
+  var distanceAirports = Double()
+
+  // Constant
+  let distanceFormat = "%.2f %@"
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setupMainView()
+    setupDataInLabels()
+  }
+}
+
+// MARK: - Setup Labels Data
+extension AirportDetailsVC {
+  /// User distance unit set in settings.
+  ///
+  /// Value are being saved and retrieve in
+  /// UserDefaults.
+  ///
+  func setupDataInLabels() {
+    let isInKm = UserDefaultsService.shared.isInKm
+    let unit = isInKm ? Localized.km : Localized.mi
+    let airportDistance = String(format: distanceFormat, distanceAirports, unit)
+
+    idDataLabel.text = id
+    latDataLabel.text = String(latitude)
+    longDataLabel.text = String(longitude)
+    nameDataLabel.text = name
+    cityDataLabel.text = city
+    countryIdDataLabel.text = countryId
+    nearestAirportDataLabel.text = nearestAirport
+    distanceAirportsDataLabel.text = airportDistance
   }
 }
 
@@ -65,6 +102,7 @@ extension AirportDetailsVC {
   func setupDesign() {
     setupViewTitle()
     setupStaticLabels()
+    setupDataLabel()
     setupMainStack()
     setupSecondaryStackViews()
   }
@@ -111,6 +149,20 @@ extension AirportDetailsVC {
     distanceAirportsLabel.secondaryLabelStyle(text: Localized.distanceAirportsLabel)
   }
 
+  /// Setup data label that are populate to user when view
+  /// is shown from an annotation tapped on map.
+  ///
+  func setupDataLabel() {
+    idDataLabel.dataLabelStyle()
+    latDataLabel.dataLabelStyle()
+    longDataLabel.dataLabelStyle()
+    nameDataLabel.dataLabelStyle()
+    cityDataLabel.dataLabelStyle()
+    countryIdDataLabel.dataLabelStyle()
+    nearestAirportDataLabel.dataLabelStyle()
+    distanceAirportsDataLabel.dataLabelStyle()
+  }
+
   /// Setup main stack view holding secondary stack
   /// views with labels info.
   ///
@@ -118,7 +170,7 @@ extension AirportDetailsVC {
     mainVStack.axis = .vertical
     mainVStack.distribution = .equalSpacing
     mainVStack.alignment = .center
-    mainVStack.spacing = 8
+    mainVStack.spacing = 16
   }
 
   /// Setup secondary stack views holding info labels.
@@ -183,31 +235,31 @@ extension AirportDetailsVC {
     mainVStack.addArrangedSubview(eigthVStack)
   }
 
-  /// Secondary stack views UILabel subviews added to them.
+  /// Secondary stack views UILabel as subviews added to them.
   ///
   func addSecondaryStacksSubviews() {
     firstVStack.addArrangedSubview(idLabel)
-    firstVStack.addArrangedSubview(idResultLabel)
+    firstVStack.addArrangedSubview(idDataLabel)
 
     secondVStack.addArrangedSubview(latLabel)
-    secondVStack.addArrangedSubview(latResultLabel)
+    secondVStack.addArrangedSubview(latDataLabel)
 
     thirdVStack.addArrangedSubview(longLabel)
-    thirdVStack.addArrangedSubview(longLabelResult)
+    thirdVStack.addArrangedSubview(longDataLabel)
 
     fourthVStack.addArrangedSubview(nameLabel)
-    fourthVStack.addArrangedSubview(nameResultLabel)
+    fourthVStack.addArrangedSubview(nameDataLabel)
 
     fifthVStack.addArrangedSubview(cityLabel)
-    fifthVStack.addArrangedSubview(cityResultLabel)
+    fifthVStack.addArrangedSubview(cityDataLabel)
 
     sixthVStack.addArrangedSubview(countryIdLabel)
-    sixthVStack.addArrangedSubview(countryIdResultLabel)
+    sixthVStack.addArrangedSubview(countryIdDataLabel)
 
     seventhVStack.addArrangedSubview(nearestAirportLabel)
-    seventhVStack.addArrangedSubview(nearestAirportResultLabel)
+    seventhVStack.addArrangedSubview(nearestAirportDataLabel)
 
     eigthVStack.addArrangedSubview(distanceAirportsLabel)
-    eigthVStack.addArrangedSubview(distanceAirportsResultLabel)
+    eigthVStack.addArrangedSubview(distanceAirportsDataLabel)
   }
 }

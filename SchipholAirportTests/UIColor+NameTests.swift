@@ -21,4 +21,10 @@ class UIColor_NameTests: XCTestCase {
 
     XCTAssertEqual(expected, UIColor.accentColor$)
   }
+
+  func testUIColorName_black$White() throws {
+    let expected = UIColor(named: "black$White")
+
+    XCTAssertEqual(expected, UIColor.black$White)
+  }
 }

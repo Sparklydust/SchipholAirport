@@ -20,6 +20,7 @@
 
 // MARK: - Error Titles
 "downloadFailure" = "Erreur de téléchargement";
+"failure" = "erreur";
 
 // MARK: - Error Messages
 "downloadFailureMessage" = "Il y a eu un problème lors du téléchargement. Merci de réessayer plus tard.";

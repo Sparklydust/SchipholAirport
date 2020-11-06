@@ -176,8 +176,6 @@ extension FlightsVC {
   /// in tests mainly.
   ///
   func downloadAirports(_ completion: @escaping () -> Void = { }) {
-    spinner.starts(on: view)
-
     airportsDownloader.getArray { response in
       switch response {
       case .failure:
@@ -211,7 +209,6 @@ extension FlightsVC {
   ///
   func handleDownloadSuccess(_ flightsData: [FlightData]) {
     flights = flightsData
-    spinner.stops()
   }
 
   /// Handling downloading airports data success from api call.

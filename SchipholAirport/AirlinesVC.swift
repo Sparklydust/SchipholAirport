@@ -221,8 +221,6 @@ extension AirlinesVC {
   /// in tests mainly.
   ///
   func downloadFlights(_ completion: @escaping () -> Void = { }) {
-    spinner.starts(on: view)
-
     flightsDownloader.getArray { response in
       switch response {
       case .failure:
@@ -249,8 +247,6 @@ extension AirlinesVC {
   /// in tests mainly.
   ///
   func downloadAirports(_ completion: @escaping () -> Void = { }) {
-    spinner.starts(on: view)
-
     airportsDownloader.getArray { response in
       switch response {
       case .failure:
@@ -284,14 +280,12 @@ extension AirlinesVC {
   ///
   func handleDownloadSuccess(_ airlinesData: [AirlineData]) {
     airlines = airlinesData
-    spinner.stops()
   }
 
   /// Handling downloading flights data success from api call.
   ///
   func handleDownloadSuccess(_ flightsData: [FlightData]) {
     flights = flightsData
-    spinner.stops()
   }
 
   /// Handling downloading airports data success from api call.
@@ -397,9 +391,9 @@ extension AirlinesVC {
     tryAgainButton.layer.cornerRadius = 8
     tryAgainButton.setTitle(Localized.tryAgain, for: .normal)
     tryAgainButton.titleLabel?.font =  .systemFont(ofSize: 20,
-                                                 weight: .medium)
+                                                   weight: .medium)
     tryAgainButton.addTarget(self, action: #selector(tryAgainButtonAction),
-                           for: .touchUpInside)
+                             for: .touchUpInside)
     view.addSubview(tryAgainButton)
   }
 

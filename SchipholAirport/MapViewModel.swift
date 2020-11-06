@@ -27,10 +27,15 @@ final class MapViewModel: NSObject {
   var airportsDownloader = NetworkRequest<AirportData>(.airports)
   var airports = [AirportData]()
   var aiportDetailsDict = [String: AirportDetailsData]()
+  let spinner = Spinner()
 
   // Constants
   let aroundUserDistance: CLLocationDistance = 500000
   static let airportDetailskey = "details"
+
+
+  // Variables
+  var isInKm = UserDefaultsService.shared.isInKm
 
   // Parameters and initializations for testing purposes.
   //
@@ -80,7 +85,7 @@ extension MapViewModel {
     for a in airports {
       if a.name == view.annotation?.title {
         for b in airports {
-          let distance = a.distance(to: b.location)
+          let distance = a.distance(isInKm, to: b.location)
 
           if distance < airportsDistance
               && a.id != b.id {
@@ -143,10 +148,13 @@ extension MapViewModel {
   /// in tests mainly.
   ///
   func downloadAirports(_ completion: @escaping () -> Void = { }) {
+    spinner.starts(on: mapView as? UIView ?? UIView())
+
     airportsDownloader.getArray { response in
       switch response {
       case .failure:
         DispatchQueue.main.async {
+          self.handleDownloadFailure()
           completion()
         }
         return
@@ -161,9 +169,16 @@ extension MapViewModel {
     }
   }
 
+  /// Handling downlading failure from api call.
+  ///
+  func handleDownloadFailure() {
+    spinner.stops()
+  }
+
   /// Handling downloading airports data success from api call.
   ///
   func handleDownloadSuccess(_ airportsData: [AirportData]) {
+    spinner.stops()
     airports = airportsData
     populateAnnotations(airportsData)
   }
@@ -238,13 +253,17 @@ extension MapViewModel: MKMapViewDelegate {
 
   // Action when the annoation info button is tapped.
   //
+  // Check distance unit to before doing the algorithms search
+  // and have the value in km or miles.
+  //
   func mapView(_ mapView: MKMapView,
                annotationView view: MKAnnotationView,
                calloutAccessoryControlTapped control: UIControl) {
+    checkDistanceUnitSettings()
 
     guard let aiportsDetails = detailDisclosureTapped(on: view) else { return }
     aiportDetailsDict = [MapViewModel.airportDetailskey: aiportsDetails]
-
+    
     sendDataNotification(of: aiportDetailsDict)
     sendModalViewNotification()
   }
@@ -257,6 +276,16 @@ extension MapViewModel: MKMapViewDelegate {
   func setupDetailDisclosureButton() {
     detailDisclosureButton = UIButton(type: .detailDisclosure)
     detailDisclosureButton.tintColor = .accentColor$
+  }
+
+  /// User distance unit set in settings.
+  ///
+  /// Retrieve the value from user defaults
+  /// before calculating the distance between
+  /// two airports.
+  ///
+  func checkDistanceUnitSettings() {
+    isInKm = UserDefaultsService.shared.isInKm
   }
 }
 

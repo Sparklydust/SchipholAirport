@@ -12,12 +12,10 @@ import UIKit
 ///
 class AirportsVC: UIViewController {
 
-  // Modal view
-  let airportDetailsNC = UINavigationController(
-    rootViewController: AirportDetailsVC())
-
   // Reference Types
   var viewModel = MapViewModel()
+  let airportDetailsVC = AirportDetailsVC()
+  var airportDetailsData: AirportDetailsData?
 
   // Constants
   static let detailsModalNotification = "detailsModalNotification"
@@ -45,7 +43,6 @@ extension AirportsVC {
   ///
   func setupDesign() {
     setupViewTitle()
-    setupAirportDetailsModalView()
   }
 
   /// Setup view title.
@@ -58,13 +55,6 @@ extension AirportsVC {
       .prefersLargeTitles = true
   }
 
-  /// Setup AirportDetailsVC as a modal view.
-  ///
-  func setupAirportDetailsModalView() {
-    airportDetailsNC.modalPresentationStyle = .pageSheet
-    airportDetailsNC.modalTransitionStyle = .coverVertical
-  }
-
   /// Adding all subviews into AirportsVC.
   ///
   func addSubviews() {
@@ -75,8 +65,8 @@ extension AirportsVC {
   /// Add NotificationCenter to AirportsVC.
   ///
   func addNotifications() {
-    listenShowModalNotification()
     listenAirportDetailsDataNotification()
+    listenShowModalNotification()
   }
 }
 
@@ -98,7 +88,26 @@ extension AirportsVC {
   /// Present AirportDetailsVC modal view.
   ///
   @objc func presentDetailsModalView(notif: NSNotification) {
-    present(airportDetailsNC, animated: true)
+    sendAirportDetailsData(to: airportDetailsVC)
+    present(airportDetailsVC, animated: true, completion: nil)
+  }
+
+  /// Setup AirportDetailsVC variables.
+  ///
+  /// Add value fetch from MapViewModel via a notification
+  /// and set AirportDetailsVC from AirportsVC before showing
+  /// the modal view with details.
+  ///
+  func sendAirportDetailsData(to vc: AirportDetailsVC) {
+    let failure = Localized.failure
+    vc.id = airportDetailsData?.airportData.id ?? failure
+    vc.latitude = airportDetailsData?.airportData.latitude ?? .zero
+    vc.longitude = airportDetailsData?.airportData.longitude ?? .zero
+    vc.name = airportDetailsData?.airportData.name ?? failure
+    vc.city = airportDetailsData?.airportData.city ?? failure
+    vc.countryId = airportDetailsData?.airportData.countryId ?? failure
+    vc.nearestAirport = airportDetailsData?.nearestAirport ?? failure
+    vc.distanceAirports = airportDetailsData?.airportsDistance ?? .zero
   }
 
   /// Listen to notification from MapViewModel to fetch
@@ -121,7 +130,7 @@ extension AirportsVC {
     guard let dict = notification.userInfo as NSDictionary?,
           let airportDetails = dict[MapViewModel.airportDetailskey]
             as? AirportDetailsData else { return }
-
+    airportDetailsData = airportDetails
   }
 }
 

@@ -54,6 +54,9 @@ extension Localized {
   static let downloadFailure = NSLocalizedString(
     "downloadFailure",
     comment: "error title when downlad from api failed")
+
+  static let failure = NSLocalizedString(
+    "failure", comment: "failure title to label data not showing in AirportDetailsVC")
 }
 
 // MARK: - Error messages
