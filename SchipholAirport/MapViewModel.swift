@@ -27,6 +27,7 @@ final class MapViewModel: NSObject {
   var airportsDownloader = NetworkRequest<AirportData>(.airports)
   var airports = [AirportData]()
   var aiportDetailsDict = [String: AirportDetailsData]()
+  var furthestAirports = Set<AirportData>()
   let spinner = Spinner()
 
   // Constants
@@ -104,6 +105,35 @@ extension MapViewModel {
     }
     return nil
   }
+
+  /// Founfing airports that are the furthest apart on the map.
+  ///
+  /// Calculate the distance between airports in two different arrays. If airports are not the furthest, one of the array delete the non needed
+  /// airport.
+  ///
+  func foundAirportsFurthestApart() {
+    var distance: CLLocationDistance = .zero
+    let x = airports.reversed()
+    var y = airports
+
+    for a in x {
+      for b in y {
+
+        let d = a.distance(true, to: b.location)
+
+        if d > distance {
+          distance = d
+          furthestAirports = []
+          furthestAirports.insert(a)
+          furthestAirports.insert(b)
+
+          if let index = y.firstIndex(of: b) {
+            y.remove(at: index)
+          }
+        }
+      }
+    }
+  }
 }
 
 // MARK: - Main Location Manager and Map Setup
@@ -180,6 +210,7 @@ extension MapViewModel {
   func handleDownloadSuccess(_ airportsData: [AirportData]) {
     spinner.stops()
     airports = airportsData
+    foundAirportsFurthestApart()
     populateAnnotations(airportsData)
   }
 }

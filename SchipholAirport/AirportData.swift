@@ -14,7 +14,7 @@ import CoreLocation
 /// Additional elements from the api are added to
 /// AirportData, the location and func distance(location:).
 ///
-struct AirportData: AirportsProtocol, Codable, Equatable {
+struct AirportData: AirportsProtocol, Codable, Equatable, Hashable {
 
   var id: String
   var latitude: Double

@@ -32,6 +32,20 @@ class MapViewModelTests: XCTestCase {
   }
 }
 
+// MARK: - Helpers
+extension MapViewModelTests {
+  /// Load fake airports data from json file inside Fakes/Json folder.
+  ///
+  func loadFakeJsonAirports() -> [AirportData] {
+    let bundle = Bundle(for: MapViewModelTests.self)
+    let url = bundle.url(forResource: "Airports", withExtension: "json")
+    let data = try! Data(contentsOf: url!)
+
+    let airports = try! JSONDecoder().decode([AirportData].self, from: data)
+    return airports
+  }
+}
+
 // MARK: - Tests
 extension MapViewModelTests {
   func testMapViewModel_setupLocationManagerDelegate_returnNotNit() throws {
@@ -132,6 +146,15 @@ extension MapViewModelTests {
     let expected = "details"
 
     XCTAssertEqual(expected, MapViewModel.airportDetailskey)
+  }
+
+  func testMapViewModel_foundAirportFurthestApart_returnAucklandAndMalaga() throws {
+    sut.airports = loadFakeJsonAirports()
+    let expected: Set<AirportData> = [sut.airports[5], sut.airports[6]]
+
+    sut.foundAirportsFurthestApart()
+
+    XCTAssertEqual(expected, sut.furthestAirports)
   }
 }
 
