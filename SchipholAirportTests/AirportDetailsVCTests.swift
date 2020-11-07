@@ -12,14 +12,36 @@ class AirportDetailsVCTests: XCTestCase {
 
   var sut: AirportDetailsVC!
 
+  var fakeUserDefaultsService: UserDefaultsService!
+  var mockUserDefaultsContainer: MockUserDefaultsContainer!
+
   override func setUpWithError() throws {
     try super.setUpWithError()
     sut = AirportDetailsVC()
+
+    mockUserDefaultsContainer = MockUserDefaultsContainer()
+    fakeUserDefaultsService = UserDefaultsService(userDefaultsContainer: mockUserDefaultsContainer)
   }
 
   override func tearDownWithError() throws {
+    fakeUserDefaultsService = nil
+    mockUserDefaultsContainer = nil
     sut = nil
     try super.tearDownWithError()
+  }
+}
+
+// MARK: - Helpers
+extension AirportDetailsVCTests {
+  /// Load fake airports data from json file inside Fakes/Json folder.
+  ///
+  func loadFakeJsonAirports() -> [AirportData] {
+    let bundle = Bundle(for: AirportDetailsVCTests.self)
+    let url = bundle.url(forResource: "Airports", withExtension: "json")
+    let data = try! Data(contentsOf: url!)
+
+    let airports = try! JSONDecoder().decode([AirportData].self, from: data)
+    return airports
   }
 }
 
@@ -101,5 +123,37 @@ extension AirportDetailsVCTests {
     let expected: UIColor = .background$ ?? UIColor()
 
     XCTAssertEqual(expected, sut.view.backgroundColor)
+  }
+
+  func testAiportDetailsVC_setupDataLabelUnitSetWithUserDefaults_returnDistanceInkm() throws {
+    let expected = "234.34 km"
+    mockUserDefaultsContainer.isInKm = true
+    sut.isInKm = mockUserDefaultsContainer.isInKm
+    sut.distanceAirports = 234.34
+
+    sut.setupDataInLabels()
+
+    XCTAssertEqual(expected, sut.distanceAirportsDataLabel.text)
+  }
+
+  func testAiportDetailsVC_setupDataLabelUnitSetWithUserDefaults_returnDistanceInMiles() throws {
+    let expected = "567.32 mi"
+    mockUserDefaultsContainer.isInKm = false
+    sut.isInKm = mockUserDefaultsContainer.isInKm
+    sut.distanceAirports = 567.32
+
+    sut.setupDataInLabels()
+
+    XCTAssertEqual(expected, sut.distanceAirportsDataLabel.text)
+  }
+
+  func testAirportDetailsVC_viewWillAppearChangeCityDataLabel_returnAirportCityValueInLabel() throws {
+    let expected = "Aberdeen"
+    let airports = loadFakeJsonAirports()
+    sut.city = airports[2].city
+
+    sut.viewWillAppear(true)
+
+    XCTAssertEqual(expected, sut.cityDataLabel.text)
   }
 }

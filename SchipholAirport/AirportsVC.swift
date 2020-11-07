@@ -15,6 +15,7 @@ class AirportsVC: UIViewController {
   // Reference Types
   var viewModel = MapViewModel()
   let airportDetailsVC = AirportDetailsVC()
+  var airportDetailsNC = UINavigationController()
   var airportDetailsData: AirportDetailsData?
 
   // Constants
@@ -37,6 +38,7 @@ extension AirportsVC {
     addSubviews()
     activateLayoutConstraints()
     addNotifications()
+    setupModalViewAsUINavCont()
   }
 
   /// Setup view design.
@@ -53,6 +55,17 @@ extension AirportsVC {
     navigationController?
       .navigationBar
       .prefersLargeTitles = true
+  }
+
+  /// Setup AirportDetailsVC to a UINavigationController
+  /// for details shown as a modal view.
+  ///
+  /// This way, we can add navigation view attribute to
+  /// the modal view, like the title.
+  ///
+  func setupModalViewAsUINavCont() {
+      airportDetailsNC = UINavigationController(rootViewController: airportDetailsVC)
+      airportDetailsNC.modalPresentationStyle = .pageSheet
   }
 
   /// Adding all subviews into AirportsVC.
@@ -89,7 +102,7 @@ extension AirportsVC {
   ///
   @objc func presentDetailsModalView(notif: NSNotification) {
     sendAirportDetailsData(to: airportDetailsVC)
-    present(airportDetailsVC, animated: true, completion: nil)
+    present(airportDetailsNC, animated: true, completion: nil)
   }
 
   /// Setup AirportDetailsVC variables.

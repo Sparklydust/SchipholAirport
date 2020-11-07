@@ -1,5 +1,5 @@
 //
-//  mapViewModelTests.swift
+//  MapViewModelTests.swift
 //  SchipholAirportTests
 //
 //  Created by Roland Lariotte on 04/11/2020.
@@ -10,7 +10,7 @@ import CoreLocation
 import MapKit
 @testable import SchipholAirport
 
-class mapViewModelTests: XCTestCase {
+class MapViewModelTests: XCTestCase {
 
   var sut: MapViewModel!
 
@@ -33,7 +33,7 @@ class mapViewModelTests: XCTestCase {
 }
 
 // MARK: - Tests
-extension mapViewModelTests {
+extension MapViewModelTests {
   func testMapViewModel_setupLocationManagerDelegate_returnNotNit() throws {
     sut.setupLocationManager()
 

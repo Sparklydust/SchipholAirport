@@ -54,10 +54,16 @@ class AirportDetailsVC: UIViewController {
 
   // Constant
   let distanceFormat = "%.2f %@"
+  var isInKm = UserDefaultsService.shared.isInKm
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setupMainView()
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    isInKm = UserDefaultsService.shared.isInKm
     setupDataInLabels()
   }
 }
@@ -70,7 +76,6 @@ extension AirportDetailsVC {
   /// UserDefaults.
   ///
   func setupDataInLabels() {
-    let isInKm = UserDefaultsService.shared.isInKm
     let unit = isInKm ? Localized.km : Localized.mi
     let airportDistance = String(format: distanceFormat, distanceAirports, unit)
 
