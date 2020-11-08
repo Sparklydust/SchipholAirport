@@ -135,7 +135,7 @@ extension AirlinesVC {
     for a in airlinesConnected {
       if a.id == flight.airlineId {
         if !airlinesDictionary.contains(where: { $0.key.id == a.id }) {
-          airlinesDictionary[a] = 0
+          airlinesDictionary[a] = .zero
         }
       }
     }
@@ -168,6 +168,7 @@ extension AirlinesVC {
   func checkDistanceUnitSettings() {
     isInKm = UserDefaultsService.shared.isInKm
     if trackIsInKm == isInKm {
+      reinitAirlinesFlightsValues()
       downloadData()
       trackIsInKm = !UserDefaultsService.shared.isInKm
     }
@@ -333,6 +334,17 @@ extension AirlinesVC {
   func setupMainView() {
     setupViewTitle()
     setupTableView()
+  }
+
+  /// Set airlinesDictionary and FlightsConnected to
+  /// empty values.
+  ///
+  /// Used to redownload data when user has change unit
+  /// from settings.
+  ///
+  func reinitAirlinesFlightsValues() {
+    airlinesDictionary = [AirlineData: Double]()
+    flightsConnected = [FlightData]()
   }
 }
 

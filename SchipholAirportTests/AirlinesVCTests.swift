@@ -345,6 +345,7 @@ extension AirlinesVCTests {
       airlineAF: 798.3115413997741,
       airline30: 2026.634960748272
     ]
+    sut.isInKm = true
 
     loadFakeAirlinesSortedDataForTest()
 
@@ -361,5 +362,23 @@ extension AirlinesVCTests {
     loadFakeAirlinesSortedDataForTest()
 
     XCTAssertEqual(expected, sut.airlinesDictionary)
+  }
+
+  func testAirlinesVC_reinitAirlinesDictionaryAtViewDidLoad_returnEmptyValues() throws {
+    let expected = [AirlineData: Double]()
+    loadFakeAirlinesSortedDataForTest()
+
+    sut.reinitAirlinesFlightsValues()
+
+    XCTAssertEqual(expected, sut.airlinesDictionary)
+  }
+
+  func testAirlinesVC_reinitFlightsConnectedAtViewDidLoad_returnEmptyValues() throws {
+    let expected = [FlightData]()
+    loadFakeAirlinesSortedDataForTest()
+
+    sut.reinitAirlinesFlightsValues()
+
+    XCTAssertEqual(expected, sut.flightsConnected)
   }
 }
