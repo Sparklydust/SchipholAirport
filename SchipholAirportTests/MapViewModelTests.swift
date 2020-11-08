@@ -150,11 +150,10 @@ extension MapViewModelTests {
 
   func testMapViewModel_foundAirportFurthestApart_returnAucklandAndMalaga() throws {
     sut.airports = loadFakeJsonAirports()
-    let expected: Set<AirportData> = [sut.airports[5], sut.airports[6]]
+    let expected = [sut.airports[6], sut.airports[5]]
 
     sut.foundAirportsFurthestApart()
 
     XCTAssertEqual(expected, sut.furthestAirports)
   }
 }
-

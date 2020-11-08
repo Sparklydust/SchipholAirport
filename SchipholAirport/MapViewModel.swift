@@ -27,7 +27,7 @@ final class MapViewModel: NSObject {
   var airportsDownloader = NetworkRequest<AirportData>(.airports)
   var airports = [AirportData]()
   var aiportDetailsDict = [String: AirportDetailsData]()
-  var furthestAirports = Set<AirportData>()
+  var furthestAirports = [AirportData]()
   let spinner = Spinner()
 
   // Constants
@@ -60,8 +60,6 @@ extension MapViewModel {
       annotation.coordinate = CLLocationCoordinate2D(latitude: a.latitude,
                                                      longitude: a.longitude)
 
-      annotationImage = .flightAnnotation ?? UIImage()
-
       mapView.addAnnotation(annotation)
     }
   }
@@ -85,6 +83,7 @@ extension MapViewModel {
 
     for a in airports {
       if a.name == view.annotation?.title {
+
         for b in airports {
           let distance = a.distance(isInKm, to: b.location)
 
@@ -124,8 +123,8 @@ extension MapViewModel {
         if d > distance {
           distance = d
           furthestAirports = []
-          furthestAirports.insert(a)
-          furthestAirports.insert(b)
+          furthestAirports.append(a)
+          furthestAirports.append(b)
 
           if let index = y.firstIndex(of: b) {
             y.remove(at: index)
@@ -262,22 +261,10 @@ extension MapViewModel: MKMapViewDelegate {
   //
   func mapView(_ mapView: MKMapView,
                viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    guard !annotation.isKind(of: MKUserLocation.self) else { return nil }
 
-    guard !annotation.isKind(of: MKUserLocation.self) else {
-      return nil
-    }
-    annotationView = mapView
-      .dequeueReusableAnnotationView(withIdentifier: identifier)
-    if annotationView == nil {
-      annotationView = MKAnnotationView(annotation: annotation,
-                                        reuseIdentifier: identifier)
-      annotationView?.rightCalloutAccessoryView = detailDisclosureButton
-      annotationView?.canShowCallout = true
-    }
-    else {
-      annotationView?.annotation = annotation
-    }
-    annotationView?.image = annotationImage
+    setCustom(annotation, on: mapView)
+    setCustomImage(for: annotation)
 
     return annotationView
   }
@@ -317,6 +304,40 @@ extension MapViewModel: MKMapViewDelegate {
   ///
   func checkDistanceUnitSettings() {
     isInKm = UserDefaultsService.shared.isInKm
+  }
+
+  /// Setup annotation customed.
+  ///
+  /// Add a disclosure button to trigger modal view for
+  /// showing AiportDetailsVC.
+  ///
+  func setCustom(_ annotation: MKAnnotation, on mapView: MKMapView) {
+    annotationView = mapView
+      .dequeueReusableAnnotationView(withIdentifier: identifier)
+    if annotationView == nil {
+      annotationView = MKAnnotationView(annotation: annotation,
+                                        reuseIdentifier: identifier)
+      annotationView?.rightCalloutAccessoryView = detailDisclosureButton
+      annotationView?.canShowCallout = true
+    }
+    else {
+      annotationView?.annotation = annotation
+    }
+  }
+
+  /// Set annotation image from Assets.xcassets.
+  ///
+  /// Image are set with .flightAnnotation. Only
+  /// the two furthest airports are set with the
+  /// image .goldFlightAnnotation
+  ///
+  func setCustomImage(for annotation: MKAnnotation) {
+    if furthestAirports[0].name == annotation.title ||
+        furthestAirports[1].name == annotation.title {
+      annotationView?.image = .goldFlightAnnotation
+    } else {
+      annotationView?.image = .flightAnnotation
+    }
   }
 }
 

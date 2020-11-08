@@ -7,6 +7,10 @@
 
 import Foundation
 
+//  MARK: - AirportDetailsDataProtocol
+/// Model protocol of data being populated on
+/// AirportDetailsVC send from MapViewModel.
+///
 protocol AirportDetailsDataProtocol {
 
   var airportData: AirportData { get set }
