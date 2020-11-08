@@ -80,6 +80,16 @@ extension AirlinesVCTests {
     let airports = try! JSONDecoder().decode([AirportData].self, from: data)
     return airports
   }
+
+  /// Loading sorted Airlines in sut.airlinesSorted to
+  /// test code behavior with data.
+  ///
+  func loadFakeAirlinesSortedDataForTest() {
+    sut.flights = loadFakeJsonFlights()
+    sut.airlines = loadFakeJsonAirlines()
+    sut.airports = loadFakeJsonAirports()
+    sut.populateAirlines()
+  }
 }
 
 // MARK: - Tests
@@ -111,7 +121,7 @@ extension AirlinesVCTests {
   }
 
   func testAirlinesVC_checkTableViewNumberOfRows_returnAirlinesArrayCount() throws {
-    let expected = sut.airlinesDictionary.count
+    let expected = sut.airlinesSorted.count
 
     sut.loadViewIfNeeded()
     let result = sut.tableView(sut.tableView, numberOfRowsInSection: 0)
@@ -121,11 +131,7 @@ extension AirlinesVCTests {
 
   func testAirlinesVC_checkTableViewCell_returnsAirlineTVCCell() throws {
     let expected = "Air France"
-    sut.airlines = loadFakeJsonAirlines()
-    sut.airlinesDictionary = [
-      airlineAF: 496.0476407911191,
-      airline30: 1259.2921921951145
-    ]
+    loadFakeAirlinesSortedDataForTest()
 
     let cell = sut.tableView(
       sut.tableView,
@@ -339,12 +345,8 @@ extension AirlinesVCTests {
       airlineAF: 798.3115413997741,
       airline30: 2026.634960748272
     ]
-    sut.isInKm = true
-    sut.flights = loadFakeJsonFlights()
-    sut.airlines = loadFakeJsonAirlines()
-    sut.airports = loadFakeJsonAirports()
 
-    sut.populateAirlines()
+    loadFakeAirlinesSortedDataForTest()
 
     XCTAssertEqual(expected, sut.airlinesDictionary)
   }
@@ -355,11 +357,8 @@ extension AirlinesVCTests {
       airline30: 1259.2921921951145
     ]
     sut.isInKm = false
-    sut.flights = loadFakeJsonFlights()
-    sut.airlines = loadFakeJsonAirlines()
-    sut.airports = loadFakeJsonAirports()
-
-    sut.populateAirlines()
+    
+    loadFakeAirlinesSortedDataForTest()
 
     XCTAssertEqual(expected, sut.airlinesDictionary)
   }

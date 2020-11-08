@@ -19,6 +19,7 @@ class AirlinesVC: UITableViewController {
   var airlines = [AirlineData]()
   var airlinesConnected = [AirlineData]()
   var airlinesDictionary = [AirlineData: Double]()
+  var airlinesSorted = [Dictionary<AirlineData, Double>.Element]()
   var flights = [FlightData]()
   var flightsConnected = [FlightData]()
   var airports = [AirportData]()
@@ -62,7 +63,8 @@ extension AirlinesVC {
     filterFlightsFromSchiphol()
     filterAirlinesFromSchiphol()
     setAirlinesConnectedDictionary()
-    calculateAirlinesDistanceSorted()
+    calculateAirlinesDistance()
+    sortAirlinesByDistance()
   }
 
   /// Filter flights fetch from api that are connected
@@ -102,7 +104,7 @@ extension AirlinesVC {
   /// Distance of each airline are added as a value in
   /// the airlinesDictionary.
   ///
-  func calculateAirlinesDistanceSorted() {
+  func calculateAirlinesDistance() {
     _ = airlinesDictionary
       .compactMap { airline, distance in
         calculate(airline, distance)
@@ -169,6 +171,15 @@ extension AirlinesVC {
       downloadData()
       trackIsInKm = !UserDefaultsService.shared.isInKm
     }
+  }
+
+  /// Sort airlines by distance to Schiphol airport.
+  ///
+  /// The order is set to be ascending from the dictionay
+  /// value that represent the distance.
+  ///
+  func sortAirlinesByDistance() {
+    airlinesSorted = airlinesDictionary.sorted { $0.1 < $1.1 }
   }
 }
 
@@ -302,7 +313,7 @@ extension AirlinesVC {
 extension AirlinesVC {
   override func tableView(_ tableView: UITableView,
                           numberOfRowsInSection section: Int) -> Int {
-    return airlines.count
+    return airlinesSorted.count
   }
 
   override func tableView(_ tableView: UITableView,
@@ -353,8 +364,7 @@ extension AirlinesVC {
   ///
   func setup(_ cell: AirlineTVC, at indexPath: IndexPath) -> AirlineTVC {
 
-    let airlines = airlinesDictionary.sorted { $0.1 < $1.1 }
-    let airline = airlines[indexPath.row]
+    let airline = airlinesSorted[indexPath.row]
     let distance = distanceAllFlights(airline.value)
 
     cell.nameLabel.text = airline.key.name
