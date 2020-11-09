@@ -17,6 +17,7 @@ class SettingsVC: UIViewController {
   var unitSegmentedControl = UISegmentedControl()
 
   // Constants
+  static let segContIdentifier = "segContIdentifier"
   let segContItems = [
     Localized.kilometers,
     Localized.miles
@@ -89,6 +90,9 @@ extension SettingsVC {
 
   /// Setup segemented control for unit design.
   ///
+  /// Accessibility identifier is defined to use it in UITesting
+  /// and find the segment control element in the view.
+  ///
   func setupUnitSegementedControl() {
     unitSegmentedControl = UISegmentedControl(items: segContItems)
     unitSegmentedControl.selectedSegmentIndex = isInKm ? 0 : 1
@@ -96,6 +100,7 @@ extension SettingsVC {
     unitSegmentedControl.addTarget(self,
                                    action: #selector(changeUnit),
                                    for: .valueChanged)
+    unitSegmentedControl.accessibilityIdentifier = SettingsVC.segContIdentifier
   }
 
   /// Action performed when user tap on unit segmented control.

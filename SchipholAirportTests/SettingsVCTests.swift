@@ -41,4 +41,19 @@ extension SettingsVCTests {
 
     XCTAssertEqual(expected, sut.segContItems)
   }
+
+  func testSettingsVC_segmentedControlAccessibilityIdentifier_returnSegContIdentifier() throws {
+    let expected = "segContIdentifier"
+
+    XCTAssertEqual(expected, SettingsVC.segContIdentifier)
+  }
+
+  func test() throws {
+    let expected = SettingsVC.segContIdentifier
+    sut.setupUnitSegementedControl()
+
+    let result = sut.unitSegmentedControl.accessibilityIdentifier
+
+    XCTAssertEqual(expected, result)
+  }
 }

@@ -46,7 +46,7 @@ extension MarketingScreenshots {
 
     let attachment = XCTAttachment(
       uniformTypeIdentifier: "public.png",
-      name: "screenshot-\(name)-\(UIDevice.current.name).png",
+      name: "screenshot-\(name).png",
       payload: screenshot.pngRepresentation,
       userInfo: nil)
 
@@ -58,7 +58,103 @@ extension MarketingScreenshots {
 
 // MARK: - UITest Screenshots
 extension MarketingScreenshots {
-  func test() throws {
-    
+  /// Testing the UI to take screenshots.
+  ///
+  /// - Warning: Order of the method called is very
+  /// important.
+  ///
+  func testMaketingScreenshots_start() throws {
+    sleep(4)
+    screenshotAirportTabViewWithMap()
+    screenshotFlightsTabView()
+    screenshotAirlinesTabViewInKm()
+    screenshotSettingsTabView()
+    screenshotAirlinesTabViewInMiles()
+    resetTest()
+  }
+}
+
+// MARK: - Screenshots setup.
+extension MarketingScreenshots {
+  /// First tab view.
+  ///
+  func screenshotAirportTabViewWithMap() {
+      takeSaveScreenshot(name: "1.AirportsTab")
+  }
+
+  /// Second tab view.
+  ///
+  func screenshotFlightsTabView() {
+    app.tabBars
+      .buttons
+      .element(boundBy: 1)
+      .tap()
+
+    sleep(2)
+    takeSaveScreenshot(name: "2.FlightsTab")
+  }
+
+  /// Third tab view with distance in Km.
+  ///
+  func screenshotAirlinesTabViewInKm() {
+    app.tabBars
+      .buttons
+      .element(boundBy: 2)
+      .tap()
+
+    sleep(2)
+    takeSaveScreenshot(name: "3.AirlinesTabKm")
+  }
+
+  /// Fourth tab view.
+  ///
+  func screenshotSettingsTabView() {
+    app.tabBars
+      .buttons
+      .element(boundBy: 3)
+      .tap()
+
+    sleep(1)
+    takeSaveScreenshot(name: "4.SettingsTab")
+  }
+
+  /// Third tab view with distance in Miles.
+  ///
+  func screenshotAirlinesTabViewInMiles() {
+    app.segmentedControls
+      .matching(identifier: "segContIdentifier")
+      .buttons
+      .element(boundBy: 1)
+      .tap()
+
+    app.tabBars
+      .buttons
+      .element(boundBy: 2)
+      .tap()
+
+    sleep(2)
+    takeSaveScreenshot(name: "5.AirlinesTabMi")
+  }
+
+  /// Reset test to have distance in km and map view showing.
+  ///
+  func resetTest() {
+    app.tabBars
+      .buttons
+      .element(boundBy: 3)
+      .tap()
+
+    sleep(1)
+
+    app.segmentedControls
+      .matching(identifier: "segContIdentifier")
+      .buttons
+      .element(boundBy: 0)
+      .tap()
+
+    app.tabBars
+      .buttons
+      .element(boundBy: 0)
+      .tap()
   }
 }

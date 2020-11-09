@@ -173,8 +173,8 @@
 		2AD36893254F4AEF00677F7E /* SettingsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCTests.swift; sourceTree = "<group>"; };
 		2AD6F98F2559424600196891 /* MarketingScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketingScreenshots.swift; sourceTree = "<group>"; };
 		2AD6F99A2559475900196891 /* Marketing.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Marketing.xctestplan; sourceTree = "<group>"; };
-		2AD6F9A225594F5D00196891 /* Paris, France.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Paris, France.gpx"; sourceTree = "<group>"; };
-		2AD6F9AE2559512100196891 /* Amsterdam, Netherlands.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Amsterdam, Netherlands.gpx"; sourceTree = "<group>"; };
+		2AD6F9A225594F5D00196891 /* Paris.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = Paris.gpx; sourceTree = "<group>"; };
+		2AD6F9AE2559512100196891 /* Amsterdam.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = Amsterdam.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -704,8 +704,8 @@
 		2AD6F9AF2559513900196891 /* Locations */ = {
 			isa = PBXGroup;
 			children = (
-				2AD6F9AE2559512100196891 /* Amsterdam, Netherlands.gpx */,
-				2AD6F9A225594F5D00196891 /* Paris, France.gpx */,
+				2AD6F9AE2559512100196891 /* Amsterdam.gpx */,
+				2AD6F9A225594F5D00196891 /* Paris.gpx */,
 			);
 			path = Locations;
 			sourceTree = "<group>";

@@ -34,7 +34,6 @@ final class MapViewModel: NSObject {
   let aroundUserDistance: CLLocationDistance = 500000
   static let airportDetailskey = "details"
 
-
   // Variables
   var isInKm = UserDefaultsService.shared.isInKm
 

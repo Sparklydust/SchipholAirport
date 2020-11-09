@@ -27,6 +27,9 @@
     },
     {
       "enabled" : false,
+      "skippedTests" : [
+        "MarketingScreenshots"
+      ],
       "target" : {
         "containerPath" : "container:SchipholAirport.xcodeproj",
         "identifier" : "2A92361A2549A2100058B96C",
