@@ -29,7 +29,10 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:SchipholAirportTestPlans/Development.xctestplan"
+            reference = "container:SchipholAirportTestPlans/Development.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:SchipholAirportTestPlans/Marketing.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -77,8 +80,8 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
-         identifier = "London, England"
-         referenceType = "1">
+         identifier = "../../SchipholAirport/Locations/Amsterdam, Netherlands.gpx"
+         referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction

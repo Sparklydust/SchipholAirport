@@ -1,0 +1,42 @@
+{
+  "configurations" : [
+    {
+      "id" : "DD3E3D37-7E2E-4362-8B7E-B60DC80A4FC8",
+      "name" : "English",
+      "options" : {
+        "language" : "en",
+        "locationScenario" : {
+          "identifier" : "London, England",
+          "referenceType" : "built-in"
+        },
+        "region" : "GB"
+      }
+    },
+    {
+      "id" : "34446356-CE3D-48D4-90C9-7C1CAFA9D7A0",
+      "name" : "French",
+      "options" : {
+        "language" : "fr",
+        "locationScenario" : {
+          "identifier" : "..\/..\/SchipholAirport\/Locations\/Paris, France.gpx"
+        },
+        "region" : "FR"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "mainThreadCheckerEnabled" : false,
+    "userAttachmentLifetime" : "keepAlways"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:SchipholAirport.xcodeproj",
+        "identifier" : "2A92361A2549A2100058B96C",
+        "name" : "SchipholAirportUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

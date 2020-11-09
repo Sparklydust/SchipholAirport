@@ -1,0 +1,11 @@
+<!--
+Amsterdam, Netherlands
+
+Used in simulators to get location close to
+Schiphol airport when developing.
+-->
+
+<gpx>
+    <wpt lat="52.3676" lon="4.9041"></wpt>
+</gpx>
+

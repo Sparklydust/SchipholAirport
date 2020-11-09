@@ -1,0 +1,10 @@
+<!--
+Paris, France
+
+Location to populate in Marketing.xctestplan for
+French screenshots. Can also be used in simulators.
+-->
+
+<gpx>
+    <wpt lat="48.8566" lon="2.3522"></wpt>
+</gpx>

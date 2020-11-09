@@ -27,7 +27,6 @@
 		2A9236022549A20E0058B96C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9236012549A20E0058B96C /* MainVC.swift */; };
 		2A9236072549A20F0058B96C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9236062549A20F0058B96C /* Assets.xcassets */; };
 		2A92360A2549A20F0058B96C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9236082549A20F0058B96C /* LaunchScreen.storyboard */; };
-		2A9236202549A2100058B96C /* SchipholAirportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A92361F2549A2100058B96C /* SchipholAirportUITests.swift */; };
 		2A9236672549CAF40058B96C /* AirlinesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9236662549CAF40058B96C /* AirlinesVC.swift */; };
 		2AB05ADA255009FC0052FC21 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05AD9255009FC0052FC21 /* UserDefaultsProtocol.swift */; };
 		2AB05AE125500C3D0052FC21 /* UserDefaultsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB05AE025500C3D0052FC21 /* UserDefaultsContainer.swift */; };
@@ -75,6 +74,7 @@
 		2AD36833254D764400677F7E /* SpinnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36832254D764400677F7E /* SpinnerTests.swift */; };
 		2AD3688F254F333800677F7E /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3688E254F333800677F7E /* SettingsVC.swift */; };
 		2AD36894254F4AEF00677F7E /* SettingsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36893254F4AEF00677F7E /* SettingsVCTests.swift */; };
+		2AD6F9902559424600196891 /* MarketingScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6F98F2559424600196891 /* MarketingScreenshots.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +121,6 @@
 		2A9236102549A2100058B96C /* SchipholAirportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchipholAirportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9236162549A2100058B96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A92361B2549A2100058B96C /* SchipholAirportUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchipholAirportUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A92361F2549A2100058B96C /* SchipholAirportUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchipholAirportUITests.swift; sourceTree = "<group>"; };
 		2A9236212549A2100058B96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A9236612549C8CF0058B96C /* Development.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Development.xctestplan; sourceTree = "<group>"; };
 		2A9236662549CAF40058B96C /* AirlinesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlinesVC.swift; sourceTree = "<group>"; };
@@ -172,6 +171,10 @@
 		2AD36832254D764400677F7E /* SpinnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerTests.swift; sourceTree = "<group>"; };
 		2AD3688E254F333800677F7E /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		2AD36893254F4AEF00677F7E /* SettingsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCTests.swift; sourceTree = "<group>"; };
+		2AD6F98F2559424600196891 /* MarketingScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketingScreenshots.swift; sourceTree = "<group>"; };
+		2AD6F99A2559475900196891 /* Marketing.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Marketing.xctestplan; sourceTree = "<group>"; };
+		2AD6F9A225594F5D00196891 /* Paris, France.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Paris, France.gpx"; sourceTree = "<group>"; };
+		2AD6F9AE2559512100196891 /* Amsterdam, Netherlands.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Amsterdam, Netherlands.gpx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +378,7 @@
 				2A9236062549A20F0058B96C /* Assets.xcassets */,
 				2A92360B2549A20F0058B96C /* Info.plist */,
 				2A9236082549A20F0058B96C /* LaunchScreen.storyboard */,
+				2AD6F9AF2559513900196891 /* Locations */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -416,7 +420,7 @@
 		2A9236592549C7BF0058B96C /* Cases */ = {
 			isa = PBXGroup;
 			children = (
-				2A92361F2549A2100058B96C /* SchipholAirportUITests.swift */,
+				2AD6F98E2559421800196891 /* Screenshots */,
 			);
 			name = Cases;
 			sourceTree = "<group>";
@@ -425,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				2A9236612549C8CF0058B96C /* Development.xctestplan */,
+				2AD6F99A2559475900196891 /* Marketing.xctestplan */,
 			);
 			path = SchipholAirportTestPlans;
 			sourceTree = "<group>";
@@ -688,6 +693,23 @@
 			name = Tools;
 			sourceTree = "<group>";
 		};
+		2AD6F98E2559421800196891 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				2AD6F98F2559424600196891 /* MarketingScreenshots.swift */,
+			);
+			name = Screenshots;
+			sourceTree = "<group>";
+		};
+		2AD6F9AF2559513900196891 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				2AD6F9AE2559512100196891 /* Amsterdam, Netherlands.gpx */,
+				2AD6F9A225594F5D00196891 /* Paris, France.gpx */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -898,7 +920,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A9236202549A2100058B96C /* SchipholAirportUITests.swift in Sources */,
+				2AD6F9902559424600196891 /* MarketingScreenshots.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
