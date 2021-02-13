@@ -7,7 +7,7 @@
 
 import Foundation
 
-//  MARK: - AirportDetailsDataProtocol
+//  MARK: AirportDetailsDataProtocol
 /// Model protocol of data being populated on
 /// AirportDetailsVC send from MapViewModel.
 ///

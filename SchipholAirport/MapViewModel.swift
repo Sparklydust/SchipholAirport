@@ -26,18 +26,18 @@ final class MapViewModel: NSObject {
   // Reference Types
   var airportsDownloader = NetworkRequest<AirportData>(.airports)
   var airports = [AirportData]()
-  var aiportDetailsDict = [String: AirportDetailsData]()
+  var airportDetailsDict = [String: AirportDetailsData]()
   var furthestAirports = [AirportData]()
   let spinner = Spinner()
 
   // Constants
   let aroundUserDistance: CLLocationDistance = 500000
-  static let airportDetailskey = "details"
+  static let airportDetailsKey = "details"
 
   // Variables
   var isInKm = UserDefaultsService.shared.isInKm
 
-  // Parameters and initializations for testing purposes.
+  // Parameters and initialisations for testing purposes.
   //
   var locationManager: LocationManagerProtocol
   var mapView: MapViewProtocol
@@ -68,11 +68,11 @@ extension MapViewModel {
   ///
   /// Search for the annotation tapped and calculate the
   /// distance of the nearest airport after finding its name.
-  /// airportsDistance is initialize at 100000 because we need
+  /// airportsDistance is initialise at 100000 because we need
   /// a hight value to start for comparaison.
   ///
   /// - Parameters:
-  ///     - view: annation that comes from calloutAccessoryControlTapped
+  ///     - view: annotation that comes from calloutAccessoryControlTapped
   ///     map view method.
   /// - Returns: AirportDetailsData model for AirportDetailsVC
   ///
@@ -104,9 +104,10 @@ extension MapViewModel {
     return nil
   }
 
-  /// Founfing airports that are the furthest apart on the map.
+  /// Founding airports that are the furthest apart on the map.
   ///
-  /// Calculate the distance between airports in two different arrays. If airports are not the furthest, one of the array delete the non needed
+  /// Calculate the distance between airports in two different arrays.
+  /// If airports are not the furthest, one of the array delete the non needed
   /// airport.
   ///
   func foundAirportsFurthestApart() {
@@ -170,7 +171,7 @@ extension MapViewModel {
 
 // MARK: - Networking
 extension MapViewModel {
-  /// Download airports from flightassets api.
+  /// Download airports from flight assets api.
   ///
   /// The completion with @escaping is used to pass expectation
   /// in tests mainly.
@@ -197,7 +198,7 @@ extension MapViewModel {
     }
   }
 
-  /// Handling downlading failure from api call.
+  /// Handling downloading failure from api call.
   ///
   func handleDownloadFailure() {
     spinner.stops()
@@ -268,7 +269,7 @@ extension MapViewModel: MKMapViewDelegate {
     return annotationView
   }
 
-  // Action when the annoation info button is tapped.
+  // Action when the annotation info button is tapped.
   //
   // Check distance unit to before doing the algorithms search
   // and have the value in km or miles.
@@ -278,14 +279,14 @@ extension MapViewModel: MKMapViewDelegate {
                calloutAccessoryControlTapped control: UIControl) {
     checkDistanceUnitSettings()
 
-    guard let aiportsDetails = detailDisclosureTapped(on: view) else { return }
-    aiportDetailsDict = [MapViewModel.airportDetailskey: aiportsDetails]
+    guard let airportsDetails = detailDisclosureTapped(on: view) else { return }
+    airportDetailsDict = [MapViewModel.airportDetailsKey: airportsDetails]
     
-    sendDataNotification(of: aiportDetailsDict)
+    sendDataNotification(of: airportDetailsDict)
     sendModalViewNotification()
   }
 
-  /// Setup button shown when annotion is tapped.
+  /// Setup button shown when annotation is tapped.
   ///
   /// User to populate airports details informations
   /// on tap.
@@ -305,10 +306,10 @@ extension MapViewModel: MKMapViewDelegate {
     isInKm = UserDefaultsService.shared.isInKm
   }
 
-  /// Setup annotation customed.
+  /// Setup annotation customisation.
   ///
   /// Add a disclosure button to trigger modal view for
-  /// showing AiportDetailsVC.
+  /// showing AirportDetailsVC.
   ///
   func setCustom(_ annotation: MKAnnotation, on mapView: MKMapView) {
     annotationView = mapView
@@ -355,12 +356,12 @@ extension MapViewModel {
   /// Send notification to AirportsVC with the airport details data
   /// inside it to share.
   ///
-  func sendDataNotification(of aiportDetailsDict: [String: AirportDetailsData]) {
+  func sendDataNotification(of airportDetailsDict: [String: AirportDetailsData]) {
     NotificationCenter
       .default
       .post(name: NSNotification
               .Name(rawValue: AirportsVC.airportDetailsNotification),
             object: nil,
-            userInfo: aiportDetailsDict)
+            userInfo: airportDetailsDict)
   }
 }

@@ -11,7 +11,7 @@ import Foundation
 /// Container to handle UserDefaults values.
 ///
 /// Getting or settings value inside user defaults
-/// to set in UserDefaultsServcie class. This container
+/// to set in UserDefaultsService class. This container
 /// is mocked to be tested.
 ///
 final class UserDefaultsContainer {
@@ -28,7 +28,7 @@ final class UserDefaultsContainer {
   let IsInKmDefaultValue = "true"
 
   init() {
-    // Initialize with default value when application
+    // Initialise with default value when application
     // starts if none has been saved for Key.isInKm.
     //
     UserDefaults

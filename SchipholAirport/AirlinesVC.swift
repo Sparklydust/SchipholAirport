@@ -82,7 +82,7 @@ extension AirlinesVC {
   /// Filter airlines fetch from api that are leaving
   /// Schiphol airport.
   ///
-  /// Airlines that are dubplicated are being removed
+  /// Airlines that are duplicated are being removed
   /// from the updated airlinesConnected variable.
   ///
   func filterAirlinesFromSchiphol() {
@@ -176,7 +176,7 @@ extension AirlinesVC {
 
   /// Sort airlines by distance to Schiphol airport.
   ///
-  /// The order is set to be ascending from the dictionay
+  /// The order is set to be ascending from the dictionary
   /// value that represent the distance.
   ///
   func sortAirlinesByDistance() {
@@ -190,16 +190,14 @@ extension AirlinesVC {
   /// Download all data for the view.
   ///
   /// Airlines, Flights and Airports are being fetch from the api.
-  /// The completion with @escaping isused to pass expectation
+  /// The completion with @escaping issued to pass expectation
   /// in tests mainly.
   ///
   func downloadData(_ completion: @escaping () -> Void = { }) {
     downloadAirlines(completion)
-    downloadFlights(completion)
-    downloadAirports(completion)
   }
 
-  /// Download airlines from flightassets api.
+  /// Download airlines from flight assets api.
   ///
   /// The completion with @escaping is used to pass expectation
   /// in tests mainly.
@@ -220,14 +218,14 @@ extension AirlinesVC {
         DispatchQueue.main.async { [weak self] in
           guard let self = self else { return }
           self.handleDownloadSuccess(airlines)
-          completion()
+          self.downloadFlights(completion)
         }
         return
       }
     }
   }
 
-  /// Download flights from flightassets api.
+  /// Download flights from flight assets api.
   ///
   /// The completion with @escaping is used to pass expectation
   /// in tests mainly.
@@ -246,14 +244,14 @@ extension AirlinesVC {
         DispatchQueue.main.async { [weak self] in
           guard let self = self else { return }
           self.handleDownloadSuccess(flights)
-          completion()
+          self.downloadAirports(completion)
         }
         return
       }
     }
   }
 
-  /// Download airports from flightassets api.
+  /// Download airports from flight assets api.
   ///
   /// The completion with @escaping is used to pass expectation
   /// in tests mainly.
@@ -279,7 +277,7 @@ extension AirlinesVC {
     }
   }
 
-  /// Handling downlading failure from api call.
+  /// Handling downloading failure from api call.
   ///
   /// Populate an alert to the user with a try again button.
   ///
@@ -339,7 +337,7 @@ extension AirlinesVC {
   /// Set airlinesDictionary and FlightsConnected to
   /// empty values.
   ///
-  /// Used to redownload data when user has change unit
+  /// Used to re-download data when user has change unit
   /// from settings.
   ///
   func reinitAirlinesFlightsValues() {

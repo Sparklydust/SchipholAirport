@@ -141,7 +141,7 @@ extension AirportsVC {
   ///
   @objc func populateAirportDetailsData(_ notification: NSNotification) {
     guard let dict = notification.userInfo as NSDictionary?,
-          let airportDetails = dict[MapViewModel.airportDetailskey]
+          let airportDetails = dict[MapViewModel.airportDetailsKey]
             as? AirportDetailsData else { return }
     airportDetailsData = airportDetails
   }

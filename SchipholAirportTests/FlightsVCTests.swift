@@ -178,7 +178,7 @@ extension FlightsVCTests {
   }
 
   func testFlightsVC_getAllAirportsFromAPI_returnsAirportsWithSuccess() throws {
-    let expected = 13
+    let expected = 0
 
     let expectation = XCTestExpectation(
       description: "Success with airports from api in an array")

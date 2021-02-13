@@ -23,7 +23,7 @@ struct AirportData: AirportsProtocol, Codable, Equatable, Hashable {
   var city: String
   var countryId: String
 
-  /// Setup location of the airport.
+  /// Setup airport location.
   ///
   var location: CLLocation {
     return CLLocation(latitude: latitude,

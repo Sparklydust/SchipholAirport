@@ -139,13 +139,13 @@ extension MapViewModelTests {
   func testMapViewModel_aiportDetailsDictStartEmpty_returnEmptyDictionary() {
     let expected = [String: AirportDetailsData]()
 
-    XCTAssertEqual(expected, sut.aiportDetailsDict)
+    XCTAssertEqual(expected, sut.airportDetailsDict)
   }
 
   func testMapViewModel_airportDetailskeyValue_returnDetails() {
     let expected = "details"
 
-    XCTAssertEqual(expected, MapViewModel.airportDetailskey)
+    XCTAssertEqual(expected, MapViewModel.airportDetailsKey)
   }
 
   func testMapViewModel_foundAirportFurthestApart_returnAucklandAndMalaga() throws {

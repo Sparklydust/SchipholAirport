@@ -134,15 +134,14 @@ extension FlightsVC {
   /// Download all data for the view.
   ///
   /// Flights and airports are being fetch from the api.
-  /// The completion with @escaping isused to pass expectation
+  /// The completion with @escaping issued to pass expectation
   /// in tests mainly.
   ///
   func downloadData(_ completion: @escaping () -> Void = { }) {
     downloadFlights(completion)
-    downloadAirports(completion)
   }
 
-  /// Download flights from flightassets api.
+  /// Download flights from flight assets api.
   ///
   /// The completion with @escaping is used to pass expectation
   /// in tests mainly.
@@ -163,14 +162,14 @@ extension FlightsVC {
         DispatchQueue.main.async { [weak self] in
           guard let self = self else { return }
           self.handleDownloadSuccess(flights)
-          completion()
+          self.downloadAirports(completion)
         }
         return
       }
     }
   }
 
-  /// Download airports from flightassets api.
+  /// Download airports from flight assets api.
   ///
   /// The completion with @escaping is used to pass expectation
   /// in tests mainly.
@@ -196,7 +195,7 @@ extension FlightsVC {
     }
   }
 
-  /// Handling downlading failure from api call.
+  /// Handling downloading failure from api call.
   ///
   /// Populate an alert to the user with a try again button.
   ///

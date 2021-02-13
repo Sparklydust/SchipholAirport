@@ -8,7 +8,7 @@
 import Foundation
 
 //  MARK: NetworkEndpoint
-/// SchipholAirport network url endpoints enumaration.
+/// SchipholAirport network url endpoints enumeration.
 ///
 /// All urls are handled by this enum with a base url
 /// and endpoints for each network call.
